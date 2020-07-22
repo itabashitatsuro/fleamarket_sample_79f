@@ -15,8 +15,8 @@
 
 ### Association
 - has_many: items
-- has_many: comments
-- has_many: likes
+- has_many: comments、dependent：：destroy
+- has_many: favorites、dependent：：destroy
 - has_one：profile、dependent：：destroy
 - has_one：addresses、dependent：：destroy
 - has_one：sns_authentications、dependent：：destroy
@@ -43,7 +43,7 @@
 ### Association
 - belongs_to : user
 - belongs_to : category
-- has_many: item_images
+- has_many: item_images,dependent：：destroy
 - has_many: comments、dependent：：destroy
 - has_many: favorites
 
