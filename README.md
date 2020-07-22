@@ -17,14 +17,14 @@
 - has_many: items
 - has_many: comments
 - has_many: likes
-
 - has_one：profile、dependent：：destroy
 - has_one：addresses、dependent：：destroy
 - has_one：sns_authentications、dependent：：destroy
-
 - has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
 - has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
 - has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item
+
+
 
 
 ## itemsテーブル
@@ -51,6 +51,8 @@
  - belongs_to: buyer, class_name: "User"
 
 
+
+
 # categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -63,7 +65,7 @@
 
 
 
-# categoriesテーブル
+# item_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item|references|null: false, foreign_key: true|
@@ -94,10 +96,11 @@
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
-|card_number|integer|null: false, unique:true|
-|card_year|integer|null: false|
-|card_month|integer|null: false|
-|security_pass|integer|null: false|
+|postal_code|string|null: false|
+|prefecture|integer|null: false|
+|city|string|null: false|
+|address|string|null: false|
+|apartment|string||
 
 ### Association
 - belongs_to : user
