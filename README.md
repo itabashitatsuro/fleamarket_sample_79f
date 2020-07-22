@@ -15,7 +15,6 @@
 
 ### Association
 - has_many: items
-- has_many :user-evaluates
 - has_many: comments
 - has_many: likes
 
