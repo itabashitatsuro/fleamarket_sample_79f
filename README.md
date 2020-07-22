@@ -7,9 +7,9 @@
 |password|string|null: false|
 |password_confirmation|string||
 
-|First＿name|string|null: false|
+|first＿name|string|null: false|
 |family_name|string|null: false|
-|First＿name_kana|string|null: false|
+|first＿name_kana|string|null: false|
 |family_name_kana|string|null: false|
 |birthday|date|null: false|
 
