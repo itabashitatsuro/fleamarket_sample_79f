@@ -38,6 +38,7 @@
 |prefecture|integer|null: false|
 |postage|string|null: false||
 |shipping_date|string|null: false|
+|category|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to : user
