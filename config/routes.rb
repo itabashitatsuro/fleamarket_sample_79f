@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'items#index'
   # root "posts#index"
   resources :posts, only: [:index]
+  resources :items, only: [:index, :new]
 end
