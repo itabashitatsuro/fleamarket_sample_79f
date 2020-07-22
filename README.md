@@ -139,7 +139,7 @@
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
 |item|references|null: false, foreign_key: true|
-|content|text||
+|content|text|null: false|
 
 ### Association
 - belongs_to : user
