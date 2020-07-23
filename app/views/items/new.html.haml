@@ -1,0 +1,39 @@
+.new_wrapper
+  .contents
+    .contents__header
+      = image_tag src="/assets/logo.png", width:"280", height:"70", class: "contents__header__logo"
+    .contents__input-list
+      .contents__input-list__title
+        %p.contents__input-list__title--letter 商品の情報を入力
+      .contents__input-list__images
+        .contents__input-list__images__box
+          %p.contents__input-list__images__box--letter 出品情報
+          .contents__input-list__images__box__case
+            %p.contents__input-list__images__box__case--letter 必須
+        %p.contents__input-list__images--Notice 最大10枚までアップロードできます
+        .contents__input-list__images__insert
+      .contents__input-list__product-name
+        .contents__input-list__product-name__box
+          %p.contents__input-list__product-name__box--letter 商品名
+          .contents__input-list__product-name__box__case
+            %p.contents__input-list__product-name__box__case--letter 必須
+        = form_with(local: true, class: "contents__input-list__product-name__form") do |form|
+          = form.text_field :name, placeholder: "40字まで", class: "contents__input-list__product-name__form--text"
+      .contents__input-list__introduction
+        .contents__input-list__introduction__box
+          %p.contents__input-list__introduction__box--letter 商品の説明
+          .contents__input-list__introduction__box__case
+            %p.contents__input-list__introduction__box__case--letter 必須
+        = form_with(local: true, class: "contents__input-list__introduction__form") do |form|
+          = form.text_area :name, placeholder: "商品の説明", class: "contents__input-list__introduction__form--area"
+      .contents__input-list__details
+        = form_with(local: true) do |form|
+          %p.contents__input-list__details--title 商品の詳細
+          .contents__input-list__details__box
+            %p.contents__input-list__details__box--letter カテゴリー
+            .contents__input-list__details__box__case
+              %p.contents__input-list__details__box__case--letter 必須
+          .contents__input-list__categorys
+            = form.select
+  .footer
+    = image_tag src="/assets/logo-white.png", width:"280", height:"70", class: "contents__header__logo"
