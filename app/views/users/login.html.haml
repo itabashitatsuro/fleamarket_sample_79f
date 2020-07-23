@@ -1,0 +1,30 @@
+.Body
+  .Logo
+  = link_to image_tag("/assets/logo.png", alt: "image", class: 'logo')
+  .Main
+    .Head
+      アカウントをお持ちでない方はこちら
+      = link_to "#", class: "btn-default btn-registration" do
+        新規会員登録
+    .Boder
+    .Section
+      .Box
+        = link_to "#", class: "btn-default btn-GG" do
+          = icon('fab', 'google', class: "icon")
+          Googleでログイン
+        = link_to "#", class: "btn-default btn-FB" do
+          = icon('fab', 'facebook-square', class: "icon")
+          Facebookでログイン
+        = link_to "#", class: "btn-default btn-Ap" do
+          = icon('fab', 'apple', class: "icon")
+          Appleでログイン
+      = form_with html: {class: "Form"}, local: true do |f|
+        .FormField__mail
+          = f.text_field :content, class: 'Form__input', placeholder: 'メールアドレス'
+        .FormField__mail
+          = f.text_field :content, class: 'Form__input', placeholder: 'パスワード'
+      = link_to "#", class: "btn-default btn-login" do
+        ログイン
+      .Forget
+        = link_to "パスワードをお忘れの方", url:"#", class: 'forget'
+= render 'users/footer'
