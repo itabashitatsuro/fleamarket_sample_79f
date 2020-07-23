@@ -33,7 +33,54 @@
             %p.contents__input-list__details__box--letter カテゴリー
             .contents__input-list__details__box__case
               %p.contents__input-list__details__box__case--letter 必須
-          .contents__input-list__categorys
-            = form.select
+          .contents__input-list__details__category
+          .contents__input-list__details__category
+          .contents__input-list__details__category
+          .contents__input-list__details__brand
+            .contents__input-list__details__brand__box
+              %p.contents__input-list__details__brand__box--letter ブランド
+              .contents__input-list__details__brand__box__case
+                %p.contents__input-list__details__brand__box__case--letter 任意
+            = form.text_field :name, placeholder: "例：シャネル", class: "contents__input-list__details__brand--form"
+          .contents__input-list__details__status
+            .contents__input-list__details__status__box
+              %p.contents__input-list__details__status__box--letter 商品の状態
+              .contents__input-list__details__status__box__case
+                %p.contents__input-list__details__status__box__case--letter 必須
+            .contents__input-list__details__status--text
+      .contents__input-list__details__delivery
+        %p.contents__input-list__details__delivery--title 配送について
+        .contents__input-list__details__delivery__fee
+          .contents__input-list__details__delivery__fee__box
+            %p.contents__input-list__details__delivery__fee__box--letter 配送料の負担
+            .contents__input-list__details__delivery__fee__box__case
+              %p.contents__input-list__details__delivery__fee__box__case--letter 必須
+          .contents__input-list__details__delivery__fee--text
+        .contents__input-list__details__delivery__area
+          .contents__input-list__details__delivery__area__box
+            %p.contents__input-list__details__delivery__area__box--letter 発送元の地域
+            .contents__input-list__details__delivery__area__box__case
+              %p.contents__input-list__details__delivery__area__box__case--letter 必須
+          .contents__input-list__details__delivery__area--text
+        .contents__input-list__details__delivery__days
+          .contents__input-list__details__delivery__days__box
+            %p.contents__input-list__details__delivery__days__box--letter 発送までの日数
+            .contents__input-list__details__delivery__days__box__case
+              %p.contents__input-list__details__delivery__days__box__case--letter 必須
+          .contents__input-list__details__delivery__days--text
+      .contents__input-list__details__price
+        %p.contents__input-list__details__price--title 価格（¥300〜9,999,999）
+        .contents__input-list__details__price__sale
+          .contents__input-list__details__price__sale__box
+            %p.contents__input-list__details__price__sale__box--letter 販売価格
+            .contents__input-list__details__price__sale__box__case
+              %p.contents__input-list__details__price__sale__box__case--letter 必須
+          %span.contents__input-list__details__price__sale__yen ¥
+          .contents__input-list__details__price__sale__text
+
+
+
+
+
   .footer
     = image_tag src="/assets/logo-white.png", width:"280", height:"70", class: "contents__header__logo"

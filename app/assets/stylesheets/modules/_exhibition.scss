@@ -83,7 +83,7 @@
         }
       }
       &__form--text{
-        width: 90%;
+        width: 87%;
         height: 60px;
         margin-left: 43px;
         margin-top: 20px;
@@ -107,7 +107,7 @@
         }
       }
       &__form--area{
-        width: 90%;
+        width: 87%;
         height: 225px;
         margin-left: 43px;
         margin-top: 20px;
@@ -117,15 +117,16 @@
     }
     &__details{
       border-bottom: 3px solid ghostwhite;
-      height: 700px;
+      height: 800px;
       &--title{
-        margin-left: 43px;
+        margin-left: 47px;
         font-weight: bold;
         font-size: 18px;
         padding-top: 50px;
       }
       &__box{
         margin-top: 40px;
+        margin-bottom: 20px;
         @include box; /* _box.scssを読み込む */
         &--letter{
           @include letter; /* _letter.scssを読み込む */
@@ -137,9 +138,206 @@
           }
         }
       }
+      &__category{
+        border: 1px solid #999999;
+        width: 87%;
+        height: 60px;
+        margin-left: 43px;
+        margin-bottom: 20px;
+        border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+      }
+      &__brand{
+        height: 130px;
+        margin-top: 40px;
+        &__box{
+          @include box; /* _box.scssを読み込む */
+          &--letter{
+            @include letter; /* _letter.scssを読み込む */
+          }
+          &__case{
+            width: 40px;
+            height: 25px;
+            background-color: #BBBBBB;
+            color: white;
+            border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+            margin-left: 15px;
+            margin-top: 3px;
+            &--letter{
+              @include box-check-letter; /* _box-check-letter.scssを読み込む */
+            }
+          }
+        }
+        &--form{
+          width: 87%;
+          height: 60px;
+          margin-left: 43px;
+          margin-top: 20px;
+          padding: 20px;
+          font-size: 17px;
+        }
+      }
+      &__status{
+        height: 40px;
+        margin-top: 40px;
+        &__box{
+          margin-bottom: 20px;
+          @include box; /* _box.scssを読み込む */
+          &--letter{
+            @include letter; /* _letter.scssを読み込む */
+          }
+          &__case{
+            @include box-check; /* _box-check.scssを読み込む */
+            &--letter{
+              @include box-check-letter; /* _box-check-letter.scssを読み込む */
+            }
+          }
+        }
+        &--text{
+          border: 1px solid #999999;
+          width: 87%;
+          height: 60px;
+          margin-left: 43px;
+          border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+        }
+      }
+      &__delivery{
+        border-bottom: 3px solid ghostwhite;
+        height: 750px;
+        &--title{
+          margin-left: 47px;
+          font-weight: bold;
+          font-size: 18px;
+          padding-top: 50px;
+          
+        }
+        &__fee{
+          height: 130px;
+          margin-top: 40px;
+          
+          &__box{
+            margin-bottom: 20px;
+            @include box; /* _box.scssを読み込む */
+            &--letter{
+              @include letter; /* _letter.scssを読み込む */
+            }
+            &__case{
+              @include box-check; /* _box-check.scssを読み込む */
+              &--letter{
+                @include box-check-letter; /* _box-check-letter.scssを読み込む */
+              }
+            }
+          }
+          &--text{
+            border: 1px solid #999999;
+            width: 87%;
+            height: 60px;
+            margin-left: 43px;
+            border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+          }
+        }
+        &__area{
+          height: 130px;
+          margin-top: 70px;
+          &__box{
+            margin-bottom: 20px;
+            @include box; /* _box.scssを読み込む */
+            &--letter{
+              @include letter; /* _letter.scssを読み込む */
+            }
+            &__case{
+              @include box-check; /* _box-check.scssを読み込む */
+              &--letter{
+                @include box-check-letter; /* _box-check-letter.scssを読み込む */
+              }
+            }
+          }
+          &--text{
+            border: 1px solid #999999;
+            width: 87%;
+            height: 60px;
+            margin-left: 43px;
+            border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+          }
+        }
+        &__days{
+          height: 130px;
+          margin-top: 70px;
+          &__box{
+            margin-bottom: 20px;
+            @include box; /* _box.scssを読み込む */
+            &--letter{
+              @include letter; /* _letter.scssを読み込む */
+            }
+            &__case{
+              @include box-check; /* _box-check.scssを読み込む */
+              &--letter{
+                @include box-check-letter; /* _box-check-letter.scssを読み込む */
+              }
+            }
+          }
+          &--text{
+            border: 1px solid #999999;
+            width: 87%;
+            height: 60px;
+            margin-left: 43px;
+            border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+          }
+        }
+      }
+      &__price{
+        height: 400px;
+        &--title{
+          margin-top: 30px;
+          margin-left: 47px;
+          margin-bottom: 70px;
+          font-weight: bold;
+          font-size: 18px;
+          padding-top: 50px;
+        }
+        &__sale{
+          height: 200px;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          &__box{
+            margin-top: 17px;
+            @include box; /* _box.scssを読み込む */
+            &--letter{
+              @include letter; /* _letter.scssを読み込む */
+            }
+            &__case{
+              @include box-check; /* _box-check.scssを読み込む */
+              &--letter{
+                @include box-check-letter; /* _box-check-letter.scssを読み込む */
+              }
+            }
+          }
+          &__yen{
+            display: block;
+            font-size: 16px;
+            margin-left: 120px;
+            margin-top: 17px;
+          }
+          &__text{
+            width: 320px;
+            height: 60px;
+            border: 1px solid #999999;
+            border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+            margin-right: 60px;
+          }
+        }
+      }
     }
   }
 }
+
+
+
+
+
+
+
+
 
 .footer{
   background-color: #F5F5F5;
