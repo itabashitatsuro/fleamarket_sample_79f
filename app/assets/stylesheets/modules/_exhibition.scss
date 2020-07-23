@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+
+.new_wrapper{
+  height: 100vh;
+  width: 100vw;
+}
+
+.contents{
+  height: 400%;
+  background-color: #F5F5F5;
+  &__header{
+    width: 100%;
+    height: 160px;
+    &__logo{
+      position: absolute;
+      left: 41%;
+      margin-top: 50px;
+    }
+  }
+  &__input-list{
+    width: 50%;
+    height: 100%;
+    background-color: #FFFFFF;
+    margin-left: 24%;
+    margin-top: 20px;
+    &__title{
+      height: 160px;
+      border-bottom: 7px solid #F5F5F5;
+      &--letter{
+        font-size: 34px;
+        font-weight: bold;
+        color: #333333;
+        text-shadow: 0 0 4px ghostwhite, 0 0 4px white, 0 0 4px white;
+        margin-left: 35%;
+        padding-top: 50px;
+      }
+    }
+    &__images{
+      height: 480px;
+      border-bottom: 3px solid ghostwhite;
+      &__box{
+        @include box; /* _box.scssを読み込む */
+        padding-top: 50px;
+        &--letter{
+          @include letter; /* _letter.scssを読み込む */
+        }
+        &__case{
+          @include box-check; /* _box-check.scssを読み込む */
+          &--letter{
+            @include box-check-letter; /* _box-check-letter.scssを読み込む */
+          }
+        }
+      }
+      &--Notice{
+        font-size: 17px;
+        margin-left: 43px;
+        margin-top: 50px;
+      }
+      &__insert{
+        width: 90%;
+        height: 45%;
+        background-color: #F5F5F5;
+        border: 1px dashed #DCDCDC;
+        margin-left: 43px;
+        margin-top: 30px;
+      }
+    }
+    &__product-name{
+      height: 240px;
+      padding-top: 50px;
+      &__box{
+        @include box; /* _box.scssを読み込む */
+        &--letter{
+          @include letter; /* _letter.scssを読み込む */
+        }
+        &__case{
+          @include box-check; /* _box-check.scssを読み込む */
+          &--letter{
+            @include box-check-letter; /* _box-check-letter.scssを読み込む */
+          }
+        }
+      }
+      &__form--text{
+        width: 90%;
+        height: 60px;
+        margin-left: 43px;
+        margin-top: 20px;
+        padding: 20px;
+        font-size: 17px;
+      }
+    }
+    &__introduction{
+      border-bottom: 3px solid ghostwhite;
+      height: 400px;
+      &__box{
+        @include box; /* _box.scssを読み込む */
+        &--letter{
+          @include letter; /* _letter.scssを読み込む */
+        }
+        &__case{
+          @include box-check; /* _box-check.scssを読み込む */
+          &--letter{
+            @include box-check-letter; /* _box-check-letter.scssを読み込む */
+          }
+        }
+      }
+      &__form--area{
+        width: 90%;
+        height: 225px;
+        margin-left: 43px;
+        margin-top: 20px;
+        padding: 20px;
+        font-size: 17px;
+      }
+    }
+    &__details{
+      border-bottom: 3px solid ghostwhite;
+      height: 700px;
+      &--title{
+        margin-left: 43px;
+        font-weight: bold;
+        font-size: 18px;
+        padding-top: 50px;
+      }
+      &__box{
+        margin-top: 40px;
+        @include box; /* _box.scssを読み込む */
+        &--letter{
+          @include letter; /* _letter.scssを読み込む */
+        }
+        &__case{
+          @include box-check; /* _box-check.scssを読み込む */
+          &--letter{
+            @include box-check-letter; /* _box-check-letter.scssを読み込む */
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer{
+  background-color: #F5F5F5;
+  width: 100%;
+  height: 180px;
+}
