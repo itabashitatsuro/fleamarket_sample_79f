@@ -75,12 +75,29 @@
             %p.contents__input-list__details__price__sale__box--letter 販売価格
             .contents__input-list__details__price__sale__box__case
               %p.contents__input-list__details__price__sale__box__case--letter 必須
-          %span.contents__input-list__details__price__sale__yen ¥
-          .contents__input-list__details__price__sale__text
+            %span.contents__input-list__details__price__sale__box__yen ¥
+            .contents__input-list__details__price__sale__box__text
+          .contents__input-list__details__price__sale__memo 300以上9999999以下で入力してください
+          .contents__input-list__details__price__sale__charge
+            .contents__input-list__details__price__sale__charge--tax 販売手数料（10%）
+            %span.contents__input-list__details__price__sale__charge--line ー
+          %hr{:color => "#F5F5F5", class:"contents__input-list__details__price__sale__horizontal"}
+          .contents__input-list__details__price__sale__profit
+            .contents__input-list__details__price__sale__profit--tax 販売利益
+            %span.contents__input-list__details__price__saleb--line ー
+      .contents__input-list__details__form
+        = form_with(local: true) do |form|
+          = form.submit "出品する", class: "contents__input-list__details__form--send"
+          = form.button "下書きに保存", class: "contents__input-list__details__form--button"
+          %a.contents__input-list__details__form--back{:href => "＃"} もどる
+      .contents__input-list__details__warning
+        %p.contents__input-list__details__warning--text
+          %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律に
+          より処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 
 
 
 
 
   .footer
-    = image_tag src="/assets/logo-white.png", width:"280", height:"70", class: "contents__header__logo"
+    = image_tag src="/assets/logo-white.png", width:"250", height:"70", class: "contents__header__logo"
