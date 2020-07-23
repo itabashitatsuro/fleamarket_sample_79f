@@ -26,16 +26,16 @@
   display: flex;
   justify-content: space-around;
   &__category {
-
+    font-weight: bold;
   }
   &__brand {
-
+    font-weight: bold;
   }
   &__login {
-
+    font-weight: bold;
   }
   &__registration {
-
+    
   }
 
 }
@@ -48,7 +48,7 @@
 .view1 {
   height: 400px;
   width : 100%;
-  background-image: image-url('bg-mainVisual-pict_pc.jpg');
+  background-image: image-url('material/pict/bg-mainVisual-pict_pc.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -74,23 +74,6 @@
       line-height: 1.77778;
       margin: 16px 0 0 0;
     }
-  }
-}
-
-//バッジサイズ調整
-.content__btn {
-  display: flex;
-    .googleplay-badge {
-    margin-top: 3px;
-    width:208px;
-    height:80px;
-  }
-//ホバーした際にボタン透過
-  &__apple:hover {
-    opacity: 0.5 ;
-  }
-  &__google:hover {
-    opacity: 0.5 ;
   }
 }
 
@@ -128,6 +111,7 @@
     max-width: 1020px;
     width: 100%;
     margin: 0 auto;
+    padding-left: 50px;
 
     .list {
       width: 30%;
@@ -173,10 +157,161 @@
 }
 
 .view3 {
-  .content
+  background-image: url("material/pict/bg-topMiddleDl-pict.jpg");
+  background-position: bottom right;
+  height: 400px;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  .content {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 70px 0 0 0;
+    &__text1 {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 60px;
+      line-height: 1.2;
+      color: #fff;
+      
+    }
+    &__text2 {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 18px;
+      color: #fff;
+      line-height: 1.77778;
+      margin: 16px 0 0 0;
+    }
+  }
 }
 
+.view4 {
+  height: 800px;
+  width : 100%;
+  padding: 60px 20px;
+  align-items: center;
+  box-sizing: border-box;
 
+  .subtitle {
+    text-align: center;
+    font-size: 26px;
+    line-height: 1.4;
+    font-weight: bold;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    position: relative;
+  }
+  .subtitle::after {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background-color: #3CCACE;
+    position: absolute;
+    bottom: 0;
+    //ボーダーラインの中央よせ
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .lists {
+    text-align: center;
+    display: flex;
+    max-width: 1020px;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 50px;
+
+    .list {
+      width: 30%;
+      margin: 16px 5% 0 0;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      &__pict {
+        margin-bottom: 20px;
+      }
+      &__text {
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 50px;
+        margin: 0 0 0 2px;
+      }
+      &__description {
+        text-align: center;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+.view5 {
+  height: 500px;
+  width : 100%;
+  padding: 60px 20px;
+  align-items: center;
+  box-sizing: border-box;
+  .subtitle {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    line-height: 1.4;
+  }
+}
+
+.view6 {
+  height: 500px;
+  width : 100%;
+  padding: 60px 20px;
+  align-items: center;
+  box-sizing: border-box;
+  .subtitle {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    line-height: 1.4;
+  }
+}
+
+.view7 {
+  background-image: url("material/pict/bg-appBanner-pict.jpg");
+  background-position: bottom right;
+  height: 400px;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  .content {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 70px 0 0 0;
+    &__text1 {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 20px;
+      line-height: 1.2;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      
+    }
+    &__text2 {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 60px;
+      color: #fff;
+      line-height: 1.77778;
+      margin: 16px 0 0 0;
+      text-align: center;
+    }
+    .content__btn {
+      margin-left: 350px;
+    }
+  }
+}
 
 //フッター部分
 .footer {
@@ -221,4 +356,46 @@
   &__logo {
 
   }
+}
+
+//バッジサイズ調整
+.content__btn {
+  display: flex;
+    .googleplay-badge {
+    margin-top: 3px;
+    width:208px;
+    height:80px;
+  }
+//ホバーした際にボタン透過
+  &__apple:hover {
+    opacity: 0.5 ;
+  }
+  &__google:hover {
+    opacity: 0.5 ;
+  }
+}
+
+//独立ボタン>>出品機能
+.purchase-btn {
+  width: 100px;
+  background: #3CCACE;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  &__text {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  &__icon {
+    width: 60%;
+  }
+}
+.purchase-btn:hover {
+  opacity: 0.5 ;
 }

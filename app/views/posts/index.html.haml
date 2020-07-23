@@ -2,11 +2,11 @@
 %header
   .top-box
     .top-box__logo
-      = image_tag "logo.png", class: "logo", :size =>'150x50'
+      = image_tag "material/logo/logo.png", class: "logo", :size =>'150x50'
     .top-box__Form-box
       = form_with model: @restaurant, class: "Form", local: true do |f|
-        = f.text_field 'キーワード', class: 'Form__inputText', placeholder: 'type a message'
-        = f.submit 'Send', class: 'Form__submit'
+        = f.text_field 'キーワード', class: 'Form__inputText', placeholder: 'キーワードから探す'
+        = f.submit '探す', class: 'Form__submit'
   .bottom-box
     .bottom-box__category
       カテゴリ
@@ -41,7 +41,7 @@
       %li.list
         .list__pict
           %span.number 1
-          = image_tag "material/pict/pict-reason-01.jpg", :size =>'300x300'
+          = image_tag "material/pict/pict-reason-01.jpg", :width =>'100%'
         %h3.list__text
           %span{:style => "color:#3CCACE;"} 3分
           ですぐに出品
@@ -50,7 +50,7 @@
       %li.list
         .list__pict
           %span.number 2
-          = image_tag "material/pict/pict-reason-02.jpg", :size =>'300x300'
+          = image_tag "material/pict/pict-reason-02.jpg", :width =>'100%'
         %h3.list__text
           %span{:style => "color:#3CCACE;"} シンプル
           で使いやすい
@@ -59,15 +59,87 @@
       %li.list.list--last
         .list__pict
           %span.number 3
-          = image_tag "material/pict/pict-reason-03.jpg", :size =>'300x300'
+          = image_tag "material/pict/pict-reason-03.jpg", :width =>'100%'
         %h3.list__text
           手数料
           %span{:style => "color:#3CCACE;"} 業界最安
         %p.list__description
           最大3%でお得に出品&amp;購入！
-//3つ目のビュー
+
   .view3
     .content
+      %h2.content__text1
+        %br/
+        会員数上昇中!!!
+      %p.content__text2
+        FURIMAは、フリマアプリで最も人気。
+        %br/
+        出品・購入回数も業界最多です！
+        %br/
+        ほしかったあの商品に出会えるかもしれません。
+      .content__btn
+        .content__btn__apple
+          %a{:href => "https://apps.apple.com/jp/app/firefox-%E3%82%A6%E3%82%A7%E3%83%96%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%83%BC/id989804926?mt=8", :style => "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2015-11-12&kind=iossoftware&bubble=ios_apps) no-repeat;width:180px;height:54px; margin:16px 16px 16px 0; background-size:contain;"}
+        .content__btn__google
+          %a{:href => "https://play.google.com/store/apps/details?\nid=com.funeasylearn.french6000&pcampaignid=\nMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"}
+            %img.googleplay-badge{:alt => "Google Play で手に入れよう", :src => "https://play.google.com/intl/us-en/badges/static/images/badges/ja_badge_web_generic.png"}/
+      
+  .view4
+    %h2.subtitle
+      FURIMAの特徴
+    %ul.lists
+      %li.list
+        .list__pict
+          = image_tag "material/icon/icon-01.png", :width =>'100%'
+        %h3.list__text
+          %span{:style => "color:#3CCACE;"} 簡単
+          にやりとりできる！
+        %p.list__description
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %li.list
+        .list__pict
+          = image_tag "material/icon/icon-02.png", :width =>'100%'
+        %h3.list__text
+          売上金は
+          %span{:style => "color:#3CCACE;"} 即日振込み
+          に対応
+        %p.list__description        
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %li.list.list--last
+        .list__pict
+          = image_tag "material/icon/icon-03.png", :width =>'100%'
+        %h3.list__text
+          %span{:style => "color:#3CCACE;"} 様々な支払い
+          に対応
+        %p.list__description
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+  .view5 
+    %h2.subtitle
+      ピックアップカテゴリ
+      %br
+      %span{:style => "color: #3CCACE; font-size: 20px; font-weight: bold; "} 新規投稿商品
+  
+  .view6
+    %h2.subtitle
+      ピックアップブランド
+      %br
+      %span{:style => "color: #3CCACE; font-size: 20px; font-weight: bold; "} アーカイブ
+  
+  .view7
+    .content
+      %h2.content__text1
+        %br/
+        誰でも簡単人生を変えるアプリ!
+      %p.content__text2
+        いますぐ無料ダウンロード↓↓↓
+      .content__btn
+        .content__btn__apple
+          %a{:href => "https://apps.apple.com/jp/app/firefox-%E3%82%A6%E3%82%A7%E3%83%96%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%83%BC/id989804926?mt=8", :style => "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2015-11-12&kind=iossoftware&bubble=ios_apps) no-repeat;width:180px;height:54px; margin:16px 16px 16px 0; background-size:contain;"}
+        .content__btn__google
+          %a{:href => "https://play.google.com/store/apps/details?\nid=com.funeasylearn.french6000&pcampaignid=\nMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"}
+            %img.googleplay-badge{:alt => "Google Play で手に入れよう", :src => "https://play.google.com/intl/us-en/badges/static/images/badges/ja_badge_web_generic.png"}/
+
       
 
 //フッタービュー
@@ -111,4 +183,12 @@
           %br
   .logo-box
     .logo-box__logo
-      = image_tag "logo-white.png", class: "logo-white", :size =>'150x50'
+      = image_tag "material/logo/logo-white.png", class: "logo-white", :size =>'150x50'
+
+//独立ボタン>>出品機能
+%a{:href => "#"}
+  .purchase-btn
+    %span.purchase-btn__text 出品する
+    = image_tag "material/icon/icon_camera.png", class: "purchase-btn__icon"
+    
+
