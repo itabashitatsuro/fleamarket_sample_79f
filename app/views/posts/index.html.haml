@@ -1,3 +1,4 @@
+//ヘッダービュー
 %header
   .top-box
     .top-box__logo
@@ -15,6 +16,61 @@
       ログイン
     .bottom-box__registration
       登録
+//メインフィールドビュー
+.main-field
+  .view1
+    .content
+      %h2.content__text1
+        %br/
+        人生を変えるフリマアプリ
+      %p.content__text2
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br/
+        フリマアプリです
+      .content__btn
+        .content__btn__apple
+          %a{:href => "https://apps.apple.com/jp/app/firefox-%E3%82%A6%E3%82%A7%E3%83%96%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%83%BC/id989804926?mt=8", :style => "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2015-11-12&kind=iossoftware&bubble=ios_apps) no-repeat;width:180px;height:54px; margin:16px 16px 16px 0; background-size:contain;"}
+        .content__btn__google
+          %a{:href => "https://play.google.com/store/apps/details?\nid=com.funeasylearn.french6000&pcampaignid=\nMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"}
+            %img.googleplay-badge{:alt => "Google Play で手に入れよう", :src => "https://play.google.com/intl/us-en/badges/static/images/badges/ja_badge_web_generic.png"}/
+ 
+  .view2
+    %h2.subtitle
+      FURIMAが選ばれる3つの理由
+    %ul.lists
+      %li.list
+        .list__pict
+          %span.number 1
+          = image_tag "material/pict/pict-reason-01.jpg", :size =>'300x300'
+        %h3.list__text
+          %span{:style => "color:#3CCACE;"} 3分
+          ですぐに出品
+        %p.list__description
+          スマホで入力するだけで簡単に出品できる！
+      %li.list
+        .list__pict
+          %span.number 2
+          = image_tag "material/pict/pict-reason-02.jpg", :size =>'300x300'
+        %h3.list__text
+          %span{:style => "color:#3CCACE;"} シンプル
+          で使いやすい
+        %p.list__description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.list.list--last
+        .list__pict
+          %span.number 3
+          = image_tag "material/pict/pict-reason-03.jpg", :size =>'300x300'
+        %h3.list__text
+          手数料
+          %span{:style => "color:#3CCACE;"} 業界最安
+        %p.list__description
+          最大3%でお得に出品&amp;購入！
+//3つ目のビュー
+  .view3
+    .content
+      
+
+//フッタービュー
 %footer.footer
   .contents-box
     .contents-bo__about
