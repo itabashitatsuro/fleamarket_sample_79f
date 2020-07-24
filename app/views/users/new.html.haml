@@ -1,93 +1,24 @@
-.mypage  
-  .new-mypageInfo
-    .new-mypageInfo-title
-      <<プロフィールの登録>>
-    .new-mypageInfo-message
-      お客様の本人情報をご登録ください。
-  .Form-profile
-    = form_with model: @user, metohod: :post, local: :true do |f|
-      .label
-        = label :nickname, 'お名前(漢字)'
-        %span.require
-          ※必須
-      = f.text_field :nickname, placeholder: "例)山田", class: 'input-form'
-      = f.text_field :nickname, placeholder: "例)太郎", class: 'input-form'
-      
-      .label
-        = label :nickname, 'お名前(カナ)'
-        %span.require
-          ※必須
-      = f.text_field :nickname, placeholder: "例)ヤマダ", class: 'input-form'
-      = f.text_field :nickname, placeholder: "例)タロウ", class: 'input-form'
-      
-      .label
-        = label :image, '画像'
-        %span.any
-          ※任意
-      = f.text_field :image, placeholder: "挿入", class: 'input-form'
+.Body
+  .Logo
+  = link_to image_tag("/assets/logo.png", alt: "image", class: 'logo')
+  .Main
+    .New-registration
+      %h2 新規会員登録
+    .Section
+      .Box
+        = link_to "#", class: "btn-default btn-mail" do
+          = icon('far', 'envelope', class: "icon")
+          メールアドレスで登録する
+        = link_to "#", class: "btn-default btn-GG" do
+          = icon('fab', 'google', class: "icon")
+          Googleで登録する
+        = link_to "#", class: "btn-default btn-FB" do
+          = icon('fab', 'facebook-square', class: "icon")
+          Facebookで登録する
+        = link_to "#", class: "btn-default btn-Ap" do
+          = icon('fab', 'apple', class: "icon")
+          Appleで登録する
+        .Text
+          登録することで、利用規約とプライバシーポリシーに同意したものとみなされます。
+= render 'users/footer'
 
-      .label
-        = label :birthday, '生年月日'
-        %span.require
-          ※必須
-      = f.text_field :birthday, placeholder: "例)1995年", class: 'input-form'
-      = f.text_field :birthday, placeholder: "例)10月", class: 'input-form'
-      = f.text_field :birthday, placeholder: "例)22日", class: 'input-form'
-
-      .label
-        = label :adress, 'お届け先住所'
-        %span.require
-          ※必須
-      = f.text_field :adress, placeholder: "郵便番号　例)123-4567", class: 'input-form'
-      = f.text_field :adress, placeholder: "都道府県　例)東京都", class: 'input-form'
-      = f.text_field :adress, placeholder: "市区町村　例)新宿区", class: 'input-form'
-      = f.text_field :adress, placeholder: "番地　例)新宿2-19-12", class: 'input-form'
-      = f.text_field :adress, placeholder: "建物・号　例)静銀ビル5F", class: 'input-form'
-
-      .label
-        = label :contact, '連絡先'
-        %span.require
-          ※必須
-      = f.text_field :contact, placeholder: "電話番号　例)09011112222", class: 'input-form'
-      = f.text_field :contact, placeholder: "メールアドレス　例)///@///", class: 'input-form'
-    
-      = f.submit '登録完了', class: 'submit-btn submit-btn-red'
-//    %form.form-box
-//      .Form-group
-//        .label
-//          アイコン画像
-//          %span.any
-//           ※任意
-//          %input{type: "text", class: "input-form", placeholder: "挿入"}
-//        .label
-//          お名前
-//          %span.require
-//            必須
-//          %input{type: "text", class: "input-form", placeholder: "例)山田"}
-//          %input{type: "text", class: "input-form", placeholder: "例)彩"}
-//          %input{type: "text", class: "input-form", placeholder: "例)ヤマダ"}
-//          %input{type: "text", class: "input-form", placeholder: "例)アヤ"}
-//        .label
-//          生年月日
-//          %span.require
-//            必須
-//          %input{type: "text", class: "input-form", placeholder: "例)1995年"}
-//          %input{type: "text", class: "input-form", placeholder: "例)10月"}
-//          %input{type: "text", class: "input-form", placeholder: "例)22日"}
-//        .label
-//          お届け先住所
-//          %span.require
-//            必須
-//          %input{type: "text", class: "input-form", placeholder: "例)123-4567"}
-//          %input{type: "text", class: "input-form", placeholder: "例)東京都"}
-//          %input{type: "text", class: "input-form", placeholder: "例)新宿区"}
-//          %input{type: "text", class: "input-form", placeholder: "例)新宿2-19-12"}
-//          %input{type: "text", class: "input-form", placeholder: "例)静銀ビル5F"}
-//        .label
-//          連絡先
-//          %span.require
-//            必須
-//          %input{type: "text", class: "input-form", placeholder: "例)09055557777"}
-//          %input{type: "text", class: "input-form", placeholder: "例)✖️✖️✖️＠○○○"}
-//
-//    %input{type: "submit", class: "submit-btn"}

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index
   end
 
-  def new
+  def done
   end
 
   def create
@@ -26,4 +26,9 @@ class UsersController < ApplicationController
 #    @sold_items = user.sold_items
   end
 
+  def login
+  end
+  
+  def new
+  end
 end
