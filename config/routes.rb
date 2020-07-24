@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # デプロイ作業に必要なルーティング
   root "items#index"
   resources :posts, only: [:index]
-  resources :items, only: [:index, :new] do
+  resources :items do
     collection do
       get 'test'
     end
