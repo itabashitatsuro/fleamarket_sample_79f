@@ -89,6 +89,7 @@
                 %p.contents__input-list__form__price__sale__box__case--letter 必須
               %span.contents__input-list__form__price__sale__box__yen ¥
               .contents__input-list__form__price__sale__box__text
+                = form.text_field :price, placeholder: "例）300", class: "contents__input-list__form__price__sale__box__text--cost"
             .contents__input-list__form__price__sale__memo 300以上9999999以下で入力してください
             .contents__input-list__form__price__sale__charge
               .contents__input-list__form__price__sale__charge--tax 販売手数料（10%）
