@@ -8,7 +8,7 @@
 }
 
 .contents{
-  height: 400%;
+  height: 380%;
   background-color: #F5F5F5;
   &__header{
     width: 100%;
@@ -37,118 +37,47 @@
         padding-top: 50px;
       }
     }
-    &__images{
-      height: 480px;
-      border-bottom: 3px solid ghostwhite;
-      &__box{
-        @include box; /* _box.scssを読み込む */
+    &__form{
+      height: 80%;
+      &__images{
+        height: 480px;
+        border-bottom: 3px solid ghostwhite;
+        &__box{
+          @include box; /* _box.scssを読み込む */
+          padding-top: 50px;
+          &--letter{
+            @include letter; /* _letter.scssを読み込む */
+          }
+          &__case{
+            @include box-check; /* _box-check.scssを読み込む */
+            &--letter{
+              @include box-check-letter; /* _box-check-letter.scssを読み込む */
+            }
+          }
+        }
+        &--notice{
+          font-size: 17px;
+          margin-left: 43px;
+          margin-top: 50px;
+        }
+        &__insert{
+          width: 90%;
+          height: 45%;
+          background-color: #F5F5F5;
+          border: 1px dashed #DCDCDC;
+          margin-left: 43px;
+          margin-top: 30px;
+          text-align: center;
+          padding-top: 70px;
+          &--camera{
+            color: #000;
+            font-size: 20px;
+          }
+        }
+      }
+      &__product-name{
+        height: 240px;
         padding-top: 50px;
-        &--letter{
-          @include letter; /* _letter.scssを読み込む */
-        }
-        &__case{
-          @include box-check; /* _box-check.scssを読み込む */
-          &--letter{
-            @include box-check-letter; /* _box-check-letter.scssを読み込む */
-          }
-        }
-      }
-      &--Notice{
-        font-size: 17px;
-        margin-left: 43px;
-        margin-top: 50px;
-      }
-      &__insert{
-        width: 90%;
-        height: 45%;
-        background-color: #F5F5F5;
-        border: 1px dashed #DCDCDC;
-        margin-left: 43px;
-        margin-top: 30px;
-      }
-    }
-    &__product-name{
-      height: 240px;
-      padding-top: 50px;
-      &__box{
-        @include box; /* _box.scssを読み込む */
-        &--letter{
-          @include letter; /* _letter.scssを読み込む */
-        }
-        &__case{
-          @include box-check; /* _box-check.scssを読み込む */
-          &--letter{
-            @include box-check-letter; /* _box-check-letter.scssを読み込む */
-          }
-        }
-      }
-      &__form--text{
-        width: 87%;
-        height: 60px;
-        margin-left: 43px;
-        margin-top: 20px;
-        padding: 20px;
-        font-size: 17px;
-      }
-    }
-    &__introduction{
-      border-bottom: 3px solid ghostwhite;
-      height: 400px;
-      &__box{
-        @include box; /* _box.scssを読み込む */
-        &--letter{
-          @include letter; /* _letter.scssを読み込む */
-        }
-        &__case{
-          @include box-check; /* _box-check.scssを読み込む */
-          &--letter{
-            @include box-check-letter; /* _box-check-letter.scssを読み込む */
-          }
-        }
-      }
-      &__form--area{
-        width: 87%;
-        height: 225px;
-        margin-left: 43px;
-        margin-top: 20px;
-        padding: 20px;
-        font-size: 17px;
-      }
-    }
-    &__details{
-      border-bottom: 3px solid ghostwhite;
-      height: 800px;
-      &--title{
-        margin-left: 47px;
-        font-weight: bold;
-        font-size: 18px;
-        padding-top: 50px;
-      }
-      &__box{
-        margin-top: 40px;
-        margin-bottom: 20px;
-        @include box; /* _box.scssを読み込む */
-        &--letter{
-          @include letter; /* _letter.scssを読み込む */
-        }
-        &__case{
-          @include box-check; /* _box-check.scssを読み込む */
-          &--letter{
-            @include box-check-letter; /* _box-check-letter.scssを読み込む */
-          }
-        }
-      }
-      &__category{
-        border: 1px solid #999999;
-        width: 87%;
-        height: 60px;
-        margin-left: 43px;
-        margin-bottom: 20px;
-        border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
-      }
-      &__brand{
-        height: 130px;
-        margin-top: 40px;
         &__box{
           @include box; /* _box.scssを読み込む */
           &--letter{
@@ -156,13 +85,12 @@
           }
           &__case{
             @include box-check; /* _box-check.scssを読み込む */
-            background-color: #BBBBBB;
             &--letter{
               @include box-check-letter; /* _box-check-letter.scssを読み込む */
             }
           }
         }
-        &--form{
+        &__form--text{
           width: 87%;
           height: 60px;
           margin-left: 43px;
@@ -171,10 +99,41 @@
           font-size: 17px;
         }
       }
-      &__status{
-        height: 40px;
-        margin-top: 40px;
+      &__introduction{
+        border-bottom: 3px solid ghostwhite;
+        height: 400px;
         &__box{
+          @include box; /* _box.scssを読み込む */
+          &--letter{
+            @include letter; /* _letter.scssを読み込む */
+          }
+          &__case{
+            @include box-check; /* _box-check.scssを読み込む */
+            &--letter{
+              @include box-check-letter; /* _box-check-letter.scssを読み込む */
+            }
+          }
+        }
+        &__form--area{
+          width: 87%;
+          height: 225px;
+          margin-left: 43px;
+          margin-top: 20px;
+          padding: 20px;
+          font-size: 17px;
+        }
+      }
+      &__details{
+        border-bottom: 3px solid ghostwhite;
+        height: 800px;
+        &--title{
+          margin-left: 47px;
+          font-weight: bold;
+          font-size: 18px;
+          padding-top: 50px;
+        }
+        &__box{
+          margin-top: 40px;
           margin-bottom: 20px;
           @include box; /* _box.scssを読み込む */
           &--letter{
@@ -187,28 +146,51 @@
             }
           }
         }
-        &--text{
+        &__category{
           border: 1px solid #999999;
           width: 87%;
           height: 60px;
           margin-left: 43px;
+          margin-bottom: 20px;
           border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+          position: relative;
+          &--angle{
+            font-size: 20px;
+            color: #CCCCCC;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+          }
         }
-      }
-      &__delivery{
-        border-bottom: 3px solid ghostwhite;
-        height: 750px;
-        &--title{
-          margin-left: 47px;
-          font-weight: bold;
-          font-size: 18px;
-          padding-top: 50px;
-          
-        }
-        &__fee{
+        &__brand{
           height: 130px;
           margin-top: 40px;
-          
+          &__box{
+            @include box; /* _box.scssを読み込む */
+            &--letter{
+              @include letter; /* _letter.scssを読み込む */
+            }
+            &__case{
+              @include box-check; /* _box-check.scssを読み込む */
+              background-color: #BBBBBB;
+              &--letter{
+                @include box-check-letter; /* _box-check-letter.scssを読み込む */
+              }
+            }
+          }
+          &--form{
+            width: 87%;
+            height: 60px;
+            margin-left: 43px;
+            margin-top: 20px;
+            padding: 20px;
+            font-size: 17px;
+            position: relative;
+          }
+        }
+        &__status{
+          height: 40px;
+          margin-top: 40px;
           &__box{
             margin-bottom: 20px;
             @include box; /* _box.scssを読み込む */
@@ -228,6 +210,66 @@
             height: 60px;
             margin-left: 43px;
             border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+            position: relative;
+            &--angle{
+              position: absolute;
+              font-size: 20px;
+              color: #CCCCCC;
+              right: 20px;
+              top: 20px;
+            }
+          }
+        }
+      }
+      &__delivery{
+        border-bottom: 3px solid ghostwhite;
+        height: 750px;
+        padding-top: 50px;
+        &__title{
+          width: 50%;
+          display: flex;
+          align-items: center;
+          &--letter{
+          margin-left: 47px;
+          font-weight: bold;
+          font-size: 18px;
+          }
+          &--circle{
+            color: #0095ee;
+            text-decoration: none;
+            margin-left: 10px;
+          }
+        }
+        &__fee{
+          height: 130px;
+          margin-top: 40px;
+          &__box{
+            margin-bottom: 20px;
+            @include box; /* _box.scssを読み込む */
+            &--letter{
+              @include letter; /* _letter.scssを読み込む */
+            }
+            &__case{
+              @include box-check; /* _box-check.scssを読み込む */
+              &--letter{
+                @include box-check-letter; /* _box-check-letter.scssを読み込む */
+              }
+            }
+          }
+          &--text{
+            border: 1px solid #999999;
+            width: 87%;
+            height: 60px;
+            margin-left: 43px;
+            border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+            position: relative;
+            &--angle{
+              position: absolute;
+              font-size: 20px;
+              color: #CCCCCC;
+              right: 20px;
+              top: 20px;
+            }
           }
         }
         &__area{
@@ -252,6 +294,14 @@
             height: 60px;
             margin-left: 43px;
             border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+            position: relative;
+            &--angle{
+              position: absolute;
+              font-size: 20px;
+              color: #CCCCCC;
+              right: 20px;
+              top: 20px;
+            }
           }
         }
         &__days{
@@ -276,19 +326,36 @@
             height: 60px;
             margin-left: 43px;
             border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+            position: relative;
+            &--angle{
+              position: absolute;
+              font-size: 20px;
+              color: #CCCCCC;
+              right: 20px;
+              top: 20px;
+            }
           }
         }
       }
       &__price{
         height: 430px;
-        &--title{
-          margin-top: 30px;
+        &__title{
+          width: 50%;
+          margin-top: 50px;
           margin-left: 47px;
           margin-bottom: 70px;
+          display: flex;
+          align-items: center;
+          &--letter{
           font-weight: bold;
           font-size: 15px;
-          padding-top: 50px;
           font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+          }
+          &--circle{
+            color: #0095ee;
+            text-decoration: none;
+            margin-left: 10px;
+          }
         }
         &__sale{
           height: 100px;
@@ -358,7 +425,7 @@
           }
         }
       }
-      &__form{
+      &__post{
         margin-top: 80px;
         height: 270px;
         &--send{
@@ -370,7 +437,7 @@
           border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
           font-weight: bold;
           font-size: 17px;
-          margin-left: 30%;
+          margin-left: 28%;
           margin-top: 30px;
           font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
         }
@@ -383,7 +450,7 @@
           border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
           font-weight: bold;
           font-size: 17px;
-          margin-left: 30%;
+          margin-left: 28%;
           margin-top: 30px;
           font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
         }
@@ -391,29 +458,54 @@
           text-decoration: none;
           color: #0095ee;
           display: block;
-          margin-left: 48%;
+          margin-left: 46%;
           margin-top: 30px;
         }
       }
       &__warning{
         height: 50px;
-        margin-left: 40px;
+        margin-left:65px;
         font-size: 15px;
+        &--text{
+          font-size: 13px;
+          &__a{
+            text-decoration: none;
+            color: #0095ee;
+          }
+        }
       }
     }
   }
 }
 
-
-
-
-
-
-
-
-
 .footer{
   background-color: #F5F5F5;
+  height: 240px;
   width: 100%;
-  height: 180px;
+  padding-top: 50px;
+  .footer__box{
+    width: 94%;
+    
+    &__list{
+      display: flex;
+      justify-content: center;
+      &--link{
+        list-style: none;
+        &--letter{
+          text-decoration: none;
+          font-size: 13px;
+          color: #000;
+          margin-left: 30px;
+          
+        }
+      }
+    }
+  }
+  .footer--logo{
+    margin-left: 40%;
+    margin-top: 40px;
+  }
 }
+
+
+
