@@ -359,16 +359,30 @@
 }
 
 //バッジサイズ調整
-.content__btn {
+.content_btn {
   display: flex;
     .googleplay-badge {
     margin-top: 3px;
     width:208px;
     height:80px;
   }
+  
 //ホバーした際にボタン透過
   &__apple:hover {
     opacity: 0.5 ;
+  }
+  &__apple {
+    &--icon {
+      display:inline-block;
+      overflow:hidden;
+      background-image: url("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2015-11-12&kind=iossoftware&bubble=ios_apps") ;
+      width:180px;
+      height:54px;
+      margin:16px 16px 16px 0;
+      background-size:contain;
+    }
+
+    
   }
   &__google:hover {
     opacity: 0.5 ;
