@@ -1,0 +1,76 @@
+.Body{
+  text-align: center;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  background-color: rgb(248, 248, 246);
+}
+.Logo{
+  padding-top: 40px;
+}
+.logo{
+  height: 49px;
+  background-color: rgb(248, 248, 246);
+}
+.Main{
+  width: 700px;
+  margin: 40px auto 0;
+  background-color: #fff;
+}
+.New-registration{
+  font-size: 22px;
+  padding: 32px;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(248, 248, 246)
+}
+.Section{
+  padding: 35px 40px 64px;
+  max-width: 343px;
+  margin: 0 auto;
+}
+.btn-default{
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+.btn-mail{
+  margin: 15px 0 0;
+  color: #fff;
+  background-color: #ea352d;
+  position: relative;
+}
+.btn-GG{
+  margin: 15px 0 0;
+  background: #fff;
+  border: #979797 solid 1px;
+  color: #333;
+  position: relative;
+}
+.btn-FB{
+  margin: 15px 0 0;
+  background: #385185;
+  color: #fff;
+  position: relative;
+}
+.btn-Ap{
+  margin: 15px 0 0;
+  background: #000;
+  color: #fff;
+  position: relative;
+}
+.icon{
+  font-size: 22px;
+  position: absolute;
+  left: 18px;
+  top: 12px;
+}
+.Text{
+  margin: 40px 0 0;
+  font-size: 14px;
+  color: #888;
+  text-align:left;
+}
