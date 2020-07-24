@@ -1,0 +1,92 @@
+// Place all the styles related to the credit_cards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.card_add {
+  font-size: 16px;
+  text-align: center;
+  margin: 0 auto;
+  .credit_cards-title-message{
+    margin: 50px;
+    font-size: 20px;
+  }
+  .number-details{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    .card-number{
+      margin-right: 5px;
+    }
+    .must_check{
+      background-color: red;
+      padding: 3px;
+      color: #ffffff;
+      font-size: 12px;
+    }
+  }
+  .credit_cards-number{
+    height: 30px;
+    width: 500px;
+    margin: 0 auto;
+  }
+  .image{
+    .cards-image{
+      margin: 5px;
+    }
+  }
+  .expirationdate__details{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    .date{
+      margin-right: 5px;
+    }
+    .must_check{
+      background-color: red;
+      padding: 3px;
+      color: #ffffff;
+      font-size: 12px;
+    }
+  }
+  .expirationdate__choice{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    .month{
+      margin-right: 5px;
+      .card-default{
+        height: 30px;
+      }
+    }
+    .year{
+      .card-default{
+        height: 30px;
+      }
+    }
+  }
+  .securitycode__details{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    .securitycode-details{
+      margin-right: 5px;
+    }
+    .must_check{
+      background-color: red;
+      padding: 3px;
+      color: #ffffff;
+      font-size: 12px;
+    }
+    .securitycode__cardsecurity{
+      height: 30px;
+      width: 500px;
+    }
+  }
+  .add__btn{
+    margin: 30px;
+  }
+}

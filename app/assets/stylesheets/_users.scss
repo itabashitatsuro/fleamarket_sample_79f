@@ -1,0 +1,223 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+// headline
+.header{
+  width: 1200px;
+  margin: 0 auto;
+  .main-header{
+    padding: 70px 200px;
+    display: flex;
+    justify-content: space-between;
+    .userInfo{
+      height: 150px;
+      width: 130px;
+      margin: 5px;
+      border: 0.5px solid lightgrey;
+      text-align: center;
+      .userImage{
+        font-size: 5px;
+        color: lightgray;
+        &__icon{
+          height: 100px;
+          width: 100px;
+          margin: 3px;
+          font-family: "Font Awesome 5 Free";
+          font-size: 80px;
+          align-items: center;
+        }
+      }
+      .userName{
+        font-size: 12px;
+        color: lightgray;
+      }
+      .userBtn{
+        .logout-Btn{
+          font-size: 12px;
+          color: blue;
+          text-decoration: none;
+        }
+        .logout-Btn:hover{
+          color:#FF0099;
+          text-decoration:underline;
+        }
+      }
+    }
+  }
+}
+
+.menu-list{
+  height: 60px;
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 30px;
+  border-bottom: 2px solid lightskyblue;
+  font-weight: bold;
+  font-size: 18px;
+  .categori{
+    height: 30px;
+    margin: auto;
+    padding: 5px;
+    color: black;
+    align-items: center;
+  }
+  .brand{
+    height: 30px;
+    margin: auto;
+    padding: 5px;
+    color: black;
+  }
+  .shopping{
+    height: 30px;
+    margin: auto;
+    padding: 5px;
+    color: black;
+  }
+  .trade{
+    height: 30px;
+    margin: auto;
+    padding: 5px;
+    color: black;
+  }
+  .profile{
+    height: 30px;
+    margin: auto;
+    padding: 5px;
+    color: black;
+  }
+  .credit{
+    height: 30px;
+    margin: auto;
+    padding: 5px;
+    color: black;
+  }
+  .user-btn{
+    color: blue;
+    text-decoration: none;
+    display: block;
+  }
+  .user-btn:hover {
+    color:#FF0099;
+    text-decoration:underline;
+  }
+}
+  
+
+//　メインのcontnts
+.contents-box{
+  display: flex;
+  justify-content: center;
+  padding: 20px auto;
+  margin: 40px auto 0;
+    width: 1200px;
+    height: 100%;
+  .user-trade-contents{
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    .user-shoppingInfo{
+      background-color: #ffffff;
+      border-bottom: 1px solid lightgray;
+      margin: 10px auto; 
+      height: 60vh;
+      width: 100%;
+      .shopping {
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        .shopping-content {
+          overflow: scroll;
+          margin: 5px auto;
+          height: 80%;
+          width: 500px;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-color: #ddffff;
+          .shopping-list {
+            background-color: #ddffff;
+          }
+        }
+      }
+    }
+    .userTrade {
+      background-color: #ffffff;
+      height: 100%;
+      width: 100%;
+      margin: 10px auto;
+      .tradeInfo{
+        height: 60vh;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        &__trading{
+          overflow: scroll;
+          margin: 5px auto;
+          width: 500px;
+          background-color: #ddffff;
+        }
+        &__want{
+          overflow: scroll;
+          margin: 5px auto;
+          width: 500px;
+          background-color: #ddffff;
+        }
+        .tradeInfo-list{
+          margin: 0 auto;
+          width: 500px;
+          background-color: #ddffff;
+        }
+      }
+    }
+  } 
+}
+// new.html.haml　プロフィール情報
+
+.mypage{
+  .new-mypageInfo{
+    text-align: center;
+    margin-bottom: 50px;
+    .new-mypageInfo-title{
+      font-size: 30px;
+      font-style: bold;
+      margin-bottom: 30px;
+    }
+  }
+  .Form-profile{
+    text-align: center;
+    margin: 0 auto;
+    .label {
+      font-weight: 300;
+    }
+    .input-form{
+      display: block;
+      height: 20px;
+      width: 30%;
+      padding: 10px 16px 8px;
+      margin: 0 auto 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+    .require{
+      background-color: red;
+      padding: 3px;
+      color: #ffffff;
+      font-size: 12px;
+    }
+    .any{
+      padding: 3px;
+      color: lightgray;
+      font-size: 12px;
+    }
+  
+  }
+}

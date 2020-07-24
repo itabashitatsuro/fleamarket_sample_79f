@@ -1,12 +1,118 @@
-.user_wrapper
-  .header
-    .mainIcon  アイコン
-    .nav-bar
-      .userInfo
-        .userImage
-        .user__name  なまえ
-        .shop__Info  フリマアイコン
-  .userSearcn 検索
+.header
+  .main-header
+    .mypage-logo
+      = image_tag "logo.png", class: "mypage-logo", :size => '300x100'
+    .userInfo
+      .userImage
+        = icon('fal', 'user', class: "userImage__icon" )
+      .userName
+        ユーザーネーム
+        //@user.nickname
+      .userBtn
+        = link_to 'ログアウト', root_path, class: "logout-Btn"
+  %ul.menu-list
+    %li.menu-list__shopping
+      = link_to '買い物ページへ', root_path, class:'user-btn'
+    %li.menu-list__categori
+      = link_to 'カテゴリ一覧へ', root_path, class:'user-btn'
+    %li.menu-list__brand
+      = link_to 'ブランド一覧へ', root_path, class:'user-btn'
+    %li.menu-list__trade
+      = link_to '出品する', root_path, class:'user-btn'
+    %li.menu-list__profile
+      = link_to 'プロフィール登録', new_user_path, class:'user-btn'
+      = link_to 'プロフィール編集', edit_user_path, class:'user-btn'
+    %li.menu-list__credit
+      = link_to 'クレジット登録', root_path, class:'user-btn'
+      = link_to 'クレジット編集', root_path, class:'user-btn'
 
-  .main-contents
-  .footer
+.contents-box
+  .user-trade-contents
+    .user-shoppingInfo
+      <<取引一覧>>
+      %ul.shopping
+        %li.shopping-content
+          【購入履歴】
+          //購入履歴がありません、仮の履歴を記載
+          .shopping-list
+            筆　購入日：2020/09/01　相手ユーザー：佐藤　値段：1000円　支払い方法：口座振り込み
+          .shopping-list
+            靴　2020/08/01
+          .shopping-list
+            服　2020/07/01
+          .shopping-list
+            服　2020/07/01
+          .shopping-list
+            服　2020/07/01
+          .shopping-list
+            服　2020/07/01
+          .shopping-list
+            服　2020/07/01
+          .shopping-list
+            服　2020/07/01
+          .shopping-list
+            服　2020/07/01
+        %li.shopping-content
+          【売却済一覧】
+          //売却履歴がありません、仮の履歴を記載
+          .shopping-list
+            筆　売却日：2020/07/01　相手ユーザー：板橋　値段：1000円　受領方法：現金受け渡し
+          .shopping-list
+            靴　2020/06/01
+          .shopping-list
+            服　2020/05/01
+    .userTrade 
+      <<現在の取引状況>>
+      %ul.tradeInfo
+        %li.tradeInfo__trading 
+          【出品中の商品】
+          //現在、出品中の商品はありません。仮の履歴を記載
+          .tradeInfo-list
+            靴　2020/06/01
+          .tradeInfo-list
+            服　2020/05/01
+          .tradeInfo-list
+            靴　2020/06/01
+          .tradeInfo-list
+            服　2020/05/01
+          .tradeInfo-list
+            靴　2020/06/01
+          .tradeInfo-list
+            服　2020/05/01
+          .tradeInfo-list
+            靴　2020/06/01
+          .tradeInfo-list
+            服　2020/05/01
+          .tradeInfo-list
+            靴　2020/06/01
+          .tradeInfo-list
+            服　2020/05/01
+          .tradeInfo-list
+            靴　2020/06/01
+          .tradeInfo-list
+            服　2020/05/01
+          .tradeInfo-list
+            服　2020/05/01
+          .tradeInfo-list
+            靴　2020/06/01
+          .tradeInfo-list
+            服　2020/05/01
+          .tradeInfo-list
+            靴　2020/06/01
+          .tradeInfo-list
+            服　2020/05/01
+          .tradeInfo-list
+            靴　2020/06/01
+          .tradeInfo-list
+            服　2020/05/01
+        %li.tradeInfo__want
+          【欲しいものリスト】
+          //現在、欲しいものリストに商品はありません。仮の履歴を記載
+          .tradeInfo-list
+            靴　2020/06/01
+          .tradeInfo-list
+            服　2020/05/01
+          .tradeInfo-list
+            服　2020/05/01
+.footer
+
