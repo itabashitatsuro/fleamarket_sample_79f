@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root "posts#index"
   resources :posts, only: [:index]
+  resources :credit_cards, only: [:new, :create, :destroy, :show]
   resources :users, only: [:new, :create, :edit, :update, :show]
-  resources :credit_cards, only: [:new, :create, :show, :destroy]
     resources :users do
       collection do
         get 'login'

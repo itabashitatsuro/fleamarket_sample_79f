@@ -61,6 +61,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "haml-rails", ">= 1.0", '<= 2.0.1'
 gem "jquery-rails"
+gem "font-awesome-rails"
 gem "font-awesome-sass"
 # PAY.JPのgem
 gem 'payjp'

@@ -1,10 +1,10 @@
 .header
   .main-header
     .mypage-logo
-      = image_tag "logo.png", class: "mypage-logo", :size => '300x100'
+      = image_tag("/assets/logo.png", alt: "image", class: "mypage-logo", :size => '300x100')
     .userInfo
       .userImage
-        = icon('fal', 'user', class: "userImage__icon" )
+        = fa_icon 'user', class: "userImage__icon"
       .userName
         ユーザーネーム
         //@user.nickname
@@ -20,11 +20,11 @@
     %li.menu-list__trade
       = link_to '出品する', root_path, class:'user-btn'
     %li.menu-list__profile
-      = link_to 'プロフィール登録', done_user_path, class:'user-btn'
+      = link_to 'プロフィール登録', done_users_path, class:'user-btn'
       = link_to 'プロフィール編集', edit_user_path, class:'user-btn'
     %li.menu-list__credit
-      = link_to 'クレジット登録', root_path, class:'user-btn'
-      = link_to 'クレジット編集', root_path, class:'user-btn'
+      = link_to 'クレジット登録', new_credit_card_path, class:'user-btn'
+      = link_to 'クレジット削除', credit_card_path, class:'user-btn'
 
 .contents-box
   .user-trade-contents

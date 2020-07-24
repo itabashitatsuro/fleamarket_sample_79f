@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index
   end
 
-  def done
+  def new
   end
 
   def create
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
 #    user = User.find(params[:id])
 #    @nickname = user.nickname
 #    @items = user.items
@@ -24,11 +25,10 @@ class UsersController < ApplicationController
 #    @buyer_items = user.buyer_items
 #    @saling_items = user.saling_items
 #    @sold_items = user.sold_items
-  end
 
   def login
   end
   
-  def new
+  def done
   end
 end
