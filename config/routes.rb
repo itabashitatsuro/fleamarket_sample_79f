@@ -5,3 +5,10 @@ Rails.application.routes.draw do
   resources :posts, only: [:index]
   resources :items, only: [:index, :new]
 end
+  resources :users do
+    collection do
+      get 'login'
+      get 'new'
+    end
+  end
+end
