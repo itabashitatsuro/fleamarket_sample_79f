@@ -1,0 +1,47 @@
+
+
+
+
+.Head{
+  padding-top: 40px;
+  max-width: 343px;
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.Boder{
+  padding-top: 40px;
+  border-bottom: 1px solid rgb(248, 248, 246)
+}
+
+.btn-registration{
+  margin: 5px 0 0;
+  color: #fff;
+  background-color: #0099e8;
+  position: relative;
+}
+.Form{
+  padding-top: 50px;
+}
+.Form__input{
+  margin-top: 25px;
+  line-height: 48px;
+  width: 325px;
+  padding-left: 15px;
+}
+.btn-login{
+  margin: 25px 0 0;
+  background: #ea352d;
+  color: #fff;
+  position: relative;
+}
+
+.Forget{
+  font-size: 14px;
+  margin: 30px 185px 0 0;
+  a{
+    text-decoration: none;
+    color: #0099e8;
+  }
+}
