@@ -1,0 +1,134 @@
+.new_wrapper
+  .contents
+    .contents__header
+      = image_tag src="/assets/logo.png", width:"280", height:"70", class: "contents__header__logo"
+    .contents__input-list
+      .contents__input-list__title
+        %p.contents__input-list__title--letter 商品の情報を入力
+      = form_with(local: true, class: "contents__input-list__form") do |form|
+        .contents__input-list__form__images
+          .contents__input-list__form__images__box
+            %p.contents__input-list__form__images__box--letter 出品情報
+            .contents__input-list__form__images__box__case
+              %p.contents__input-list__form__images__box__case--letter 必須
+          %p.contents__input-list__form__images--notice 最大10枚までアップロードできます
+          .contents__input-list__form__images__insert
+            = link_to "#" do
+              = icon('fa', 'camera', class: "contents__input-list__form__images__insert--camera")
+            %p ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+        .contents__input-list__form__product-name
+          .contents__input-list__form__product-name__box
+            %p.contents__input-list__form__product-name__box--letter 商品名
+            .contents__input-list__form__product-name__box__case
+              %p.contents__input-list__form__product-name__box__case--letter 必須
+          = form.text_field :name, placeholder: "商品名（必須 40文字まで)", class: "contents__input-list__form__product-name__form--text"
+        .contents__input-list__form__introduction
+          .contents__input-list__form__introduction__box
+            %p.contents__input-list__form__introduction__box--letter 商品の説明
+            .contents__input-list__form__introduction__box__case
+              %p.contents__input-list__form__introduction__box__case--letter 必須
+          = form.text_area :name, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）", class: "contents__input-list__form__introduction__form--area"
+        .contents__input-list__form__details
+          %p.contents__input-list__form__details--title 商品の詳細
+          .contents__input-list__form__details__box
+            %p.contents__input-list__form__details__box--letter カテゴリー
+            .contents__input-list__form__details__box__case
+              %p.contents__input-list__form__details__box__case--letter 必須
+          .contents__input-list__form__details__category
+            %i.fas.fa-chevron-down.contents__input-list__form__details__category--angle
+          .contents__input-list__form__details__category
+            %i.fas.fa-chevron-down.contents__input-list__form__details__category--angle
+          .contents__input-list__form__details__category
+            %i.fas.fa-chevron-down.contents__input-list__form__details__category--angle
+          .contents__input-list__form__details__brand
+            .contents__input-list__form__details__brand__box
+              %p.contents__input-list__form__details__brand__box--letter ブランド
+              .contents__input-list__form__details__brand__box__case
+                %p.contents__input-list__form__details__brand__box__case--letter 任意
+            = form.text_field :name, placeholder: "例：シャネル", class: "contents__input-list__form__details__brand--form"
+          .contents__input-list__form__details__status
+            .contents__input-list__form__details__status__box
+              %p.contents__input-list__form__details__status__box--letter 商品の状態
+              .contents__input-list__form__details__status__box__case
+                %p.contents__input-list__form__details__status__box__case--letter 必須
+            .contents__input-list__form__details__status--text
+              %i.fas.fa-chevron-down.contents__input-list__form__details__status--text--angle
+        .contents__input-list__form__delivery
+          .contents__input-list__form__delivery__title
+            %p.contents__input-list__form__delivery__title--letter 配送について
+            =icon('far', 'question-circle', class: "contents__input-list__form__delivery__title--circle")
+          .contents__input-list__form__delivery__fee
+            .contents__input-list__form__delivery__fee__box
+              %p.contents__input-list__form__delivery__fee__box--letter 配送料の負担
+              .contents__input-list__form__delivery__fee__box__case
+                %p.contents__input-list__form__delivery__fee__box__case--letter 必須
+            .contents__input-list__form__delivery__fee--text
+              %i.fas.fa-chevron-down.contents__input-list__form__delivery__fee--text--angle
+          .contents__input-list__form__delivery__area
+            .contents__input-list__form__delivery__area__box
+              %p.contents__input-list__form__delivery__area__box--letter 発送元の地域
+              .contents__input-list__form__delivery__area__box__case
+                %p.contents__input-list__form__delivery__area__box__case--letter 必須
+            .contents__input-list__form__delivery__area--text
+              %i.fas.fa-chevron-down.contents__input-list__form__delivery__area--text--angle
+          .contents__input-list__form__delivery__days
+            .contents__input-list__form__delivery__days__box
+              %p.contents__input-list__form__delivery__days__box--letter 発送までの日数
+              .contents__input-list__form__delivery__days__box__case
+                %p.contents__input-list__form__delivery__days__box__case--letter 必須
+            .contents__input-list__form__delivery__days--text
+              %i.fas.fa-chevron-down.contents__input-list__form__delivery__days--text--angle
+        .contents__input-list__form__price
+          .contents__input-list__form__price__title 
+            %p.contents__input-list__form__price__title--letter 価格（¥300〜9,999,999）
+            =icon('far', 'question-circle', class: "contents__input-list__form__delivery__title--circle")
+          .contents__input-list__form__price__sale
+            .contents__input-list__form__price__sale__box
+              %p.contents__input-list__form__price__sale__box--letter 販売価格
+              .contents__input-list__form__price__sale__box__case
+                %p.contents__input-list__form__price__sale__box__case--letter 必須
+              %span.contents__input-list__form__price__sale__box__yen ¥
+              .contents__input-list__form__price__sale__box__text
+                = form.text_field :price, placeholder: "例）300", class: "contents__input-list__form__price__sale__box__text--cost"
+            .contents__input-list__form__price__sale__memo 300以上9999999以下で入力してください
+            .contents__input-list__form__price__sale__charge
+              .contents__input-list__form__price__sale__charge--tax 販売手数料（10%）
+              %span.contents__input-list__form__price__sale__charge--line ー
+            %hr{:color => "#F5F5F5", class:"contents__input-list__form__price__sale__horizontal"}
+            .contents__input-list__form__price__sale__profit
+              .contents__input-list__form__price__sale__profit--tax 販売利益
+              %span.contents__input-list__form__price__saleb--line ー
+        .contents__input-list__form__post
+          = form.submit "出品する", class: "contents__input-list__form__post--send"
+          = form.button "下書きに保存", class: "contents__input-list__form__post--button"
+          %a.contents__input-list__form__post--back{:href => "＃"} もどる
+        .contents__input-list__form__warning
+          .contents__input-list__form__warning--text
+            禁止されている出品
+            =link_to "#", class: 'contents__input-list__form__warning--text__a' do
+              行為
+            および
+            =link_to "#", class: 'contents__input-list__form__warning--text__a' do
+              出品物
+            を必ずご確認ください。
+            =link_to "#", class: 'contents__input-list__form__warning--text__a' do
+              偽ブランド品
+            や
+            =link_to "#", class: 'contents__input-list__form__warning--text__a' do
+              盗品物
+            などの販売は犯罪であり、法律に
+            %br/
+            より処罰される可能性があります。 また、出品をもちまして
+            =link_to "#", class: 'contents__input-list__form__warning--text__a' do
+              加盟店規約
+            に同意したことになります。
+  .footer
+    .footer__box
+      %ul.footer__box__list
+        %li.footer__box__list--link
+          %a.footer__box__list--link--letter{:href => "＃"} プライバシーポリシー
+        %li.footer__box__list--link
+          %a.footer__box__list--link--letter{:href => "＃"} FURIMA利用規約
+        %li.footer__box__list--link
+          %a.footer__box__list--link--letter{:href => "＃"} 特定商取引に関する表記
+    = image_tag src= "/assets/logo-white.png", width:"240", height:"70", class: "footer--logo"
