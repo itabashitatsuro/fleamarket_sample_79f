@@ -7,30 +7,41 @@
     display: flex;
     justify-content: space-between;
     .userInfo{
-      height: 150px;
-      width: 130px;
+      height: 180px;
+      width: 150px;
       margin: 5px;
       border: 0.5px solid lightgrey;
       text-align: center;
       .userImage{
-        font-size: 5px;
+        height: 100px;
+        font-size: 8px;
         color: lightgray;
-        &__icon{
-          height: 100px;
+        .userImage-label{
+          height: 300px;
           width: 100px;
-          margin: 3px;
-          font-family: "Font Awesome 5 Free";
-          font-size: 80px;
-          align-items: center;
+          &__icon{
+            height: 100x;
+            width: 100px;
+            margin: 5px;
+            font-size: 80px;
+            align-items: center;
+            cursor: pointer;
+          }
+          &__icon:hover{
+            background-color: #eee;
+          }
+          .userImage-file{
+            display: none;
+          }
         }
       }
       .userName{
-        font-size: 12px;
+        font-size: 16px;
         color: lightgray;
       }
       .userBtn{
         .logout-Btn{
-          font-size: 12px;
+          font-size: 16px;
           color: blue;
           text-decoration: none;
         }
@@ -41,65 +52,69 @@
       }
     }
   }
-}
+  .important-message{
+    text-align: center;
+    font-size: 16px;
+    color: red;
+  }
 
-.menu-list{
-  height: 60px;
-  width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 30px;
-  border-bottom: 2px solid lightskyblue;
-  font-weight: bold;
-  font-size: 18px;
-  .categori{
-    height: 30px;
-    margin: auto;
-    padding: 5px;
-    color: black;
-    align-items: center;
-  }
-  .brand{
-    height: 30px;
-    margin: auto;
-    padding: 5px;
-    color: black;
-  }
-  .shopping{
-    height: 30px;
-    margin: auto;
-    padding: 5px;
-    color: black;
-  }
-  .trade{
-    height: 30px;
-    margin: auto;
-    padding: 5px;
-    color: black;
-  }
-  .profile{
-    height: 30px;
-    margin: auto;
-    padding: 5px;
-    color: black;
-  }
-  .credit{
-    height: 30px;
-    margin: auto;
-    padding: 5px;
-    color: black;
-  }
-  .user-btn{
-    color: blue;
-    text-decoration: none;
-    display: block;
-  }
-  .user-btn:hover {
-    color:#FF0099;
-    text-decoration:underline;
+  .menu-list{
+    height: 60px;
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 30px;
+    border-bottom: 2px solid lightskyblue;
+    font-weight: bold;
+    font-size: 18px;
+    .categori{
+      height: 30px;
+      margin: auto;
+      padding: 5px;
+      color: black;
+      align-items: center;
+    }
+    .brand{
+      height: 30px;
+      margin: auto;
+      padding: 5px;
+      color: black;
+    }
+    .shopping{
+      height: 30px;
+      margin: auto;
+      padding: 5px;
+      color: black;
+    }
+    .trade{
+      height: 30px;
+      margin: auto;
+      padding: 5px;
+      color: black;
+    }
+    .profile{
+      height: 30px;
+      margin: auto;
+      padding: 5px;
+      color: black;
+    }
+    .credit{
+      height: 30px;
+      margin: auto;
+      padding: 5px;
+      color: black;
+    }
+    .user-btn{
+      color: blue;
+      text-decoration: none;
+      display: block;
+    }
+    .user-btn:hover {
+      color:#FF0099;
+      text-decoration:underline;
+    }
   }
 }
-  
 
 //　メインのcontnts
 .contents-box{
@@ -132,15 +147,17 @@
           height: 80%;
           width: 500px;
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          background-color: #ddffff;
+          background-color: #eee;
           .shopping-list {
-            background-color: #ddffff;
+            background-color: #eee;
+            display: flex;
+            justify-content: space-around;
           }
         }
       }
     }
     .userTrade {
-      background-color: #ffffff;
+      background-color: #fffffff;
       height: 100%;
       width: 100%;
       margin: 10px auto;
@@ -155,64 +172,20 @@
           overflow: scroll;
           margin: 5px auto;
           width: 500px;
-          background-color: #ddffff;
+          background-color: #eee;
         }
         &__want{
           overflow: scroll;
           margin: 5px auto;
           width: 500px;
-          background-color: #ddffff;
+          background-color: #eee;
         }
         .tradeInfo-list{
           margin: 0 auto;
           width: 500px;
-          background-color: #ddffff;
+          background-color: #eee;
         }
       }
     }
   } 
-}
-// new.html.haml　プロフィール情報
-
-.mypage{
-  .new-mypageInfo{
-    text-align: center;
-    margin-bottom: 50px;
-    .new-mypageInfo-title{
-      font-size: 30px;
-      font-style: bold;
-      margin-bottom: 30px;
-    }
-  }
-  .Form-profile{
-    text-align: center;
-    margin: 0 auto;
-    .label {
-      font-weight: 300;
-    }
-    .input-form{
-      display: block;
-      height: 20px;
-      width: 30%;
-      padding: 10px 16px 8px;
-      margin: 0 auto 10px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      background: #fff;
-      line-height: 1.5;
-      font-size: 16px;
-    }
-    .require{
-      background-color: red;
-      padding: 3px;
-      color: #ffffff;
-      font-size: 12px;
-    }
-    .any{
-      padding: 3px;
-      color: lightgray;
-      font-size: 12px;
-    }
-  
-  }
 }

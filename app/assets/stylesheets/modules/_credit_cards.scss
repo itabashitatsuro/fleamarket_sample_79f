@@ -86,3 +86,47 @@
     margin: 30px;
   }
 }
+
+// クレジットカード詳細
+.credit_cards-show{
+  background-color: #f6efdb;
+  height: 100vh;
+  .credit_cards-show-frame {
+    text-align: center;
+    margin: 20px auto;
+    .credit_cards-show-title{
+      font-weight: bold;
+      font-size: 25px;
+      background-color: lightgray;
+    }
+    .credit_cards-list{
+      margin: 30px auto;
+      .credit_cards-list-frame{
+        margin: 30px auto;
+        .credit_card_info{
+          height: 60%;
+          .credit_card_info-brand{
+            height: 50px;
+            width: 75px;
+            margin: 10px auto;
+          }
+          .credit_card_info-numbers{
+            margin: 10px auto;
+            .credit_card-number{
+              margin-bottom: 10px;
+              font-size: 16px;
+            }
+            .expiration_date{
+              margin-bottom: 10px;
+              font-size: 16px;
+            }
+            .estroy-function-link-btn{
+              color: blue;
+              
+            }
+          }
+        }
+      }
+    }
+  }
+}

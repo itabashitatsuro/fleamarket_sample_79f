@@ -1,7 +1,7 @@
 .mypage  
   .new-mypageInfo
     .new-mypageInfo-title
-      <<プロフィールの編集>>
+      お届け先住所の編集
     .new-mypageInfo-message
       お客様の本人情報をご登録ください。
   .Form-profile
@@ -19,20 +19,6 @@
           ※必須
       = f.text_field :nickname, placeholder: "例)ヤマダ", class: 'input-form'
       = f.text_field :nickname, placeholder: "例)タロウ", class: 'input-form'
-      
-      .label
-        = label :image, '画像'
-        %span.any
-          ※任意
-      = f.text_field :image, placeholder: "挿入", class: 'input-form'
-
-      .label
-        = label :birthday, '生年月日'
-        %span.require
-          ※必須
-      = f.text_field :birthday, placeholder: "例)1995年", class: 'input-form'
-      = f.text_field :birthday, placeholder: "例)10月", class: 'input-form'
-      = f.text_field :birthday, placeholder: "例)22日", class: 'input-form'
 
       .label
         = label :adress, 'お届け先住所'
