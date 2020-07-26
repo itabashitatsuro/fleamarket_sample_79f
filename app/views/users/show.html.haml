@@ -4,12 +4,16 @@
       = image_tag("/assets/logo.png", alt: "image", class: "mypage-logo", :size => '300x100')
     .userInfo
       .userImage
-        = fa_icon 'user', class: "userImage__icon"
+        %label{class: "userImage-label"}
+          = fa_icon 'user', class: "userImage-label__icon"
+          %input{type: "file", class: "userImage-file"}
       .userName
         ユーザーネーム
         //@user.nickname
       .userBtn
         = link_to 'ログアウト', root_path, class: "logout-Btn"
+  .important-message
+    ※初めての方は必ず「お届け先情報」・「クレジットカード」を登録してください
   %ul.menu-list
     %li.menu-list__shopping
       = link_to '買い物ページへ', root_path, class:'user-btn'
@@ -20,11 +24,11 @@
     %li.menu-list__trade
       = link_to '出品する', root_path, class:'user-btn'
     %li.menu-list__profile
-      = link_to 'プロフィール登録', done_users_path, class:'user-btn'
-      = link_to 'プロフィール編集', edit_user_path, class:'user-btn'
+      = link_to 'お届け先情報・登録', new_address_path, class:'user-btn'
+      = link_to 'お届け先情報・編集', edit_address_path, class:'user-btn'
     %li.menu-list__credit
       = link_to 'クレジット登録', new_credit_card_path, class:'user-btn'
-      = link_to 'クレジット削除', credit_card_path, class:'user-btn'
+      = link_to 'クレジット詳細', credit_card_path, class:'user-btn'
 
 .contents-box
   .user-trade-contents
@@ -35,23 +39,26 @@
           【購入履歴】
           //購入履歴がありません、仮の履歴を記載
           .shopping-list
-            筆　購入日：2020/09/01　相手ユーザー：佐藤　値段：1000円　支払い方法：口座振り込み
-          .shopping-list
-            靴　2020/08/01
-          .shopping-list
-            服　2020/07/01
-          .shopping-list
-            服　2020/07/01
-          .shopping-list
-            服　2020/07/01
-          .shopping-list
-            服　2020/07/01
-          .shopping-list
-            服　2020/07/01
-          .shopping-list
-            服　2020/07/01
-          .shopping-list
-            服　2020/07/01
+            .itemName
+              商品名
+              %br/
+              筆
+            .item-shopping-date
+              購入日
+              %br/
+              2020/09/01
+            .item-shopping-seller
+              相手ユーザー
+              %br/
+              佐藤
+            .item-shopping-price
+              値段
+              %br/
+              1000円
+            .iotem-shopping-payment
+              支払い方法
+              %br/
+              口座振り込み
         %li.shopping-content
           【売却済一覧】
           //売却履歴がありません、仮の履歴を記載
@@ -59,60 +66,20 @@
             筆　売却日：2020/07/01　相手ユーザー：板橋　値段：1000円　受領方法：現金受け渡し
           .shopping-list
             靴　2020/06/01
-          .shopping-list
-            服　2020/05/01
     .userTrade 
       <<現在の取引状況>>
       %ul.tradeInfo
         %li.tradeInfo__trading 
           【出品中の商品】
           //現在、出品中の商品はありません。仮の履歴を記載
-          .tradeInfo-list
-            靴　2020/06/01
-          .tradeInfo-list
-            服　2020/05/01
-          .tradeInfo-list
-            靴　2020/06/01
-          .tradeInfo-list
-            服　2020/05/01
-          .tradeInfo-list
-            靴　2020/06/01
-          .tradeInfo-list
-            服　2020/05/01
-          .tradeInfo-list
-            靴　2020/06/01
-          .tradeInfo-list
-            服　2020/05/01
-          .tradeInfo-list
-            靴　2020/06/01
-          .tradeInfo-list
-            服　2020/05/01
-          .tradeInfo-list
-            靴　2020/06/01
-          .tradeInfo-list
-            服　2020/05/01
-          .tradeInfo-list
-            服　2020/05/01
-          .tradeInfo-list
-            靴　2020/06/01
-          .tradeInfo-list
-            服　2020/05/01
-          .tradeInfo-list
-            靴　2020/06/01
-          .tradeInfo-list
-            服　2020/05/01
+          //出品した商品のidを取得し、編集ページを遷移
           .tradeInfo-list
             靴　2020/06/01
           .tradeInfo-list
             服　2020/05/01
         %li.tradeInfo__want
-          【欲しいものリスト】
+          【欲しいもの一覧】
           //現在、欲しいものリストに商品はありません。仮の履歴を記載
           .tradeInfo-list
             靴　2020/06/01
-          .tradeInfo-list
-            服　2020/05/01
-          .tradeInfo-list
-            服　2020/05/01
-.footer
-
+          

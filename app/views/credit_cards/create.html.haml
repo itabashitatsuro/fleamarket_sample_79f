@@ -5,7 +5,4 @@
     %ul.create__frame__btns
       -# マイページに戻るパスを指定
       %li.my_page_link
-        = link_to "マイページに戻る", "/", class: "my_page_link__btn"
-      -# 登録クレジットカード詳細表示(showアクション)に行くパスを指定
-      %li.credit_cards_index_link
-        = link_to "登録カード一覧", "/", class: "credit_cards_index_link__btn"
+        = link_to "マイページに戻る", user_path, class: "my_page_link__btn"
