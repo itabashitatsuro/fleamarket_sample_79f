@@ -9,4 +9,9 @@ Rails.application.routes.draw do
       get 'new'
     end
   end
+  resources :items do
+    collection do
+      get 'purchase'
+    end
+  end
 end
