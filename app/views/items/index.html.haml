@@ -1,22 +1,6 @@
 //ヘッダービュー
-%header
-  .top-box
-    .top-box__logo
-      = link_to "/" do
-        = image_tag "material/logo/logo.png", class: "logo", :size =>'150x50'
-    .top-box__Form-box
-      = form_with model: @restaurant, class: "Form", local: true do |f|
-        = f.text_field 'キーワード', class: 'Form__inputText', placeholder: 'キーワードから探す'
-        = f.submit '探す', class: 'Form__submit'
-  .bottom-box
-    .bottom-box__category
-      カテゴリ
-    .bottom-box__brand
-      ブランド
-    .bottom-box__login
-      ログイン
-    .bottom-box__registration
-      登録
+= render "header-top"
+
 //メインフィールドビュー
 .main-field
   .view1
@@ -129,71 +113,13 @@
       ピックアップブランド
       %br
       %span{:style => "color: #3CCACE; font-size: 20px; font-weight: bold; "} アーカイブ
-  
-  .view7
-    .content
-      %h2.content__text1
-        %br/
-        誰でも簡単人生を変えるアプリ!
-      %p.content__text2
-        いますぐ無料ダウンロード↓↓↓
-      .content_btn
-        .content_btn__apple
-          = link_to "#", class: "content_btn__apple--icon" do
-            %br
-        .content_btn__google
-          = link_to "#" do
-            %img.googleplay-badge{:alt => "Google Play で手に入れよう", :src => "https://play.google.com/intl/us-en/badges/static/images/badges/ja_badge_web_generic.png"}/
+  //installビュー
+  = render "install"
 
       
 
 //フッタービュー
-%footer.footer_top
-  .contents-box
-    .contents-bo__about
-      %h2.title
-        FURIMAについて
-      %ul.texts
-        %li.text
-          会社概要（運営会社）
-        %li.text
-          プライバシーポリシー
-        %li.text
-          FURIMA利用規約
-        %li.text
-          ポイントに関する特約
-    .contents-box__watch
-      %h2.title
-        FURIMAを見る
-      %ul.texts
-        %li.text
-          カテゴリ一覧
-        %li.text
-          ブランド一覧
-        %li.text
-          %br
-        %li.text
-          %br
-    .contents-box__help
-      %h2.title
-        ヘルプ&ガイド
-      %ul.texts
-        %li.text
-          FURIMAガイド
-        %li.text
-          FURIMAロゴ利用ガイドライン
-        %li.text
-          お知らせ
-        %li.text
-          %br
-  .logo-box
-    .logo-box__logo
-      = image_tag "material/logo/logo-white.png", class: "logo-white", :size =>'150x50'
-
+= render "footer-top"
 //独立ボタン>>出品機能
-= link_to "#" do
-  .purchase-btn
-    %span.purchase-btn__text 出品する
-    = image_tag "material/icon/icon_camera.png", class: "purchase-btn__icon"
-    
+= render "purchase-btn"
 

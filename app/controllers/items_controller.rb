@@ -5,4 +5,7 @@ class ItemsController < ApplicationController
   end
   def new
   end
+
+  def test
+  end
 end

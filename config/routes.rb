@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   
   resources :items, only: [:index, :new] do
     collection do
-      get 'login'
-      get 'new'
+      get 'test'
     end
   end
   resources :items do
