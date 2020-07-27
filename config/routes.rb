@@ -1,16 +1,24 @@
 Rails.application.routes.draw do
-  # デプロイ作業に必要なルーティング
-  root "items#index"
+  root "posts#index"
   resources :posts, only: [:index]
-  resources :items do
+  resources :addresses, only: [:new, :create, :edit, :update, :destory]
+  resources :credit_cards, only: [:new, :create, :destroy, :show]
+  resources :users, only: [:new, :create, :edit, :update, :show]
+    resources :users do
+      collection do
+        get 'login'
+      end
+    end
+  
+  resources :items, only: [:index, :new] do
     collection do
       get 'test'
     end
   end
-  resources :users do
+  resources :items do
     collection do
-      get 'login'
-      get 'new'
+      get 'purchase'
     end
   end
 end
+
