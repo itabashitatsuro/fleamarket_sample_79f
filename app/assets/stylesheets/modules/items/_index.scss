@@ -1,44 +1,44 @@
 //ヘッダー部分
-.header-top {
-  .top-box {
-    display: flex;
-    justify-content:center;
-    align-items: center;
+.top-box {
+  display: flex;
+  justify-content:center;
+  align-items: center;
 
-    margin-top: 15px;
-    margin-left: 30px;
-    margin-right: 30px;
-    &__logo {
-      margin-right: 40px;
-    }
-    &__Form-box{
-      
-
-    }
+  margin-top: 15px;
+  margin-left: 30px;
+  margin-right: 30px;
+  &__logo {
+    margin-right: 40px;
   }
-  .Form {
-    &__inputText {
-    }
-  }
+  &__Form-box{
+    
 
-  .bottom-box {
-    display: flex;
-    justify-content: space-around;
-    &__category {
-      font-weight: bold;
-    }
-    &__brand {
-      font-weight: bold;
-    }
-    &__login {
-      font-weight: bold;
-    }
-    &__registration {
-      
-    }
+  }
+}
+.Form-top {
+ 
+  &__inputText {
+ 
   }
 }
 
+.bottom-box {
+  display: flex;
+  justify-content: space-around;
+  &__category {
+    font-weight: bold;
+  }
+  &__brand {
+    font-weight: bold;
+  }
+  &__login {
+    font-weight: bold;
+  }
+  &__registration {
+    
+  }
+
+}
 
 //メイン部分
 .main-field {
@@ -277,7 +277,7 @@
   }
 }
 
-.view7 {
+.install_view {
   background-image: url("material/pict/bg-appBanner-pict.jpg");
   background-position: bottom right;
   height: 400px;

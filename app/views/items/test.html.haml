@@ -4,7 +4,111 @@
 .main
   .content
     .item-box
+      %h2.item-box__name
+        テスト
+      .item-box__image
+        .item-box__image--main
+          = image_tag "material/pict/pict-reason-03.jpg", :width =>'560px', :height =>'345px'
+        .item-box__image--sub
+          = image_tag "material/pict/pict-reason-03.jpg", :width =>'75px', :height =>'75px'
+          = image_tag "material/pict/pict-reason-03.jpg", :width =>'75px', :height =>'75px'
+      .item-box__price
+        .item-box__price--value ¥1000
+        .item-box__price--detail (税込)送料込み  
+      .item-box__intro
+        ああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+      :css
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+          overflow:hidden;padding:15px 16px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+          font-weight:normal;overflow:hidden;padding:15px 16px;word-break:normal;}
+        .tg .tg-c3ow{ border-color:inherit; text-align:center; vertical-align:top; background: #eee;}
+        .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;width:80%;}
+      %table.tg
+        %thead
+          %tr
+            %th.tg-c3ow 出品者
+            %th.tg-0pky 
+        %tbody
+          %tr
+            %td.tg-c3ow カテゴリ
+            %td.tg-0pky
+          %tr
+            %td.tg-c3ow ブランド
+            %td.tg-0pky
+          %tr
+            %td.tg-c3ow 商品のサイズ
+            %td.tg-0pky
+          %tr
+            %td.tg-c3ow 商品の状態
+            %td.tg-0pky
+          %tr
+            %td.tg-c3ow 配送料の負担
+            %td.tg-0pky
+          %tr
+            %td.tg-c3ow 発送元の地域
+            %td.tg-0pky
+          %tr
+            %td.tg-c3ow 発送日の目安
+            %td.tg-0pky
+      .btn-area
+        .favorite-btn
+          = link_to "#" do
+            %i.fa.fa-star 
+              お気に入り 
+        .report-btn
+          = link_to "#" do
+            %i.fa.fa-flag
+              不適切な商品の通報
+
     .comment-box
+      %form.comment{"accept-charset" => "UTF-8", :action => "#", :method => "post"}
+        %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+        %input{:name => "authenticity_token", :type => "hidden", :value => "yfu3KHgBH/2I760zpNmLrgGxg7PMpjtZ+dAJ/A/raQIf2oxWPlNIS6TP9lGSxWfBJskXsS5VXdjGUdSLD5K8gA=="}/
+        %textarea.comment_text{:name => "comment[body]", :required => "required"}
+        %p.notice
+          相手のことを考え丁寧なコメントを心がけましょう。
+          %br/
+          不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %br/
+        %button.comment_btn{:name => "button", :type => "submit"}
+          %i.fa.fa-comment
+          コメントする
+
+    %ul.pages
+      %li
+        = link_to "#", class:"page" do
+          %i.fa.fa-angle-left
+          %span
+            前の商品
+      %li
+        = link_to "#", class:"page" do
+          %span
+            後ろの商品
+          %i.fa.fa-angle-right
+    //関連商品
+    .relation_items
+      .title
+        = link_to "#" , class: "color" do
+          hogeをもっと見る 
+      .item_lists
+        .item_box
+          = link_to "#" , class: "link" do
+            = image_tag "material/pict/pict-reason-03.jpg", :width =>'100%', :height =>'70%'
+            .item_box__body
+              %h3.name ee
+              .details
+                %ul.details__text
+                  %li 1000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    0
+                %p.a (税込)
+    //インストールビュー
+= render "install"
+
+
 
 //フッタービュー
 = render "footer-top"

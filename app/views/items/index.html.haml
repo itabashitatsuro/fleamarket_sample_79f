@@ -113,21 +113,8 @@
       ピックアップブランド
       %br
       %span{:style => "color: #3CCACE; font-size: 20px; font-weight: bold; "} アーカイブ
-  
-  .view7
-    .content
-      %h2.content__text1
-        %br/
-        誰でも簡単人生を変えるアプリ!
-      %p.content__text2
-        いますぐ無料ダウンロード↓↓↓
-      .content_btn
-        .content_btn__apple
-          = link_to "#", class: "content_btn__apple--icon" do
-            %br
-        .content_btn__google
-          = link_to "#" do
-            %img.googleplay-badge{:alt => "Google Play で手に入れよう", :src => "https://play.google.com/intl/us-en/badges/static/images/badges/ja_badge_web_generic.png"}/
+  //installビュー
+  = render "install"
 
       
 
