@@ -5,4 +5,4 @@
     %ul.create__frame__btns
       -# マイページに戻るパスを指定
       %li.my_page_link
-        = link_to "マイページに戻る", user_path, class: "my_page_link__btn"
+        = link_to "マイページに戻る", user_path(current_user.id), class: "my_page_link__btn"
