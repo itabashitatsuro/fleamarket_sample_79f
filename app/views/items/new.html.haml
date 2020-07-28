@@ -52,7 +52,7 @@
               .contents__input-list__form__details__status__box__case
                 %p.contents__input-list__form__details__status__box__case--letter 必須
             .contents__input-list__form__details__status--text
-              %i.fas.fa-chevron-down.contents__input-list__form__details__status--text--angle
+              = form.collection_select :status_id, Status.all, :id, :name
         .contents__input-list__form__delivery
           .contents__input-list__form__delivery__title
             %p.contents__input-list__form__delivery__title--letter 配送について
