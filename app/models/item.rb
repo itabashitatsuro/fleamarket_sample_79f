@@ -14,7 +14,6 @@ class Item < ApplicationRecord
   validates :name, length: {maximum: 10}, presence: true
   validates :price, presence: true
   validates :introduction, presence: true
-  validates :brand, presence: true
   validates :prefecture, presence: true
   validates :shopping_date, presence: true
   validates :delivery_fee, presence: true

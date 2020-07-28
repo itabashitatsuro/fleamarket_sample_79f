@@ -20,7 +20,7 @@
     }
   }
   &__input-list{
-    width: 46%;
+    width: 48%;
     height: 100%;
     background-color: #FFFFFF;
     margin-left: 26%;
@@ -91,9 +91,9 @@
           }
         }
         &__form--text{
-          width: 80%;
+          width: 90%;
           height: 60px;
-          margin-left: 80px;
+          margin-left: 40px;
           margin-top: 20px;
           padding: 20px;
           font-size: 17px;
@@ -115,9 +115,9 @@
           }
         }
         &__form--area{
-          width: 80%;
+          width: 90%;
           height: 225px;
-          margin-left: 80px;
+          margin-left: 40px;
           margin-top: 20px;
           padding: 20px;
           font-size: 17px;
@@ -148,9 +148,9 @@
         }
         &__category{
           border: 1px solid #999999;
-          width: 80%;
+          width: 90%;
           height: 60px;
-          margin-left: 80px;
+          margin-left: 40px;
           margin-bottom: 20px;
           border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
           position: relative;
@@ -179,13 +179,14 @@
             }
           }
           &--form{
-            width: 80%;
+            width: 90%;
             height: 60px;
-            margin-left: 80px;
+            margin-left: 40px;
             margin-top: 20px;
             padding: 20px;
             font-size: 17px;
             position: relative;
+            
           }
         }
         &__status{
@@ -206,9 +207,9 @@
           }
           &--text{
             border: 1px solid #999999;
-            width: 80%;
+            width: 90%;
             height: 60px;
-            margin-left: 80px;
+            margin-left: 40px;
             border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             position: relative;
             #status_id{
@@ -256,9 +257,9 @@
           }
           &--text{
             border: 1px solid #999999;
-            width: 80%;
+            width: 90%;
             height: 60px;
-            margin-left: 80px;
+            margin-left: 40px;
             border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             position: relative;
             #delivery_fee_id{
@@ -286,9 +287,9 @@
           }
           &--text{
             border: 1px solid #999999;
-            width: 80%;
+            width: 90%;
             height: 60px;
-            margin-left: 80px;
+            margin-left: 40px;
             border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             position: relative;
             #prefecture_id{
@@ -316,9 +317,9 @@
           }
           &--text{
             border: 1px solid #999999;
-            width: 80%;
+            width: 90%;
             height: 60px;
-            margin-left: 80px;
+            margin-left: 40px;
             border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             position: relative;
             #shopping_date_id{
@@ -369,14 +370,14 @@
             &__yen{
               display: block;
               font-size: 16px;
-              margin-left: 30%;
+              margin-left: 35%;
               margin-top: 17px;
             }
             &__text{
-              width: 320px;
+              width: 330px;
               height: 60px;
               &--cost{
-                width: 320px;
+                width: 330px;
                 height: 60px;
                 border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
                 padding-left: 10px;
@@ -396,7 +397,7 @@
             align-items: center;
             justify-content: space-between;
             padding-left: 47px;
-            padding-right: 90px;
+            padding-right: 70px;
             margin-top: 30px;
             &--tax{
               font-size: 18px;
@@ -414,7 +415,7 @@
             align-items: center;
             justify-content: space-between;
             padding-left: 47px;
-            padding-right: 90px;
+            padding-right: 70px;
             margin-top: 40px;
             &--tax{
               font-size: 18px;
@@ -455,7 +456,7 @@
           text-decoration: none;
           color: #0095ee;
           display: block;
-          margin-left: 48%;
+          margin-left: 47%;
           margin-top: 30px;
         }
       }
@@ -501,4 +502,125 @@
     margin-left: 41%;
     margin-top: 40px;
   }
+}
+
+
+
+
+#image-box-1 {
+  display: flex;
+  height: 230px;
+  width: 100%;
+  margin-right: 0px;
+  text-align: center;
+  i{
+    padding-top: 50px;
+    cursor: pointer;
+  }
+  .item-num-0#image-box__container  {
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+    width: 90%;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    text-align: center;
+    margin-left: 5%;
+  }
+  .item-num-1{
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+    width: 100%;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    text-align: center;
+  }
+  .item-num-2{
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+    width: 100%;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    text-align: center;
+  }
+  .item-num-3{
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+    width: 100%;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    text-align: center;
+  }
+  .item-num-4{
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+    width: 100%;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    text-align: center;
+
+  }
+  .item-num-5{
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+    width: 100%;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    text-align: center;
+  }  
+}
+
+.fas.fa-camera{
+  font-size: 25px;
+  margin-top: 20px;
+}
+//レビュー表示のCSS
+.item-image{
+  height: 186px;
+  width: 160px;
+  border: 1px solid #eee;
+  margin-right: 10px;
+  .item-image__content{
+    padding-top: 30px;
+  }
+  .item-image__operetion{
+    height: 40px;
+    .item-image__operetion--delete{
+      height: 40px;
+      color: #00b0ff;
+      cursor: pointer;
+      padding-top: 5px;
+      text-align: center;
+      border: 1px solid #eee	;
+      background-color: #EEEEEE;
+    }
+  }
+}
+
+
+#img-file{
+  display: none;
+}
+#item_images_attributes_1_item_image{
+  display: none;
+}
+#item_images_attributes_2_item_image{
+  display: none;
+}
+#item_images_attributes_3_item_image{
+  display: none;
+}
+#item_images_attributes_4_item_image{
+  display: none;
 }
