@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :posts, only: [:index]
   resources :items, only: [:index, :new]
-end
   resources :users do
     collection do
       get 'login'
