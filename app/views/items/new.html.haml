@@ -11,7 +11,7 @@
             %p.contents__input-list__form__images__box--letter 出品情報
             .contents__input-list__form__images__box__case
               %p.contents__input-list__form__images__box__case--letter 必須
-          %p.contents__input-list__form__images--notice 最大10枚までアップロードできます
+          %p.contents__input-list__form__images--notice 最大5枚までアップロードできます
           .contents__input-list__form__images__insert
             = link_to "#" do
               = icon('fa', 'camera', class: "contents__input-list__form__images__insert--camera")
@@ -63,7 +63,7 @@
               .contents__input-list__form__delivery__fee__box__case
                 %p.contents__input-list__form__delivery__fee__box__case--letter 必須
             .contents__input-list__form__delivery__fee--text
-              %i.fas.fa-chevron-down.contents__input-list__form__delivery__fee--text--angle
+              = form.collection_select :delivery_fee_id, DeliveryFee.all, :id, :name
           .contents__input-list__form__delivery__area
             .contents__input-list__form__delivery__area__box
               %p.contents__input-list__form__delivery__area__box--letter 発送元の地域
@@ -77,7 +77,7 @@
               .contents__input-list__form__delivery__days__box__case
                 %p.contents__input-list__form__delivery__days__box__case--letter 必須
             .contents__input-list__form__delivery__days--text
-              %i.fas.fa-chevron-down.contents__input-list__form__delivery__days--text--angle
+              = form.collection_select :shopping_date_id, ShoppingDate.all, :id, :name
         .contents__input-list__form__price
           .contents__input-list__form__price__title 
             %p.contents__input-list__form__price__title--letter 価格（¥300〜9,999,999）

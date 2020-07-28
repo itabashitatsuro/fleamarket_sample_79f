@@ -5,6 +5,8 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
+  belongs_to_active_hash :shopping_date
+  belongs_to_active_hash :delivery_fee
 
 
 
@@ -14,5 +16,6 @@ class Item < ApplicationRecord
   validates :brand, presence: true
   validates :prefecture, presence: true
   validates :shopping_date, presence: true
+  validates :delivery_fee, presence: true
 
 end
