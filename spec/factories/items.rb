@@ -19,5 +19,6 @@ FactoryBot.define do
         item.item_images << build(:item_image)
       end
     end
-
+    
+  end
 end
