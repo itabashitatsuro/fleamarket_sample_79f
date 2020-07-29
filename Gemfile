@@ -66,6 +66,7 @@ gem "haml-rails", ">= 1.0", '<= 2.0.1'
 gem "jquery-rails"
 gem "font-awesome-sass"
 gem 'carrierwave'
+gem 'fog-aws'
 # PAY.JPのgem
 gem 'payjp'
 # 環境変数を簡単に定義できるENVファイルを対応させるgem
