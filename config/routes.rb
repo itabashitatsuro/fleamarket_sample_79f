@@ -18,7 +18,6 @@ Rails.application.routes.draw do
       get 'login'
       get 'new'
       get 'purchase'
-      get 'buy'
       get 'pay'
     end
   end

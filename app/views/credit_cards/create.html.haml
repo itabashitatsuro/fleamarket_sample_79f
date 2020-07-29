@@ -3,6 +3,6 @@
     .create__frame__message
       登録が完了しました。
     %ul.create__frame__btns
-      -# マイページに戻るパスを指定
       %li.my_page_link
         = link_to "マイページに戻る", user_path(current_user.id), class: "my_page_link__btn"
+        = link_to "購入画面へ戻る", purchase_items_path(current_user.id), class: "my_page_link__btn"

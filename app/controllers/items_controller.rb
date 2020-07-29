@@ -1,26 +1,25 @@
 class ItemsController < ApplicationController
-  require "payjp"
+  
   
   def index
   end
-  
-  def purchase
-  end
 
-  def buy
-    @item = Item.find(params[:item_id])
-    @images = @item.images.all # 商品ごとの複数枚写真を取得
+  def new
+  end
+  
+  # 購入機能
+  require "payjp"
+
+  def purchase
+    @item = Item.find(item_params[:item_id])
+    @images = @item.images.all
     
-    if user_signed_in? # ログイン
+    if user_signed_in?
       @user = current_user
-      if @user.credit_card.present? # クレカが登録されているか確認
-        # API秘密鍵を呼び出し
-        Payjp.api_key = Rails.application.credentials.dig(:payjp, :sk_test_c806e554d011ef961a9f1ea5)
-        # ログインユーザーのクレカ情報を呼び出し
+      if @user.credit_card.present?
+        Payjp.api_key = Rails.application.credentials.dig(:payjp)
         @card = CreditCard.find_by(user_id: current_user.id)
-        # ログインユーザーのクレカ情報をもとにPay.jpに登録されているカスタマー情報を引き出す
         customer = Payjp::Customer.retrieve(@card.customer_id)
-        # カスタマー情報からカードの情報を引き出す
         @customer_card = customer.cards.retrieve(@card.card_id)
 
         @card_brand = @customer_card.brand
@@ -48,23 +47,20 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def pay
-    @item = Item.find(params[:item_id])
+    @item = Item.find(item_params[:item_id])
     @images = @item.images.all
 
-    # 購入テーブル登録ずみ商品は２重で購入されないようにする(２重で決済されることを防ぐ)
+    #２重で決済されることを防ぐ
     if @item.purchase.present?
       redirect_to item_path(@item.id), alert: "すでに購入済み"
     else
-      # 2人が同時に購入し、二重で購入処理がされることを防ぐ
       @item.with_lock do
         if current_user.credit_card.present?
-          # ログインユーザーがクレジットカード登録済みの場合の処理
-          # ログインユーザーのクレジットカード情報を引っ張る。
           @card = CreditCard.find_by(user_id: current_user.id)
-          Payjp.api_key = Rails.application.credentials.dig(:payjp, :sk_test_c806e554d011ef961a9f1ea5)
+          Payjp.api_key = Rails.application.credentials.dig(:payjp)
           charge = Payjp::Charge.create(
-          # 商品(item)の値段を引っ張ってきて決済金額(amount)に入れる
           amount: @item.price,
           customer: Payjp::Customer.retrieve(@card.customer_id),
           currency: 'jpy'
@@ -74,18 +70,17 @@ class ItemsController < ApplicationController
           # APIの「Checkout」ライブラリによる決済処理の記述
           Payjp::Charge.create(
           amount: @item.price,
-          card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+          card: params['payjp-token'],
           currency: 'jpy'
           )
         end
-      #購入テーブルに登録処理
-      @item = Item.create(customer_id: current_user.id, item_id: params[:item_id])
+      end
     end
   end
-  
-  def new
-  end
 
-  def test
+  private
+
+  def item_params
+    params.require(:item).permit(:user, :name, :price, :introduction, :status, :prefecture, :postage, :shipping_date, :delivery_fee, :area, :category, :item_image).merge(user_id: current_user.id)
   end
 end
