@@ -11,13 +11,13 @@ class Item < ApplicationRecord
 
 
 
-  validates :name, length: {maximum: 40}, presence: true
+  validates :name, presence: true, length: {maximum: 40}
   validates :price, presence: true
-  validates :introduction, presence: true
+  validates :introduction, presence: true, length: {maximum: 1000}
   validates :prefecture, presence: true
   validates :shopping_date, presence: true
   validates :delivery_fee, presence: true
   validates :status, presence: true
-  validates :images, presence: true, length: {manimum: 1, maximum: 10}
+  validates :image, presence: true, {manimum: 1, maximum: 10}
 
 end
