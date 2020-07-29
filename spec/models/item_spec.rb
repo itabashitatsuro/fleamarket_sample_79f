@@ -90,7 +90,5 @@ describe Item do
       expect(item.errors[:introduction]).to include("is too long (maximum is 1000 characters)")
     end
 
-
-
   end
 end

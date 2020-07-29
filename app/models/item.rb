@@ -18,6 +18,6 @@ class Item < ApplicationRecord
   validates :shopping_date, presence: true
   validates :delivery_fee, presence: true
   validates :status, presence: true
-  validates :image, presence: true, {manimum: 1, maximum: 10}
+  validates :image, presence: true, length: {manimum: 1, maximum: 10}
 
 end
