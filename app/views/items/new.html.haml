@@ -41,9 +41,8 @@
               %p.contents__input-list__form__details__box__case--letter 必須
           
           .contents__input-list__form__details__category
-            = form.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
-          -# .contents__input-list__form__details__category
-          -#   %i.fas.fa-chevron-down.contents__input-list__form__details__category--angle
+            = form.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+
         
           .contents__input-list__form__details__brand
             .contents__input-list__form__details__brand__box

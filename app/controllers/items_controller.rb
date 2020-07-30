@@ -7,26 +7,21 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
 
-    #セレクトボックスの初期値設定
     @category_parent_array = ["---"]
     #データベースから、親カテゴリーのみ抽出し、配列化
-    @category_parent_array = Category.where(ancestry: nil)
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
 
   end
 
-  # 親カテゴリーが選択された後に動くアクション
   def get_category_children
-    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
-    # ここでfind_byを使うことでレディーしか取れてなかった
-    @category_children = Category.find(params[:parent_id]).children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
 
-  # 子カテゴリーが選択された後に動くアクション
   def get_category_grandchildren
-    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-    @category_grandchildren = Category.find(params[:child_id]).children
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-
 
   def create
     @item = Item.new(item_params)
@@ -65,7 +60,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :prefecture_id, :shopping_date_id , :delivery_fee_id, :status_id, :introduction, :brand, images_attributes: [:item_image, :_destroy, :id])
+    params.require(:item).permit(:name, :price, :prefecture_id, :shopping_date_id ,:category_id, :delivery_fee_id, :status_id, :introduction, :brand, images_attributes: [:item_image, :_destroy, :id])
   end
   
 end
