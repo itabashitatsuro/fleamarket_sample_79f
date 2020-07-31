@@ -4,4 +4,6 @@ class Item < ApplicationRecord
   has_many: item_images,dependent：：destroy
   has_many: comments、dependent：：destroy
   has_many: favorites
+
+  belongs_to_active_hash :
 end
