@@ -78,6 +78,5 @@ group :production do
 end
 
 gem 'active_hash'
-gem 'carrierwave'
 gem 'mini_magick'
 gem 'ancestry'
