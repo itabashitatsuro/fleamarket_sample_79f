@@ -28,6 +28,7 @@
             .contents__input-list__form__introduction__box__case
               %p.contents__input-list__form__introduction__box__case--letter 必須
           = form.text_area :name, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）", class: "contents__input-list__form__introduction__form--area"
+        
         .contents__input-list__form__details
           %p.contents__input-list__form__details--title 商品の詳細
           .contents__input-list__form__details__box
@@ -35,11 +36,13 @@
             .contents__input-list__form__details__box__case
               %p.contents__input-list__form__details__box__case--letter 必須
           .contents__input-list__form__details__category
-            %i.fas.fa-chevron-down.contents__input-list__form__details__category--angle
-          .contents__input-list__form__details__category
-            %i.fas.fa-chevron-down.contents__input-list__form__details__category--angle
-          .contents__input-list__form__details__category
-            %i.fas.fa-chevron-down.contents__input-list__form__details__category--angle
+            
+          -# .contents__input-list__form__details__category
+          -#   %i.fas.fa-chevron-down.contents__input-list__form__details__category--angle
+          -# .contents__input-list__form__details__category
+          -#   %i.fas.fa-chevron-down.contents__input-list__form__details__category--angle
+          
+          
           .contents__input-list__form__details__brand
             .contents__input-list__form__details__brand__box
               %p.contents__input-list__form__details__brand__box--letter ブランド
