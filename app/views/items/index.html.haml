@@ -19,7 +19,7 @@
         .content_btn__google
           = link_to "#" do
             %img.googleplay-badge{:alt => "Google Play で手に入れよう", :src => "https://play.google.com/intl/us-en/badges/static/images/badges/ja_badge_web_generic.png"}/
- 
+
   .view2
     %h2.subtitle
       FURIMAが選ばれる3つの理由
@@ -107,6 +107,16 @@
       ピックアップカテゴリ
       %br
       %span{:style => "color: #3CCACE; font-size: 20px; font-weight: bold; "} 新規投稿商品
+      - @items.each do |item|
+        %tr
+        %td= item.name
+        -# #image-box
+        -#   = f.fields_for :images do |image|
+        -#     .js-file_group{"data-index" => "#{image.index}"}
+        -#     = image.file_field :item_image, class: 'js-file'
+        -#     %br/
+        -#     %span.js-remove 削除
+
   
   .view6
     %h2.subtitle
