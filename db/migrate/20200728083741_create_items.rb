@@ -12,7 +12,8 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :shopping_date_id, null: false #発送までの日数
       t.integer :delivery_fee_id, null: false #配送料の負担
       t.string :area, null: false
-      t.integer :buyer_id  
+      t.integer :buyer_id
+
       t.timestamps
     end
   end
