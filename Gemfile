@@ -77,3 +77,6 @@ gem 'dotenv-rails'
 group :production do
   gem 'unicorn'
 end
+
+# カテゴリ
+gem 'ancestry'

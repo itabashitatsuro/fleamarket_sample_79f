@@ -1,8 +1,11 @@
 class ItemsController < ApplicationController
+
+
   
   
   def index
     @items = Item.includes(:user).order("created_at DESC").limit(4)
+    @parents = Category.where(ancestry: nil)
   end
 
   def new
