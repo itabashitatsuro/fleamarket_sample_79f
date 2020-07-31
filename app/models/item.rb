@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   # has_many: favorites
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :shopping_date
+  belongs_to_active_hash :ShippingDate
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :delivery_fee
 
@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   has_many :images, dependent: :destroy
   
-  belongs_to :category
+  # belongs_to :category
 
 
   # validates :name, presence: true, length: {maximum: 40}
