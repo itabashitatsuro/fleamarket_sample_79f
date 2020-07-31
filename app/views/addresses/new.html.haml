@@ -5,36 +5,22 @@
     .new-mypageInfo-message
       お客様の本人情報をご登録ください。
   .Form-profile
-    = form_with model: @user, metohod: :post, local: :true do |f|
-      .label
-        = label :nickname, 'お名前(漢字)'
-        %span.require
-          ※必須
-      = f.text_field :nickname, placeholder: "例)山田", class: 'input-form'
-      = f.text_field :nickname, placeholder: "例)太郎", class: 'input-form'
-      
-      .label
-        = label :nickname, 'お名前(カナ)'
-        %span.require
-          ※必須
-      = f.text_field :nickname, placeholder: "例)ヤマダ", class: 'input-form'
-      = f.text_field :nickname, placeholder: "例)タロウ", class: 'input-form'
-      
-      .label
-        = label :adress, 'お届け先住所'
-        %span.require
-          ※必須
-      = f.text_field :adress, placeholder: "郵便番号　例)123-4567", class: 'input-form'
-      = f.text_field :adress, placeholder: "都道府県　例)東京都", class: 'input-form'
-      = f.text_field :adress, placeholder: "市区町村　例)新宿区", class: 'input-form'
-      = f.text_field :adress, placeholder: "番地　例)新宿2-19-12", class: 'input-form'
-      = f.text_field :adress, placeholder: "建物・号　例)静銀ビル5F", class: 'input-form'
+    = form_with(model: @address, local: true) do |f|
 
       .label
-        = label :contact, '連絡先'
+        = label :addressDetail, 'お届け先住所'
+        %span.require
+          ※必須
+      = f.text_field :postal_code, placeholder: "郵便番号　例)123-4567", class: 'input-form'
+      = f.text_field :prefecture, placeholder: "都道府県　例)東京都", class: 'input-form'
+      = f.text_field :city, placeholder: "市区町村　例)新宿区", class: 'input-form'
+      = f.text_field :house_number, placeholder: "番地　例)新宿2-19-12", class: 'input-form'
+      = f.text_field :apartment, placeholder: "建物・号　例)静銀ビル5F", class: 'input-form'
+
+      .label
+        = label :contactTel, '連絡先'
         %span.require
           ※必須
       = f.text_field :contact, placeholder: "電話番号　例)09011112222", class: 'input-form'
-      = f.text_field :contact, placeholder: "メールアドレス　例)///@///", class: 'input-form'
     
       = f.submit '登録完了', class: 'submit-btn submit-btn-red'
