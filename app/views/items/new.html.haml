@@ -82,6 +82,7 @@
           .contents__input-list__form__price__title 
             %p.contents__input-list__form__price__title--letter 価格（¥300〜9,999,999）
             =icon('far', 'question-circle', class: "contents__input-list__form__delivery__title--circle")
+          
           .contents__input-list__form__price__sale
             .contents__input-list__form__price__sale__box
               %p.contents__input-list__form__price__sale__box--letter 販売価格
@@ -89,7 +90,7 @@
                 %p.contents__input-list__form__price__sale__box__case--letter 必須
               %span.contents__input-list__form__price__sale__box__yen ¥
               .contents__input-list__form__price__sale__box__text
-                = form.text_field :price, placeholder: "例）300", class: "contents__input-list__form__price__sale__box__text--cost"
+                = form.number_field :price, min:300, max:9999999, class: "contents__input-list__form__price__sale__box__text--cost", id: "price_calc", placeholder: "例）300", value: ""
             .contents__input-list__form__price__sale__memo 300以上9999999以下で入力してください
             .contents__input-list__form__price__sale__charge
               .contents__input-list__form__price__sale__charge--tax 販売手数料（10%）
@@ -98,6 +99,7 @@
             .contents__input-list__form__price__sale__profit
               .contents__input-list__form__price__sale__profit--tax 販売利益
               %span.contents__input-list__form__price__saleb--line ー
+        
         .contents__input-list__form__post
           = form.submit "出品する", class: "contents__input-list__form__post--send"
           = form.button "下書きに保存", class: "contents__input-list__form__post--button"
