@@ -11,6 +11,7 @@ class Item < ApplicationRecord
 
 
   belongs_to :category
+  has_many :images
 
 
   validates :name, presence: true, length: {maximum: 40}
