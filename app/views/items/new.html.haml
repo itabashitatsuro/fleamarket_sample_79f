@@ -71,6 +71,8 @@
                 %p.contents__input-list__form__delivery__area__box__case--letter 必須
             .contents__input-list__form__delivery__area--text
               %i.fas.fa-chevron-down.contents__input-list__form__delivery__area--text--angle
+          
+          
           .contents__input-list__form__delivery__days
             .contents__input-list__form__delivery__days__box
               %p.contents__input-list__form__delivery__days__box--letter 発送までの日数
@@ -78,11 +80,12 @@
                 %p.contents__input-list__form__delivery__days__box__case--letter 必須
             .contents__input-list__form__delivery__days--text
               %i.fas.fa-chevron-down.contents__input-list__form__delivery__days--text--angle
+        
+        
         .contents__input-list__form__price
           .contents__input-list__form__price__title 
             %p.contents__input-list__form__price__title--letter 価格（¥300〜9,999,999）
             =icon('far', 'question-circle', class: "contents__input-list__form__delivery__title--circle")
-          
           .contents__input-list__form__price__sale
             .contents__input-list__form__price__sale__box
               %p.contents__input-list__form__price__sale__box--letter 販売価格
@@ -100,6 +103,7 @@
               .contents__input-list__form__price__sale__profit--tax 販売利益
               %span.contents__input-list__form__price__saleb--line{ id: 'sell-main__profit' } ー
         
+
         .contents__input-list__form__post
           = form.submit "出品する", class: "contents__input-list__form__post--send"
           = form.button "下書きに保存", class: "contents__input-list__form__post--button"
