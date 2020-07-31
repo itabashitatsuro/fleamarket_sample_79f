@@ -79,7 +79,7 @@
               .contents__input-list__form__delivery__days__box__case
                 %p.contents__input-list__form__delivery__days__box__case--letter 必須
             .contents__input-list__form__delivery__days--text
-              %i.fas.fa-chevron-down.contents__input-list__form__delivery__days--text--angle
+              = form.collection_select :shopping_date_id, ShoppingDate.all, :id, :name
         
         
         .contents__input-list__form__price
