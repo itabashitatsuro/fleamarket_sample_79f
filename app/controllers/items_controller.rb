@@ -2,9 +2,21 @@ class ItemsController < ApplicationController
   
   
   def index
+    @items = Item.includes(:user).order("created_at DESC").limit(4)
   end
 
   def new
+    @item = Item.new
+    @item.item_images.build
+  end
+
+  def create
+    @item = Item.create(item_params)
+    if @item.save
+      redirect_to item_path(@item)
+    else
+      render :new
+    end
   end
   
   # 購入機能
@@ -12,7 +24,7 @@ class ItemsController < ApplicationController
 
   def purchase
     @item = Item.find(item_params[:item_id])
-    @images = @item.images.all
+    @images = @item.item_images.all
     
     if user_signed_in?
       @user = current_user
@@ -47,7 +59,6 @@ class ItemsController < ApplicationController
     end
   end
 
-
   def pay
     @item = Item.find(item_params[:item_id])
     @images = @item.images.all
@@ -81,6 +92,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:user, :name, :price, :introduction, :status, :prefecture, :postage, :shipping_date, :delivery_fee, :area, :category, :item_image).merge(user_id: current_user.id)
+    params.require(:item).permit(:user_id, :name, :price, :introduction, :status, :prefecture, :postage, :shipping_date, :delivery_fee, :area, :category, :item_image).merge(user_id: current_user.id)
   end
 end
