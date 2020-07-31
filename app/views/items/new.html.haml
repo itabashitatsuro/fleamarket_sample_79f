@@ -49,6 +49,8 @@
               .contents__input-list__form__details__brand__box__case
                 %p.contents__input-list__form__details__brand__box__case--letter 任意
             = form.text_field :name, placeholder: "例：シャネル", class: "contents__input-list__form__details__brand--form"
+          
+          
           .contents__input-list__form__details__status
             .contents__input-list__form__details__status__box
               %p.contents__input-list__form__details__status__box--letter 商品の状態
@@ -56,17 +58,21 @@
                 %p.contents__input-list__form__details__status__box__case--letter 必須
             .contents__input-list__form__details__status--text
               %i.fas.fa-chevron-down.contents__input-list__form__details__status--text--angle
+        
+        
+        
         .contents__input-list__form__delivery
           .contents__input-list__form__delivery__title
             %p.contents__input-list__form__delivery__title--letter 配送について
             =icon('far', 'question-circle', class: "contents__input-list__form__delivery__title--circle")
+          
           .contents__input-list__form__delivery__fee
             .contents__input-list__form__delivery__fee__box
               %p.contents__input-list__form__delivery__fee__box--letter 配送料の負担
               .contents__input-list__form__delivery__fee__box__case
                 %p.contents__input-list__form__delivery__fee__box__case--letter 必須
             .contents__input-list__form__delivery__fee--text
-              %i.fas.fa-chevron-down.contents__input-list__form__delivery__fee--text--angle
+              = form.collection_select :delivery_fee_id, DeliveryFee.all, :id, :name
           
           
           .contents__input-list__form__delivery__area
