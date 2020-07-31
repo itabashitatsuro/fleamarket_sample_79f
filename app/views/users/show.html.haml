@@ -1,11 +1,11 @@
 .header
   .main-header
     .mypage-logo
-      = image_tag("/assets/logo.png", alt: "image", class: "mypage-logo", :size => '300x100')
+      = image_tag("material/logo/logo.png", alt: "image", class: "mypage-logo", :size => '300x100')
     .userInfo
       .userImage
         %label{class: "userImage-label"}
-          = fa_icon 'user', class: "userImage-label__icon"
+          = icon('fal', 'user', class: "userImage-label__icon")
           %input{type: "file", class: "userImage-file"}
       .userName
         ユーザーネーム
