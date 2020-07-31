@@ -5,7 +5,7 @@
     .contents__input-list
       .contents__input-list__title
         %p.contents__input-list__title--letter 商品の情報を入力
-      = form_with(model: @item, url: root_path, local: true, class: "contents__input-list__form") do |form|
+      = form_with(model: @item, url: items_path, local: true, class: "contents__input-list__form") do |form|
         .contents__input-list__form__images
           .contents__input-list__form__images__box
             %p.contents__input-list__form__images__box--letter 出品情報
