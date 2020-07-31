@@ -5,5 +5,7 @@ class Item < ApplicationRecord
   has_many: comments、dependent：：destroy
   has_many: favorites
 
-  belongs_to_active_hash :
+  belongs_to_active_hash :shopping_date
+
+  
 end
