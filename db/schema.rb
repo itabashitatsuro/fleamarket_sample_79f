@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 2020_07_31_030321) do
     t.integer "item_images_id"
     t.integer "price", null: false
     t.text "introduction"
-    t.integer "status", null: false
-    t.string "prefecture", null: false
+    t.integer "status_id", null: false
+    t.string "prefecture_id", null: false
     t.string "postage", null: false
-    t.integer "shipping_date", null: false
-    t.integer "delivery_fee", null: false
+    t.integer "shopping_date_id", null: false
+    t.integer "delivery_fee_id", null: false
     t.string "area", null: false
     t.integer "buyer_id"
     t.datetime "created_at", precision: 6, null: false
