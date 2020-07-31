@@ -76,3 +76,8 @@ gem 'dotenv-rails'
 group :production do
   gem 'unicorn'
 end
+
+gem 'active_hash'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'ancestry'
