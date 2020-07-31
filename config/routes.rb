@@ -9,13 +9,9 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :items, only: [:index, :new] do
-    collection do
-      get 'test'
-    end
-  end
   resources :items do
     collection do
+      get 'test'
       get 'login'
       get 'new'
       get 'purchase'
