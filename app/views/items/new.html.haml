@@ -67,13 +67,16 @@
                 %p.contents__input-list__form__delivery__fee__box__case--letter 必須
             .contents__input-list__form__delivery__fee--text
               %i.fas.fa-chevron-down.contents__input-list__form__delivery__fee--text--angle
+          
+          
           .contents__input-list__form__delivery__area
             .contents__input-list__form__delivery__area__box
               %p.contents__input-list__form__delivery__area__box--letter 発送元の地域
               .contents__input-list__form__delivery__area__box__case
                 %p.contents__input-list__form__delivery__area__box__case--letter 必須
             .contents__input-list__form__delivery__area--text
-              %i.fas.fa-chevron-down.contents__input-list__form__delivery__area--text--angle
+              = form.collection_select :prefecture_id, Prefecture.all, :id, :name
+
           
           
           .contents__input-list__form__delivery__days
