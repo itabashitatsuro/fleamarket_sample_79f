@@ -6,6 +6,7 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :shopping_date
+  belongs_to_active_hash :prefecture
 
   belongs_to :category
   
