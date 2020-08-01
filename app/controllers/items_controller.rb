@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  
+  before_action :set_tweet, only: [:edit, :update, :update, :destroy]
 
   def index
     @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
@@ -41,11 +41,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -54,7 +52,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
     @item.destroy
     redirect_to root_path
   end
@@ -69,6 +66,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :price, :prefecture_id, :shipping_date_id , :category_id, :delivery_fee_id, :status_id, :introduction, :brand, images_attributes: [:item_image, :_destroy, :id])
+  end
+
+  def set_product
+    @item = Item.find(params[:id])
   end
   
 end
