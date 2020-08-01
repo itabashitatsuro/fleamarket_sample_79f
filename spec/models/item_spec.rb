@@ -64,6 +64,13 @@ describe Item do
       expect(item.errors[:image]).to include("can't be blank")
     end
 
+    # categoryが空では登録できないこと
+    it "is invalid without a category" do
+      item = build(:item, image: "")
+      item.valid?
+      expect(item.errors[:image]).to include("can't be blank")
+    end
+
     # nameが40文字以下では登録できること
     it "is valid with a name that has less than 40 characters " do
       item = build(:item, name: "a" * 39)
