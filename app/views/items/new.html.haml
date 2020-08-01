@@ -41,14 +41,10 @@
             %p.contents__input-list__form__details__box--letter カテゴリー
             .contents__input-list__form__details__box__case
               %p.contents__input-list__form__details__box__case--letter 必須
-          .contents__input-list__form__details__category
-          
           .exhibitionPage
             .exhibitionPage__main
               .exhibitionPage__main__contents
                 .exhibitionPage__main__contents__detail
-                  .exhibitionPage__main__contents__detail__title
-                    %h1 商品の詳細
                   .exhibitionPage__main__contents__detail__category
                     .exhibitionPage__main__contents__detail__category__choose
                       = form.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
