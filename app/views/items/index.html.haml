@@ -106,20 +106,57 @@
     %h2.subtitle
       ピックアップカテゴリ
       %br
-      %span{:style => "color: #3CCACE; font-size: 20px; font-weight: bold; "} 新規投稿商品
-  
+      %span{:style => "color: #3CCACE; font-size: 20px; font-weight: bold; "} 新着アイテム
+      // 新着アイテム一覧表示
+      %section.pick-up-area
+        .pick-up-area__items-box
+          .pickItemImages
+            - @items.first(5).each do |item|
+              - if item.buyer_id.present?
+                %figure.pick-up-itemImage
+                  = image_tag @item.item_images
+                .soldItem
+                  SOLD OUT
+              - else
+                %figure.pick-up-itemImage
+                  = image_tag @item.item_images
+                  = link_to(item_path(item.id), method: :get, class: "itemBtn") do
+                    .item-memo
+                      .pick-up-itemName
+                        = "#{item.name}"
+                      .pick-up-itemPrice
+                        %ul.itemDetails
+                          %li.itemPrice
+                            = "#{item.price}円"
+                          %li.taxInclude
+                            (税込み)
+
   .view6
     %h2.subtitle
-      ピックアップブランド
+      ブランドをお探しの方
       %br
-      %span{:style => "color: #3CCACE; font-size: 20px; font-weight: bold; "} アーカイブ
+      %span{:style => "color: #3CCACE; font-size: 20px; font-weight: bold; "} 人気のカテゴリから探す
+      //ブランド一覧表示
+      %section.pick-up-area
+        .pick-up-area__items-box
+          .pickItemImages
+            %ul.pick-up-Brand
+              %li.categoryBrand
+                = image_tag("/assets/lady.jpg", alt: "レディース", :size => '150x185')
+                = link_to "レディース", "#", class: "brandBtn"
+              %li.categoryBrand
+                = image_tag("/assets/man.jpg", alt: "メンズ", :size => '150x185')
+                = link_to "メンズ", "#", class: "brandBtn"
+              %li.categoryBrand
+                = image_tag("/assets/home-elc.jpg", alt: "家電", :size => '150x185')
+                = link_to  "家電", "#", class: "brandBtn"
+            .otherBrand
+              = link_to "その他/ブランド一覧へ", "#", class: "otherBrandBtn"
+          
   //installビュー
   = render "install"
-
-      
 
 //フッタービュー
 = render "footer-top"
 //独立ボタン>>出品機能
 = render "purchase-btn"
-

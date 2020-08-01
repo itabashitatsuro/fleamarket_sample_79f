@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
   resources :items do
     collection do
+      get 'test'
       get 'login'
       get 'new'
       get 'purchase'

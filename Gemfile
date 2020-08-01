@@ -67,6 +67,7 @@ gem "jquery-rails"
 gem "font-awesome-sass"
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'pry-rails'
 # PAY.JPのgem
 gem 'payjp'
 # 環境変数を簡単に定義できるENVファイルを対応させるgem
@@ -79,4 +80,5 @@ end
 
 gem 'active_hash'
 gem 'mini_magick'
+# カテゴリ
 gem 'ancestry'
