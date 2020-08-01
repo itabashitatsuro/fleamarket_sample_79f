@@ -56,13 +56,6 @@
                     .exhibitionPage__main__contents__detail__category__choose
                       = form.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
           
-
-          -# .contents__input-list__form__details__category
-          -#   %i.fas.fa-chevron-down.contents__input-list__form__details__category--angle
-          -# .contents__input-list__form__details__category
-          -#   %i.fas.fa-chevron-down.contents__input-list__form__details__category--angle
-          
-          
           .contents__input-list__form__details__brand
             .contents__input-list__form__details__brand__box
               %p.contents__input-list__form__details__brand__box--letter ブランド
