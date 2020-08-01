@@ -205,18 +205,15 @@
             }
           }
           &--text{
-            border: 1px solid #999999;
             width: 80%;
             height: 60px;
             margin-left: 80px;
             border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             position: relative;
-            &--angle{
-              position: absolute;
-              font-size: 20px;
-              color: #CCCCCC;
-              right: 20px;
-              top: 20px;
+            #item_status_id{
+              width: 100%;
+              height: 60px;
+              border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             }
           }
         }
@@ -257,18 +254,14 @@
             }
           }
           &--text{
-            border: 1px solid #999999;
             width: 80%;
             height: 60px;
             margin-left: 80px;
-            border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             position: relative;
-            &--angle{
-              position: absolute;
-              font-size: 20px;
-              color: #CCCCCC;
-              right: 20px;
-              top: 20px;
+            #item_delivery_fee_id{
+              width: 100%;
+              height: 60px;
+              border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             }
           }
         }
@@ -289,18 +282,14 @@
             }
           }
           &--text{
-            border: 1px solid #999999;
             width: 80%;
             height: 60px;
             margin-left: 80px;
-            border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             position: relative;
-            &--angle{
-              position: absolute;
-              font-size: 20px;
-              color: #CCCCCC;
-              right: 20px;
-              top: 20px;
+            #item_prefecture_id{
+              width: 100%;
+              height: 60px;
+              border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             }
           }
         }
@@ -321,18 +310,14 @@
             }
           }
           &--text{
-            border: 1px solid #999999;
             width: 80%;
             height: 60px;
             margin-left: 80px;
-            border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             position: relative;
-            &--angle{
-              position: absolute;
-              font-size: 20px;
-              color: #CCCCCC;
-              right: 20px;
-              top: 20px;
+            #item_shipping_date_id{
+              width: 100%;
+              height: 60px;
+              border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             }
           }
         }
@@ -463,7 +448,7 @@
           text-decoration: none;
           color: #0095ee;
           display: block;
-          margin-left: 46%;
+          margin-left: 49%;
           margin-top: 30px;
         }
       }
@@ -657,3 +642,4 @@
 .fas.fa-chevron-down{
   display: none;
 }
+
