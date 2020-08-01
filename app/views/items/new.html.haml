@@ -21,7 +21,7 @@
                   %label{for: "img-file"}
                     %i.fas.fa-camera
         
-        
+
         .contents__input-list__form__product-name
           .contents__input-list__form__product-name__box
             %p.contents__input-list__form__product-name__box--letter 商品名
@@ -35,6 +35,7 @@
               %p.contents__input-list__form__introduction__box__case--letter 必須
           = form.text_area :name, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）", class: "contents__input-list__form__introduction__form--area"
         
+
         .contents__input-list__form__details
           %p.contents__input-list__form__details--title 商品の詳細
           .contents__input-list__form__details__box
@@ -49,6 +50,7 @@
                     .exhibitionPage__main__contents__detail__category__choose
                       = form.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
           
+
           .contents__input-list__form__details__brand
             .contents__input-list__form__details__brand__box
               %p.contents__input-list__form__details__brand__box--letter ブランド
@@ -64,15 +66,12 @@
                 %p.contents__input-list__form__details__status__box__case--letter 必須
             .contents__input-list__form__details__status--text
               = form.collection_select :status_id, Status.all, :id, :name
-
-        
         
         
         .contents__input-list__form__delivery
           .contents__input-list__form__delivery__title
             %p.contents__input-list__form__delivery__title--letter 配送について
             =icon('far', 'question-circle', class: "contents__input-list__form__delivery__title--circle")
-          
           .contents__input-list__form__delivery__fee
             .contents__input-list__form__delivery__fee__box
               %p.contents__input-list__form__delivery__fee__box--letter 配送料の負担
@@ -89,7 +88,6 @@
                 %p.contents__input-list__form__delivery__area__box__case--letter 必須
             .contents__input-list__form__delivery__area--text
               = form.collection_select :prefecture_id, Prefecture.all, :id, :name
-
           
           
           .contents__input-list__form__delivery__days

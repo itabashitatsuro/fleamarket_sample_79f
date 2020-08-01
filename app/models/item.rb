@@ -13,16 +13,18 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   has_many :images, dependent: :destroy
   
+
   belongs_to :category
 
 
-  # validates :name, presence: true, length: {maximum: 40}
-  # validates :price, presence: true
-  # validates :introduction, presence: true, length: {maximum: 1000}
-  # validates :prefecture, presence: true
-  # validates :shopping_date, presence: true
-  # validates :delivery_fee, presence: true
-  # validates :status, presence: true
-  # validates :image, presence: true, length: {manimum: 1, maximum: 10}
+  validates :name, presence: true, length: {maximum: 40}
+  validates :price, presence: true
+  validates :introduction, presence: true, length: {maximum: 1000}
+  validates :prefecture, presence: true
+  validates :shipping_date, presence: true
+  validates :delivery_fee, presence: true
+  validates :status, presence: true
+  validates :category, presence: true
+  validates :image, presence: true, length: {manimum: 1, maximum: 10}
   
 end
