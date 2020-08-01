@@ -643,13 +643,17 @@
 #child_category{
   width: 80%;
   height: 60px;
-  margin-left: 61px;
+  margin-left: 80px;
   border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
   margin-bottom: 30px;
 }
 #grandchild_category{
   width: 80%;
   height: 60px;
-  margin-left: 61px;
+  margin-left: 80px;
   border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+}
+
+.fas.fa-chevron-down{
+  display: none;
 }
