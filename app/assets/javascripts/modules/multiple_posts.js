@@ -9,7 +9,7 @@ $(function(){
     //選択したファイル情報を取得し変数に格納 - 最後の[0]は最初のファイルという意味
     var files = $('input[type=file]').prop('files')[0];
     
-    //$.each()で、配列やハッシュに対して繰り返し処理を行う
+    //$.each()メソッドで、配列やハッシュに対して繰り返し処理を行う
     $.each(this.files, function(i,file){
     
       //FileReaderのreadAsDataURLで指定したFileオブジェクトを読み込む
@@ -24,6 +24,7 @@ $(function(){
       // file_fieldのnameに動的なindexをつける為の配列
       let num = [1,2,3,4,5];
       lastIndex = $('.input-field__contents:last').data('index');
+      //splice()メソッドを使い配列から要素を削除・追加して組み替える
       num.splice(0, lastIndex);
       // 画像用のinputにそれぞれ異なる番号付与する記述
         const buildFileField = (index)=> {
@@ -54,7 +55,7 @@ $(function(){
                         <div class='item-image__operetion--delete'>削除</div>
                       </div>
                     </div>`
-      //image_box__container要素の前にhtmlを差し込む
+        //image_box__container要素の前にhtmlを差し込む
         $('#image-box__container').before(html);
       };
       //image-box__containerのクラスを変更し、CSSでドロップボックスの大きさを変えてやる。
@@ -89,7 +90,7 @@ $(function(){
   $(document).on("change", '#item_images_attributes_4_item_image', function(){
     var result = $('label').attr('for', 'item_images_attributes_5_item_image');
   })
-  //最後のファイル選択した時に、boxを隠す
+  //最後のファイル選択に触れて時に、boxを隠すコマンド
   $(document).on("mouseenter", '#item_images_attributes_5_item_image', function(){
     var deletes = $('#image-box__container')
     deletes.css('display', 'none');
