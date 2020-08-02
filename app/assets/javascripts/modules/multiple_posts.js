@@ -1,21 +1,25 @@
 $(function(){
-  //DataTransferオブジェクトで、データを格納する箱を作る
-  var dataBox = new DataTransfer(); //ステップ②
-  //querySelectorでfile_fieldを取得
-  var file_field = document.querySelector('input[type=file]')
-  //fileが選択された時に発火するイベント
-  // $('#img-file').change(function(){
+    //DataTransferオブジェクトで、データを格納する箱を作る
+    var dataBox = new DataTransfer();
+    //querySelectorでfile_fieldを取得し変数に入れている
+    var file_field = document.querySelector('input[type=file]')
+    
+    //file(#image-box-1)が変化した時に発火するイベント
     $('#image-box-1').on("change",`input[type="file"]`,function(){
-    //選択したfileのオブジェクトをpropで取得
+    //選択したファイル情報を取得し変数に格納 - 最後の[0]は最初のファイルという意味
     var files = $('input[type=file]').prop('files')[0];
     
+    //$.each()で、配列やハッシュに対して繰り返し処理を行う
     $.each(this.files, function(i,file){
+    
     //FileReaderのreadAsDataURLで指定したFileオブジェクトを読み込む
     var fileReader = new FileReader();
+    
     //DataTransferオブジェクトに対して、fileを追加
     dataBox.items.add(file) //ステップ②
     //dataTransferオブジェクトに入ったfile一覧をfile_fieldの中に代入
     //file_field.files =  dataBox.files //ステップ②
+    
     // file_fieldのnameに動的なindexをつける為の配列
     let num = [1,2,3,4,5];
     lastIndex = $('.input-field__contents:last').data('index');
@@ -31,12 +35,10 @@ $(function(){
       }
     
     $('#image-box__container').append(buildFileField(num[0]));
-
-    fileReader.readAsDataURL(file); //ステップ②
-     //画像が10枚になったら超えたらドロップボックスを削除する
-     //if (num == 5){ //ステップ②
-      //$('#image-box__container').css('display', 'none')
-    //}
+    
+    //fileReader.readAsDataURL(file)で画像の読み込み。
+    fileReader.readAsDataURL(file);
+    
     //読み込みが完了すると、srcにfileのURLを格納
     fileReader.onloadend = function() {
       var src = fileReader.result
