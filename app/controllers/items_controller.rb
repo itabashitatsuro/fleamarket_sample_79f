@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_tweet, only: [:edit, :update, :update, :destroy]
+  before_action :set_tweet, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
@@ -13,10 +13,12 @@ class ItemsController < ApplicationController
     @item.images.new
 
     #セレクトボックスの初期値設定
+    @category_parent_array = ["---"]
     #データベースから、親カテゴリーのみ抽出し、配列化
-    @category_parent_array = Category.where(ancestry: nil).unshift("---")
+    @category_parent_array = Category.where(ancestry: nil)
 
-    @item.item_images.build
+
+    # @item.item_images.build
   end
 
   def create
@@ -42,88 +44,88 @@ class ItemsController < ApplicationController
 
 
 
-  def create
-    @item = Item.new(item_params)
-    if @item.save
-      redirect_to root_path
-  def purchase
-    @item = Item.find(item_params[:item_id])
-    @images = @item.item_images.all
+  # def create
+  #   @item = Item.new(item_params)
+  #   if @item.save
+  #     redirect_to root_path
+  # def purchase
+  #   @item = Item.find(item_params[:item_id])
+  #   @images = @item.item_images.all
     
-    if user_signed_in?
-      @user = current_user
-      if @user.credit_card.present?
-        Payjp.api_key = Rails.application.credentials.dig(:payjp)
-        @card = CreditCard.find_by(user_id: current_user.id)
-        customer = Payjp::Customer.retrieve(@card.customer_id)
-        @customer_card = customer.cards.retrieve(@card.card_id)
+  #   if user_signed_in?
+  #     @user = current_user
+  #     if @user.credit_card.present?
+  #       Payjp.api_key = Rails.application.credentials.dig(:payjp)
+  #       @card = CreditCard.find_by(user_id: current_user.id)
+  #       customer = Payjp::Customer.retrieve(@card.customer_id)
+  #       @customer_card = customer.cards.retrieve(@card.card_id)
 
-        @card_brand = @customer_card.brand
-        case @card_brand
-        when "Visa"
-          @card_src = "visa.gif"
-        when "JCB"
-          @card_src = "jcb.gif"
-        when "MasterCard"
-          @card_src = "master.png"
-        when "American Express"
-          @card_src = "amex.gif"
-        when "Diners Club"
-          @card_src = "diners.gif"
-        when "Discover"
-          @card_src = "discover.gif"
-        end
-        
-        @exp_month = @customer_card.exp_month.to_s
-        @exp_year = @customer_card.exp_year.to_s.slice(2,3)
-      else
-      end
-    else
-      render :new
-    end
-  end
+  #       @card_brand = @customer_card.brand
+  #       case @card_brand
+  #       when "Visa"
+  #         @card_src = "visa.gif"
+  #       when "JCB"
+  #         @card_src = "jcb.gif"
+  #       when "MasterCard"
+  #         @card_src = "master.png"
+  #       when "American Express"
+  #         @card_src = "amex.gif"
+  #       when "Diners Club"
+  #         @card_src = "diners.gif"
+  #       when "Discover"
+  #         @card_src = "discover.gif"
+  #       end
+
+  #       @exp_month = @customer_card.exp_month.to_s
+  #       @exp_year = @customer_card.exp_year.to_s.slice(2,3)
+  #     else
+  #     end
+  #   else
+  #     render :new
+  #   end
+  # end
 
   def edit
   end
 
-  def update
-    if @item.update(item_params)
-      redirect_to root_path
-  def pay
-    @item = Item.find(item_params[:item_id])
-    @images = @item.images.all
+  # def update
+  #   if @item.update(item_params)
+  #     redirect_to root_path
+  # def pay
+  #   @item = Item.find(item_params[:item_id])
+  #   @images = @item.images.all
 
-    #２重で決済されることを防ぐ
-    if @item.purchase.present?
-      redirect_to item_path(@item.id), alert: "すでに購入済み"
-    else
-      render :edit
-    end
-  end
+  #   #２重で決済されることを防ぐ
+  #   if @item.purchase.present?
+  #     redirect_to item_path(@item.id), alert: "すでに購入済み"
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   def destroy
     if @item.destroy
       redirect_to root_path
     else
       render :new
+    end
   end
 
+  # def purchase
+  # end
 
-  def purchase
-  end
-
-  def test
-  end
+  # def test
+  # end
 
   private
 
   def item_params
     params.require(:item).permit(:name, :price, :prefecture_id, :shipping_date_id , :category_id, :delivery_fee_id, :status_id, :introduction, :brand, images_attributes: [:item_image, :_destroy, :id])
-    params.require(:item).permit(:user_id, :name, :price, :introduction, :status, :prefecture, :postage, :shipping_date, :delivery_fee, :area, :category, :item_image).merge(user_id: current_user.id)
+    # params.require(:item).permit(:user_id, :name, :price, :introduction, :status, :prefecture, :postage, :shipping_date, :delivery_fee, :area, :category, :item_image).merge(user_id: current_user.id)
   end
 
   def set_product
     @item = Item.find(params[:id])
   end
-  
+
 end
