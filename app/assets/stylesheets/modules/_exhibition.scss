@@ -8,32 +8,33 @@
 }
 
 .contents{
-  height: 380%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #F5F5F5;
   &__header{
     width: 100%;
     height: 160px;
     &__logo{
       position: absolute;
-      left: 40%;
+      left: 35%;
       margin-top: 50px;
     }
   }
   &__input-list{
-    width: 46%;
+    width: 60%;
     height: 100%;
     background-color: #FFFFFF;
-    margin-left: 26%;
     margin-top: 20px;
     &__title{
       height: 160px;
       border-bottom: 7px solid #F5F5F5;
+      text-align: center;
       &--letter{
         font-size: 34px;
         font-weight: bold;
         color: #333333;
         text-shadow: 0 0 4px ghostwhite, 0 0 4px white, 0 0 4px white;
-        margin-left: 35%;
         padding-top: 50px;
       }
     }
@@ -348,13 +349,16 @@
           &__box{
             @include box; /* _box.scssを読み込む */
             height: 70px;
+            display: flex;
+            align-items: center;
             &--letter{
               @include letter; /* _letter.scssを読み込む */
-              margin-top: 17px;
+              width: 100px;
+              
             }
             &__case{
               @include box-check; /* _box-check.scssを読み込む */
-              margin-top: 20px;
+              margin-right: 20%;
               &--letter{
                 @include box-check-letter; /* _box-check-letter.scssを読み込む */
               }
@@ -362,12 +366,11 @@
             &__yen{
               display: block;
               font-size: 16px;
-              margin-left: 30%;
-              margin-top: 17px;
             }
             &__text{
               width: 320px;
               height: 60px;
+              margin-right: 20px;
               &--cost{
                 width: 320px;
                 height: 60px;
@@ -416,8 +419,11 @@
         }
       }
       &__post{
-        margin-top: 80px;
-        height: 270px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
         &--send{
           width: 380px;
           height: 55px;
@@ -427,7 +433,6 @@
           border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
           font-weight: bold;
           font-size: 17px;
-          margin-left: 28%;
           margin-top: 30px;
           font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
         }
@@ -440,7 +445,6 @@
           border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
           font-weight: bold;
           font-size: 17px;
-          margin-left: 28%;
           margin-top: 30px;
           font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
         }
@@ -448,19 +452,19 @@
           text-decoration: none;
           color: #0095ee;
           display: block;
-          margin-left: 48%;
-          margin-top: 30px;
+          margin: 30px 0;
+          
+          text-align: center;
         }
-      }
-      &__warning{
-        height: 50px;
-        margin-left:55px;
-        font-size: 15px;
-        &--text{
-          font-size: 13px;
-          &__a{
-            text-decoration: none;
-            color: #0095ee;
+        .contents__input-list__form__warning{
+          font-size: 15px;
+          margin: 0 20px;
+          &--text{
+            font-size: 13px;
+            &__a{
+              text-decoration: none;
+              color: #0095ee;
+            }
           }
         }
       }
