@@ -12,13 +12,13 @@
   }
   &__Form-box{
     
-
   }
 }
+
 .Form-top {
- 
+
   &__inputText {
- 
+  
   }
 }
 
@@ -248,7 +248,7 @@
 }
 
 .view5 {
-  height: 500px;
+  height: 400px;
   width : 100%;
   padding: 60px 20px;
   align-items: center;
@@ -259,6 +259,49 @@
     font-weight: bold;
     position: relative;
     line-height: 1.4;
+    .pick-up-area{
+      height: 300px;
+      width : 100%;
+      padding: 10px;
+      &__items-box{
+      }
+      .pickItemImages{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .soldItem {
+          font-weight: bold;
+          color: gray;
+          font-size: 15px;
+        }
+        .pick-up-itemImage{
+          background-color: #ffffff;
+          border: 0.5px solid gray;
+          height: 280px;
+          width: 180px;
+          margin: 5px 10px;
+          .item-memo{
+            font-size: 18px;
+            height: 50px;
+            width: 150px;
+            margin: 0 auto;
+            .pick-up-itemName{
+              font-family: Arial, Helvetica, sans-serif;
+            }
+            .pick-up-itemDetails{
+              font-size: 12px;
+              .itemDetails{
+                text-align: center;
+              }
+            }
+          }
+        }
+        .pick-up-itemImage:hover{
+          opacity: 0.8;
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
 
@@ -274,10 +317,43 @@
     font-weight: bold;
     position: relative;
     line-height: 1.4;
+    .pick-up-area{
+      height: 300px;
+      width : 100%;
+      padding: 10px;
+      .pick-up-Brand{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        .categoryBrand{
+          margin: 12px;
+          border: 0.5px solid gray;
+          .brandBtn{
+            color: #3CCACE;
+            text-decoration: none;
+            display: block;
+          }
+          .brandBtn:hover{
+            opacity: 0.5;
+            text-decoration:underline;
+          }
+        }
+      }
+      .otherBrand{
+        font-size: 20px;
+        text-align: center;
+        .otherBrandBtn{
+          color: #3CCACE;
+          text-decoration: none;
+          display: block;
+        }
+      }
+    }
   }
 }
 
-.view7 {
+.install_view {
   background-image: url("material/pict/bg-appBanner-pict.jpg");
   background-position: bottom right;
   height: 400px;
@@ -307,7 +383,7 @@
       margin: 16px 0 0 0;
       text-align: center;
     }
-    .content__btn {
+    .content_btn {
       margin-left: 350px;
     }
   }
@@ -391,7 +467,7 @@
 
 //独立ボタン>>出品機能
 .purchase-btn {
-  width: 100px;
+  width: 120px;
   background: #3CCACE;
   text-align: center;
   border-radius: 4%;

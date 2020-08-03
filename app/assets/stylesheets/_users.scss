@@ -42,11 +42,11 @@
       .userBtn{
         .logout-Btn{
           font-size: 16px;
-          color: blue;
+          color: #3CCACE;
           text-decoration: none;
         }
         .logout-Btn:hover{
-          color:#FF0099;
+          opacity: 0.5;
           text-decoration:underline;
         }
       }
@@ -116,15 +116,15 @@
   }
 }
 
-//　メインのcontnts
-.contents-box{
+// メインのcontnts
+.contents-box-2{
   display: flex;
   justify-content: center;
   padding: 20px auto;
   margin: 40px auto 0;
     width: 1200px;
     height: 100%;
-  .user-trade-contents{
+  .user-trade-contents {
     height: 100%;
     width: 100%;
     margin: 0 auto;
@@ -157,7 +157,7 @@
       }
     }
     .userTrade {
-      background-color: #fffffff;
+      background-color: #ffffff;
       height: 100%;
       width: 100%;
       margin: 10px auto;

@@ -8,6 +8,16 @@
   .alert {
     background-color: #26af38;
     color: #fff;
-    text-align: center;
+    text-align: center;}}
+.notifications {
+  color: white;
+  text-align: center;  
+
+  .notice {
+    background-color: lightBlue;
+  }
+
+  .alert {
+    background-color: alert_orange;
   }
 }
