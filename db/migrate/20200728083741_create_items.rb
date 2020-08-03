@@ -3,7 +3,6 @@ class CreateItems < ActiveRecord::Migration[6.0]
     create_table :items do |t|
       t.integer :user_id, null: false
       t.string :name, null: false #商品の名前
-      t.integer :item_images_id
       t.integer :price, null: false #商品の価格
       t.text :introduction #商品の説明
       t.integer :status_id, null: false #商品の状態
@@ -13,8 +12,6 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :delivery_fee_id, null: false #配送料の負担
       t.string :area, null: false
       t.integer :buyer_id
-
-      
       t.timestamps
     end
   end

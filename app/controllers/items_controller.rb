@@ -15,7 +15,6 @@ class ItemsController < ApplicationController
     #セレクトボックスの初期値設定
     #データベースから、親カテゴリーのみ抽出し、配列化
     @category_parent_array = Category.where(ancestry: nil).unshift("---")
-
     @item.item_images.build
   end
 
@@ -40,12 +39,6 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find(params[:child_id]).children
   end
 
-
-
-  def create
-    @item = Item.new(item_params)
-    if @item.save
-      redirect_to root_path
   def purchase
     @item = Item.find(item_params[:item_id])
     @images = @item.item_images.all
@@ -82,13 +75,7 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-
-  def edit
-  end
-
-  def update
-    if @item.update(item_params)
-      redirect_to root_path
+  
   def pay
     @item = Item.find(item_params[:item_id])
     @images = @item.images.all
@@ -101,19 +88,23 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    end
+  end
+
   def destroy
     if @item.destroy
       redirect_to root_path
     else
       render :new
+    end
   end
 
-
-  def purchase
-  end
-
-  def test
-  end
 
   private
 
