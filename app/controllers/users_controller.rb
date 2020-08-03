@@ -4,7 +4,10 @@ class UsersController < ApplicationController
   end
 
   def create
+    @user = User.create(user_registration_params)
+    @nickname = current_user.nickname
   end
+
 
   def edit
   end
@@ -24,7 +27,13 @@ class UsersController < ApplicationController
 #    @saling_items = user.saling_items
 #    @sold_items = user.sold_items
 
-  def login
+  # def login
+  # end
+
+  private
+  def user_registration_params
+    params.require(:user).permit(:nickname, :email, :family_name, :first_name, :family_name_kana, :first_name_kana, :birthday)
   end
-  
+
+
 end

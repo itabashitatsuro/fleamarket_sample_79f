@@ -1,25 +1,19 @@
 Rails.application.routes.draw do
-  root "posts#index"
+  # devise_for :users  
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+
+
+  root "items#index"
   resources :posts, only: [:index]
   resources :addresses, only: [:new, :create, :edit, :update, :destory]
   resources :credit_cards, only: [:new, :create, :destroy, :show]
-  resources :users, only: [:new, :create, :edit, :update, :show]
-    resources :users do
-      collection do
-        get 'login'
-      end
-    end
-  
+  resources :users
+
   resources :items, only: [:index, :new] do
     collection do
       get 'login'
       get 'new'
-    end
-  end
-  resources :items do
-    collection do
       get 'purchase'
     end
   end
 end
-
