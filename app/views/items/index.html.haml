@@ -101,35 +101,58 @@
           に対応
         %p.list__description
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-
+          
   .view5 
     %h2.subtitle
       ピックアップカテゴリ
       %br
       %span{:style => "color: #3CCACE; font-size: 20px; font-weight: bold; "} 新着アイテム
       // 新着アイテム一覧表示
-      %section.pick-up-area
-        .pick-up-area__items-box
-          .pickItemImages
-            - @items.first(5).each do |item|
-              - if item.buyer_id.present?
-                %figure.pick-up-itemImage
-                  = image_tag @item.item_images
-                .soldItem
-                  SOLD OUT
-              - else
-                %figure.pick-up-itemImage
-                  = image_tag @item.item_images
-                  = link_to(item_path(item.id), method: :get, class: "itemBtn") do
-                    .item-memo
-                      .pick-up-itemName
-                        = "#{item.name}"
-                      .pick-up-itemPrice
-                        %ul.itemDetails
-                          %li.itemPrice
-                            = "#{item.price}円"
-                          %li.taxInclude
-                            (税込み)
+      .content
+        - @items.each do |t|
+          %tr
+            %p 
+              = t.name
+            %p 
+              = t.price
+            %p 
+              = t.introduction
+            %p
+              = t.prefecture.name
+            %p
+  
+            = link_to '削除', item_path(t.id), method: :delete
+            -# = link_to '編集', edit_item_path(@item)
+            
+            -# - item.images.each do |image|
+            -#   = image_tag image.item_image.url
+    
+
+
+
+
+      -# %section.pick-up-area
+      -#   .pick-up-area__items-box
+      -#     .pickItemImages
+      -#       - @items.first(5).each do |item|
+      -#         - if item.buyer_id.present?
+      -#           %figure.pick-up-itemImage
+      -#             = image_tag @item.item_images
+      -#           .soldItem
+      -#             SOLD OUT
+      -#         - else
+      -#           %figure.pick-up-itemImage
+      -#             = image_tag @item.item_images
+      -#             = link_to(item_path(item.id), method: :get, class: "itemBtn") do
+      -#               .item-memo
+      -#                 .pick-up-itemName
+      -#                   = "#{item.name}"
+      -#                 .pick-up-itemPrice
+      -#                   %ul.itemDetails
+      -#                     %li.itemPrice
+      -#                       = "#{item.price}円"
+      -#                     %li.taxInclude
+      -#                       (税込み)
 
   .view6
     %h2.subtitle
