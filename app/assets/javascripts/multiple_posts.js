@@ -19,8 +19,8 @@ $(function(){
       dataBox.items.add(file)
       //dataTransferオブジェクトに入ったfile一覧をfile_fieldの中に代入
       //file_field.files =  dataBox.files
-    
-
+      
+      
       // file_fieldのnameに動的なindexをつける為の配列
       let num = [1,2,3,4,5];
       lastIndex = $('.input-field__contents:last').data('index');
