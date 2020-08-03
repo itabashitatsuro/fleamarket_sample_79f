@@ -78,5 +78,7 @@ group :production do
   gem 'unicorn'
 end
 
+gem 'active_hash'
+gem 'mini_magick'
 # カテゴリ
 gem 'ancestry'

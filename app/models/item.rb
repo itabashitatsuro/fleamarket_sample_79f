@@ -1,25 +1,35 @@
 class Item < ApplicationRecord
- 
-  belongs_to :user
-  belongs_to :category
-  has_many :item_images, dependent: :destroy
-  accepts_nested_attributes_for :item_images
-  has_many :comments, dependent: :destroy
-  has_many :favorites  
+  # belongs_to: user
+  # has_many: item_images,dependent：：destroy
+  # has_many: comments、dependent：：destroy
+  # has_many: favorites
 
-  validates :name, presence: true, length: { maximum: 40 }
-  validates :item_images, presence: true
-  validates :price, presence: true
-  validates :status, presence: true
-  validates :introduction, presence: true, length: { maximum: 1000 }
-  validates :prefecture, presence: true
-  validates :postgate, presence: true
-  validates :delivery_fee, presence: true
-  validates :shipping_date, presence: true
-  validates :area, presence: true
-  validates :category, presence: true
-  validates :buyer_id, presence: true
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :ShippingDate
+  belongs_to_active_hash :prefecture
+  belongs_to_active_hash :delivery_fee
 
-  mount_uploader :item_image, ImageUploader
+  has_many :images
+  accepts_nested_attributes_for :images, allow_destroy: true
+  has_many :images, dependent: :destroy
   
+
+  belongs_to :category
+  # belongs_to :seller, class_name: "User", foreign_key: 'seller_id'
+  # belongs_to :buyer, class_name: "User", foreign_key: 'buyer_id'
+
+
+
+  validates :image, presence: true, length: {manimum: 1, maximum: 10}
+  validates :name, presence: true, length: {maximum: 40}
+  validates :introduction, presence: true, length: {maximum: 1000}
+  validates :category, presence: true
+  validates :status_id, presence: true
+  validates :delivery_fee_id, presence: true
+  validates :prefecture_id, presence: true
+  validates :shipping_date_id, presence: true
+  validates :price, presence: true
+  
+
+
 end

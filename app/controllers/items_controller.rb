@@ -1,15 +1,21 @@
 class ItemsController < ApplicationController
 
+  before_action :set_tweet, only: [:edit, :update, :update, :destroy]
 
-  
-  
   def index
+    @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
     @items = Item.includes(:user).order("created_at DESC").limit(4)
     @parents = Category.where(ancestry: nil)
   end
 
   def new
     @item = Item.new
+    @item.images.new
+
+    #セレクトボックスの初期値設定
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    @category_parent_array = Category.where(ancestry: nil).unshift("---")
+
     @item.item_images.build
   end
 
@@ -21,10 +27,25 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-  
-  # 購入機能
-  require "payjp"
 
+
+  # 以下全て、formatはjsonのみ
+  # 親カテゴリーが選択された後に動くアクション
+  def get_category_children
+    @category_children = Category.find(params[:parent_id]).children
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    @category_grandchildren = Category.find(params[:child_id]).children
+  end
+
+
+
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
   def purchase
     @item = Item.find(item_params[:item_id])
     @images = @item.item_images.all
@@ -58,10 +79,16 @@ class ItemsController < ApplicationController
       else
       end
     else
-      redirect_to user_session_path, alert: "ログインしてください"
+      render :new
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
   def pay
     @item = Item.find(item_params[:item_id])
     @images = @item.images.all
@@ -70,31 +97,33 @@ class ItemsController < ApplicationController
     if @item.purchase.present?
       redirect_to item_path(@item.id), alert: "すでに購入済み"
     else
-      @item.with_lock do
-        if current_user.credit_card.present?
-          @card = CreditCard.find_by(user_id: current_user.id)
-          Payjp.api_key = Rails.application.credentials.dig(:payjp)
-          charge = Payjp::Charge.create(
-          amount: @item.price,
-          customer: Payjp::Customer.retrieve(@card.customer_id),
-          currency: 'jpy'
-          )
-        else
-          # ログインユーザーがクレジットカード登録されていない場合(Checkout機能による処理)
-          # APIの「Checkout」ライブラリによる決済処理の記述
-          Payjp::Charge.create(
-          amount: @item.price,
-          card: params['payjp-token'],
-          currency: 'jpy'
-          )
-        end
-      end
+      render :edit
     end
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    else
+      render :new
+  end
+
+
+  def purchase
+  end
+
+  def test
   end
 
   private
 
   def item_params
+    params.require(:item).permit(:name, :price, :prefecture_id, :shipping_date_id , :category_id, :delivery_fee_id, :status_id, :introduction, :brand, images_attributes: [:item_image, :_destroy, :id])
     params.require(:item).permit(:user_id, :name, :price, :introduction, :status, :prefecture, :postage, :shipping_date, :delivery_fee, :area, :category, :item_image).merge(user_id: current_user.id)
   end
+
+  def set_product
+    @item = Item.find(params[:id])
+  end
+  
 end

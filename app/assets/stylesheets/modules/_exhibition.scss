@@ -205,18 +205,15 @@
             }
           }
           &--text{
-            border: 1px solid #999999;
             width: 80%;
             height: 60px;
             margin-left: 80px;
             border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             position: relative;
-            &--angle{
-              position: absolute;
-              font-size: 20px;
-              color: #CCCCCC;
-              right: 20px;
-              top: 20px;
+            #item_status_id{
+              width: 100%;
+              height: 60px;
+              border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             }
           }
         }
@@ -257,18 +254,14 @@
             }
           }
           &--text{
-            border: 1px solid #999999;
             width: 80%;
             height: 60px;
             margin-left: 80px;
-            border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             position: relative;
-            &--angle{
-              position: absolute;
-              font-size: 20px;
-              color: #CCCCCC;
-              right: 20px;
-              top: 20px;
+            #item_delivery_fee_id{
+              width: 100%;
+              height: 60px;
+              border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             }
           }
         }
@@ -289,18 +282,14 @@
             }
           }
           &--text{
-            border: 1px solid #999999;
             width: 80%;
             height: 60px;
             margin-left: 80px;
-            border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             position: relative;
-            &--angle{
-              position: absolute;
-              font-size: 20px;
-              color: #CCCCCC;
-              right: 20px;
-              top: 20px;
+            #item_prefecture_id{
+              width: 100%;
+              height: 60px;
+              border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             }
           }
         }
@@ -321,18 +310,14 @@
             }
           }
           &--text{
-            border: 1px solid #999999;
             width: 80%;
             height: 60px;
             margin-left: 80px;
-            border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             position: relative;
-            &--angle{
-              position: absolute;
-              font-size: 20px;
-              color: #CCCCCC;
-              right: 20px;
-              top: 20px;
+            #item_shipping_date_id{
+              width: 100%;
+              height: 60px;
+              border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
             }
           }
         }
@@ -463,7 +448,7 @@
           text-decoration: none;
           color: #0095ee;
           display: block;
-          margin-left: 46%;
+          margin-left: 48%;
           margin-top: 30px;
         }
       }
@@ -510,3 +495,151 @@
     margin-top: 40px;
   }
 }
+
+
+
+
+#image-box-1 {
+  display: flex;
+  height: 230px;
+  width: 100%;
+  margin-right: 0px;
+  text-align: center;
+  i{
+    padding-top: 50px;
+    cursor: pointer;
+  }
+  .item-num-0#image-box__container  {
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+    width: 90%;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    text-align: center;
+    margin-left: 5%;
+  }
+  .item-num-1{
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+    width: 100%;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    text-align: center;
+  }
+  .item-num-2{
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+    width: 100%;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    text-align: center;
+  }
+  .item-num-3{
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+    width: 100%;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    text-align: center;
+  }
+  .item-num-4{
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+    width: 100%;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    text-align: center;
+
+  }
+  .item-num-5{
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+    width: 100%;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    text-align: center;
+  }  
+}
+
+.fas.fa-camera{
+  font-size: 25px;
+  margin-top: 20px;
+}
+//レビュー表示のCSS
+.item-image{
+  height: 186px;
+  width: 160px;
+  border: 1px solid #eee;
+  margin-right: 10px;
+  .item-image__content{
+    padding-top: 30px;
+  }
+  .item-image__operetion{
+    height: 40px;
+    .item-image__operetion--delete{
+      height: 40px;
+      color: #00b0ff;
+      cursor: pointer;
+      padding-top: 5px;
+      text-align: center;
+      border: 1px solid #eee	;
+      background-color: #EEEEEE;
+    }
+  }
+}
+
+
+#img-file{
+  display: none;
+}
+#item_images_attributes_1_item_image{
+  display: none;
+}
+#item_images_attributes_2_item_image{
+  display: none;
+}
+#item_images_attributes_3_item_image{
+  display: none;
+}
+#item_images_attributes_4_item_image{
+  display: none;
+}
+
+
+#parent_category{
+  width: 80%;
+  height: 60px;
+  margin-left: 80px;
+  border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+  margin-bottom: 30px;
+}
+#child_category{
+  width: 80%;
+  height: 60px;
+  margin-left: 80px;
+  border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+  margin-bottom: 30px;
+}
+#grandchild_category{
+  width: 80%;
+  height: 60px;
+  margin-left: 80px;
+  border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+}
+
+.fas.fa-chevron-down{
+  display: none;
+}
+
