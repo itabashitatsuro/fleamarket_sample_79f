@@ -28,7 +28,6 @@ class ItemsController < ApplicationController
     end
   end
 
-
   # 以下全て、formatはjsonのみ
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
@@ -40,6 +39,7 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find(params[:child_id]).children
   end
 
+  
   def purchase
     @item = Item.find(item_params[:item_id])
     @images = @item.item_images.all
