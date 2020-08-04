@@ -1,8 +1,30 @@
-.create
-  .create-frame
-    %h3.create-frame-message
-      登録が無事に完了しました。お疲れ様でした。
-      %br
-      引き続きご利用をお楽しみ下さい。
-    %p.btn
-      = link_to 'マイページへ戻る' user_path[:user.id], class: "back-btn"
+.Body
+  .Logo
+  = link_to image_tag("/assets/logo.png", alt: "image", class: 'logo'), root_path
+  .Main
+    .New-registration
+      %h2 会員登録完了
+    .Section
+      .Box
+        .Text-1
+          ありがとうございます。
+          %br/
+          会員登録が完了しました。
+        = link_to root_path, class: "btn-default btn-start" do
+          フリマをはじめる
+    .view1
+      .content
+        %h2.content__text1
+          %br/
+          今すぐダウンロード
+        %p.content__text2
+          ＼スマホでかんたんフリマアプリ／
+          %br/
+        .content_btn
+          .content_btn__apple
+            = link_to "#", class: "content_btn__apple--icon" do
+              %br
+          .content_btn__google
+            = link_to "#" do
+              %img.googleplay-badge{:alt => "Google Play で手に入れよう", :src => "https://play.google.com/intl/us-en/badges/static/images/badges/ja_badge_web_generic.png"}/
+= render 'layouts/footer'

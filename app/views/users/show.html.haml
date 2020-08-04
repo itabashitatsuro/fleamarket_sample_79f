@@ -1,17 +1,17 @@
 .header
   .main-header
     .mypage-logo
-      = image_tag("material/logo/logo.png", alt: "image", class: "mypage-logo", :size => '300x100')
+      = link_to image_tag("/assets/logo.png", alt: "image", class: "mypage-logo", :size => '300x100'), root_path
     .userInfo
       .userImage
         %label{class: "userImage-label"}
-          = icon('fal', 'user', class: "userImage-label__icon")
+          -# = fa_icon 'user', class: "userImage-label__icon"
           %input{type: "file", class: "userImage-file"}
       .userName
         ユーザーネーム
         //@user.nickname
       .userBtn
-        = link_to 'ログアウト', root_path, class: "logout-Btn"
+        = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout-Btn"
   .important-message
     ※初めての方は必ず「お届け先情報」・「クレジットカード」を登録してください
   %ul.menu-list
