@@ -28,7 +28,13 @@
                           = grandchild.name 
     .bottom-box__brand
       ブランド
-    .bottom-box__login
-      ログイン
-    .bottom-box__registration
-      登録
+
+    - if user_signed_in?
+      .bottom-box__login
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
+    - else
+      .bottom-box__login
+        = link_to "ログイン", new_user_session_path, method: :post
+      .bottom-box__registration
+        = link_to "新規会員登録", new_user_path, method: :get
+    
