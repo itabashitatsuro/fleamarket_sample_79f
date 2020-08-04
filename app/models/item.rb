@@ -20,15 +20,15 @@ class Item < ApplicationRecord
 
 
 
-  validates :image, presence: true, length: {manimum: 1, maximum: 10}
-  validates :name, presence: true, length: {maximum: 40}
-  validates :introduction, presence: true, length: {maximum: 1000}
-  validates :category, presence: true
-  validates :status_id, presence: true
-  validates :delivery_fee_id, presence: true
-  validates :prefecture_id, presence: true
-  validates :shipping_date_id, presence: true
-  validates :price, presence: true
+  # validates :image, presence: true, length: {manimum: 1, maximum: 10}
+  # validates :name, presence: true, length: {maximum: 40}
+  # validates :introduction, presence: true, length: {maximum: 1000}
+  # validates :category, presence: true
+  # validates :status_id, presence: true
+  # validates :delivery_fee_id, presence: true
+  # validates :prefecture_id, presence: true
+  # validates :shipping_date_id, presence: true
+  # validates :price, presence: true
   
 
 
