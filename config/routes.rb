@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :items
   resources :items do
     collection do
       get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
@@ -15,20 +16,20 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:index, :new] do
-    collection do
-      get 'test'
-    end
-  end
-  resources :items do
-    collection do
-      get 'test'
-      get 'login'
-      get 'new'
-      get 'purchase'
-      get 'pay'
-    end
-  end
+  # resources :items, only: [:index, :new] do
+  #   collection do
+  #     get 'test'
+  #   end
+  # end
+  # resources :items do
+  #   collection do
+  #     get 'test'
+  #     get 'login'
+  #     get 'new'
+  #     get 'purchase'
+  #     get 'pay'
+  #   end
+  # end
 
-  resources :credit_cards, only: [:new, :create, :destroy, :show]
+  # resources :credit_cards, only: [:new, :create, :destroy, :show]
 end

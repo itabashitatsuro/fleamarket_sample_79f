@@ -101,7 +101,7 @@
           に対応
         %p.list__description
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-          
+
   .view5 
     %h2.subtitle
       ピックアップカテゴリ
@@ -110,22 +110,18 @@
       // 新着アイテム一覧表示
       .content
         - @items.each do |t|
+          -# - binding.pry
           %tr
-            %p 
-              = t.name
-            %p 
-              = t.price
-            %p 
-              = t.introduction
-            %p
-              = t.prefecture.name
-            %p
-  
+            %p= t.name
+            %p= t.introduction
+            %p= t.price
+            %p= t.brand
+            %p= t.prefecture.name
+            -# %p= t.shipping_date.name
             = link_to '削除', item_path(t.id), method: :delete
             -# = link_to '編集', edit_item_path(@item)
-            
-            -# - item.images.each do |image|
-            -#   = image_tag image.item_image.url
+          - t.images.each do |image|
+            = image_tag image.item_image.url
     
 
 
