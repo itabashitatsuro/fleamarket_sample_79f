@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_tweet, only: [:edit, :update, :update, :destroy]
+  before_action :set_product, only: [:edit, :update, :update, :destroy]
 
   def index
     @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
@@ -115,7 +115,7 @@ class ItemsController < ApplicationController
   end
 
   def set_product
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
   end
   
 end
