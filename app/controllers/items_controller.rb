@@ -1,11 +1,12 @@
 class ItemsController < ApplicationController
 
-  before_action :set_tweet, only: [:edit, :update, :destroy]
+  before_action :set_tweet, only: [:edit, :update]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
-    @items = Item.includes(:user).order("created_at DESC").limit(4)
-    @parents = Category.where(ancestry: nil)
+    @items = Item.all.order('created_at DESC')
+    # @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
+    # @items = Item.includes(:user).order("created_at DESC").limit(4)
+    # @parents = Category.where(ancestry: nil)
   end
 
   def new
@@ -24,7 +25,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.create(item_params)
     if @item.save
-      redirect_to item_path(@item)
+      redirect_to root_path
     else
       render :new
     end
@@ -104,6 +105,7 @@ class ItemsController < ApplicationController
   # end
 
   def destroy
+    @item = Item.find(params[:id])
     if @item.destroy
       redirect_to root_path
     else
