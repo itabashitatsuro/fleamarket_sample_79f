@@ -17,12 +17,12 @@
     height: 160px;
     &__logo{
       position: absolute;
-      left: 35%;
+      left: 40%;
       margin-top: 50px;
     }
   }
   &__input-list{
-    width: 60%;
+    width: 50%;
     height: 100%;
     background-color: #FFFFFF;
     margin-top: 20px;
@@ -366,11 +366,12 @@
             &__yen{
               display: block;
               font-size: 16px;
+              margin-left: 10%;
             }
             &__text{
               width: 320px;
               height: 60px;
-              margin-right: 20px;
+              margin-right: -10%;
               &--cost{
                 width: 320px;
                 height: 60px;
