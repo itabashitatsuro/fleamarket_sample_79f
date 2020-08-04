@@ -5,12 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   with_options presence: true do
-  validates :nickname
-  validates :family_name
-  validates :first_name
-  validates :family_name_kana
-  validates :first_name_kana
-  validates :birthday
+  # validates :nickname
+  # validates :family_name
+  # validates :first_name
+  # validates :family_name_kana
+  # validates :first_name_kana
+  # validates :birthday
   end
 
   # has_many: items
@@ -23,9 +23,9 @@ class User < ApplicationRecord
   # has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
   # has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item
 
-  has_one :credit_card, dependent: :destroy
-  has_one :address, dependent: :destroy
-  has_many :items, dependent: :destroy
-  has_many :comments 
+  # has_one :credit_card, dependent: :destroy
+  # has_one :address, dependent: :destroy
+  # has_many :items, dependent: :destroy
+  # has_many :comments 
 end
 # 一人一枚まで登録

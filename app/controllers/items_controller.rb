@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
-    @items = Item.includes(:user).order("created_at DESC").limit(4)
+    # @items = Item.includes(:user).order("created_at DESC").limit(4)
     @parents = Category.where(ancestry: nil)
   end
 
@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find(params[:child_id]).children
   end
 
-  
+
   def purchase
     @item = Item.find(item_params[:item_id])
     @images = @item.item_images.all
