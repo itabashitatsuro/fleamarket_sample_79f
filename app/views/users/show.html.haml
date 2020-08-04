@@ -74,7 +74,11 @@
           //現在、出品中の商品はありません。仮の履歴を記載
           //出品した商品のidを取得し、編集ページを遷移
           .tradeInfo-list
-            靴　2020/06/01
+            .tradeInfo-content
+              .tradeInfo-itemInfo
+                靴　2020/06/01
+              .tradeInfo-edit-btn
+                = link_to '変更', edit_item_path, class:'user-btn'
           .tradeInfo-list
             服　2020/05/01
         %li.tradeInfo__want

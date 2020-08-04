@@ -647,3 +647,29 @@
   display: none;
 }
 
+// 出品内容の編集後
+.update{
+  margin: 50px auto;
+  .update-frame{
+    text-align: center;
+    margin: 50px auto;
+    &__message{
+      text-align: center;
+      font-size: 25px;
+      margin-bottom: 30px;
+    }
+  }
+  .update-frame-btns{
+    justify-content: center;
+    .mypage-link-btn{
+      margin: 10px 10px 25px;
+      text-decoration: none;
+      color: #3CCACE;
+      font-size: 20px;
+    }
+    .mypage-link-btn:hover{
+      opacity: 0.5;
+      text-decoration: underline;
+    }
+  }
+}

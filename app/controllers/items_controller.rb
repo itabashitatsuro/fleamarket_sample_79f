@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_tweet, only: [:edit, :update, :update, :destroy]
+  before_action :set_product, only: [:edit, :update, :update, :destroy]
 
   def index
     @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
@@ -94,13 +94,15 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to user_path, notice: "出品情報の変更が完了しました" 
+    else
+      render :edit, alert: "情報の確認をしてください"
     end
   end
 
   def destroy
     if @item.destroy
-      redirect_to root_path
+      redirect_to root_path 
     else
       render :new
     end
@@ -115,7 +117,7 @@ class ItemsController < ApplicationController
   end
 
   def set_product
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
   end
   
 end
