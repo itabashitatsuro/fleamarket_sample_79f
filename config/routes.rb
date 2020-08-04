@@ -14,16 +14,16 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :items do
-    collection do
-      get 'test'
-      get 'login'
-      get 'new'
-      get 'purchase'
-      get 'pay'
-      get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
-      #get 'category/get_category_grandchildren',
-    end
-  end
+  # resources :items do
+  #   collection do
+  #     get 'test'
+  #     get 'login'
+  #     get 'new'
+  #     get 'purchase'
+  #     get 'pay'
+  #     get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
+  #     #get 'category/get_category_grandchildren',
+  #   end
+  # end
 
 end
