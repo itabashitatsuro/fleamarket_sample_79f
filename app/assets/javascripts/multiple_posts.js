@@ -65,7 +65,13 @@ $(function(){
 
   $(document).on("click", '.item-image__operetion--delete', function(){
     //プレビュー要素を取得
-    var target_image = $(this).parent().parent()
+    var targetIndex = $(this).parent().parent().data('index')
+    
+    var hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    
+    
+    
+    
     //プレビューを削除
     target_image.remove();
     //inputタグに入ったファイルを削除

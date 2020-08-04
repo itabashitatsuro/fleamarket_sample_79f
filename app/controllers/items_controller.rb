@@ -1,10 +1,11 @@
 class ItemsController < ApplicationController
 
-  before_action :set_tweet, only: [:edit, :update, :update, :destroy]
+  before_action :set_item, only: [:edit, :update]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
-    @items = Item.includes(:user).order("created_at DESC").limit(4)
+    @items = Item.all.order('created_at DESC')
+    # @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
+    # @items = Item.includes(:user).order("created_at DESC").limit(4)
     # @parents = Category.where(ancestry: nil)
   end
 
@@ -21,8 +22,10 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_params)
-    if @item.save
-      redirect_to item_path(@item)
+    # binding.pry
+    if @item.save!
+    
+      redirect_to root_path
     else
       render :new
     end
@@ -99,11 +102,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroy
-      redirect_to root_path
-    else
-      render :new
-    end
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to root_path
   end
 
 
@@ -114,7 +115,7 @@ class ItemsController < ApplicationController
     # params.require(:item).permit(:user_id, :name, :price, :introduction, :status, :prefecture, :postage, :shipping_date, :delivery_fee, :area, :category, :item_image).merge(user_id: current_user.id)
   end
 
-  def set_product
+  def set_item
     @item = Item.find(params[:id])
   end
   
