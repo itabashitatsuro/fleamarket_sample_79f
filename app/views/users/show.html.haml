@@ -1,7 +1,7 @@
 .header
   .main-header
     .mypage-logo
-      = link_to image_tag("/assets/logo.png", alt: "image", class: "mypage-logo", :size => '300x100'), root_path
+      = link_to image_tag("material/logo/logo.png", alt: "image", class: "mypage-logo", :size => '300x100'), root_path
     .userInfo
       .userImage
         %label{class: "userImage-label"}
@@ -71,16 +71,22 @@
       %ul.tradeInfo
         %li.tradeInfo__trading 
           【出品中の商品】
-          //現在、出品中の商品はありません。仮の履歴を記載
-          //出品した商品のidを取得し、編集ページを遷移
           .tradeInfo-list
             .tradeInfo-content
-              .tradeInfo-itemInfo
-                靴　2020/06/01
-              .tradeInfo-edit-btn
-                = link_to '変更', edit_item_path, class:'user-btn'
-          .tradeInfo-list
-            服　2020/05/01
+              - current_user.items.each do |item|
+                .tradeInfo-itemDetails
+                  .pick-up-itemName
+                    = "#{item.name}"
+                  .pick-up-itemPrice
+                    = "#{item.price}円"
+                  .tradeInfo-edit-btn
+                    -# = link_to "変更", edit_item_path, class: "user-btn" do
+                - if item.buyer_id.present?
+                  .tradeInfo-itemDetails
+                    .pick-up-itemName
+                      = "#{item.name}"
+                    .soldItem
+                      SOLD OUT
         %li.tradeInfo__want
           【欲しいもの一覧】
           //現在、欲しいものリストに商品はありません。仮の履歴を記載

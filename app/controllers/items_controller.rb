@@ -28,7 +28,6 @@ class ItemsController < ApplicationController
     end
   end
 
-
   # 以下全て、formatはjsonのみ
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
@@ -85,7 +84,7 @@ class ItemsController < ApplicationController
     if @item.purchase.present?
       redirect_to item_path(@item.id), alert: "すでに購入済み"
     else
-      render :edit
+      render 'credit_cards/edit'
     end
   end
 
@@ -93,10 +92,10 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
+    if @item.user_id == current_user.id && @item.update(item_params)
       redirect_to user_path, notice: "出品情報の変更が完了しました" 
     else
-      render :edit, alert: "情報の確認をしてください"
+      render 'items/edit', alert: "情報の確認をしてください"
     end
   end
 
@@ -117,7 +116,7 @@ class ItemsController < ApplicationController
   end
 
   def set_product
-    # @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
   
 end
