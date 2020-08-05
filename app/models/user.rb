@@ -13,7 +13,7 @@ class User < ApplicationRecord
   # validates :birthday
   end
 
-  # has_many: items
+  # has_many: items, dependent: :destroy
   # has_many: comments、dependent：：destroy
   # has_many: favorites、dependent：：destroy
   # has_one：profile、dependent：：destroy
@@ -24,8 +24,5 @@ class User < ApplicationRecord
   # has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item
 
   # has_one :credit_card, dependent: :destroy
-  # has_one :address, dependent: :destroy
-  # has_many :items, dependent: :destroy
-  # has_many :comments 
 end
 # 一人一枚まで登録
