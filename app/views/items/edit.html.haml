@@ -5,7 +5,7 @@
     .contents__input-list
       .contents__input-list__title
         %p.contents__input-list__title--letter 商品の情報を変更する
-      = form_with(model: @item, url: items_path, local: true, class: "contents__input-list__form") do |form|
+      = form_with(model: @item, url: item_path(@item), method: :patch, local: true, class: "contents__input-list__form") do |form|
         .contents__input-list__form__images
           .contents__input-list__form__images__box
             %p.contents__input-list__form__images__box--letter 出品情報
@@ -33,9 +33,8 @@
             %p.contents__input-list__form__introduction__box--letter 商品の説明
             .contents__input-list__form__introduction__box__case
               %p.contents__input-list__form__introduction__box__case--letter 必須
-          = form.text_area :name, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）", class: "contents__input-list__form__introduction__form--area"
+          = form.text_area :introduction, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）", class: "contents__input-list__form__introduction__form--area"
         
-
         .contents__input-list__form__details
           %p.contents__input-list__form__details--title 商品の詳細
           .contents__input-list__form__details__box
@@ -50,14 +49,12 @@
                     .exhibitionPage__main__contents__detail__category__choose
                       = form.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
           
-
           .contents__input-list__form__details__brand
             .contents__input-list__form__details__brand__box
               %p.contents__input-list__form__details__brand__box--letter ブランド
               .contents__input-list__form__details__brand__box__case
                 %p.contents__input-list__form__details__brand__box__case--letter 任意
-            = form.text_field :name, placeholder: "例：シャネル", class: "contents__input-list__form__details__brand--form"
-          
+            = form.text_field :brand, placeholder: "例：シャネル", class: "contents__input-list__form__details__brand--form"
           
           .contents__input-list__form__details__status
             .contents__input-list__form__details__status__box

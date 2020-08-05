@@ -2,11 +2,9 @@ Rails.application.routes.draw do
   # devise_for :users  
   # devise_for :users, controllers: { registrations: 'users/registrations' }
 
-
   root "items#index"
   resources :addresses, only: [:new, :create, :edit, :update, :destory]
   resources :credit_cards, only: [:new, :create, :destroy, :show]
-  resources :posts, only: [:index]
 
   resources :users do
     collection do
