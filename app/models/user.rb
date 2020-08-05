@@ -5,12 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   with_options presence: true do
-  # validates :nickname
-  # validates :family_name
-  # validates :first_name
-  # validates :family_name_kana
-  # validates :first_name_kana
-  # validates :birthday
+  validates :nickname
+  validates :family_name
+  validates :first_name
+  validates :family_name_kana
+  validates :first_name_kana
+  validates :birthday
   end
 
   # has_many: items, dependent: :destroy
