@@ -72,6 +72,7 @@
         %li.tradeInfo__trading 
           【出品中の商品】
           .tradeInfo-list
+            -# - if current_user.id == item.user.id
             - @items.each do |item|
               .tradeInfo-content
                 %th.tradeInfo-itemDetails
@@ -84,5 +85,4 @@
         %li.tradeInfo__want
           【欲しいもの一覧】
           .tradeInfo-list
-            靴　2020/06/01
-          
+            靴　2020/06/08

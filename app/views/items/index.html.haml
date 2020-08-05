@@ -111,24 +111,24 @@
       %section.pick-up-area
         .pick-up-area__items-box
           .pickItemImages
-            - @items.first(5).each do |item|
-              - if item.buyer_id.present?
-                %figure.pick-up-itemImage
-                  = image_tag @item.item_images
-                .soldItem
-                  SOLD OUT
-              - else
-                %figure.pick-up-itemImage
-                  = image_tag @item.item_images
-                  = link_to(item_path(item.id), method: :get, class: "itemBtn") do
-                    .item-memo
-                      .pick-up-itemName
-                        = "#{item.name}"
-                      .pick-up-itemPrice
-                        %ul.itemDetails
-                          %li.itemPrice
-                            = "#{item.price}円"
-                          %li.taxInclude
+            -# - @items.first(5).each do |item|
+            -#   - if item.buyer_id.present?
+            -#     %figure.pick-up-itemImage
+            -#       = image_tag @item.item_images
+            -#     .soldItem
+            -#       SOLD OUT
+            -#   - else
+            -#     %figure.pick-up-itemImage
+            -#       = image_tag @item.item_images
+            -#       = link_to(item_path(item.id), method: :get, class: "itemBtn") do
+            -#         .item-memo
+            -#           .pick-up-itemName
+            -#             = "#{item.name}"
+            -#           .pick-up-itemPrice
+            -#             %ul.itemDetails
+            -#               %li.itemPrice
+            -#                 = "#{item.price}円"
+            -#               %li.taxInclude
                             (税込み)
 
   .view6
