@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # devise_for :users  
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  # devise_for :users, controllers: { registrations: 'users/registrations' }
 
 
   root "items#index"
@@ -16,14 +16,20 @@ Rails.application.routes.draw do
   
   resources :items do
     collection do
-      get 'test'
-      get 'login'
-      get 'new'
-      get 'purchase'
-      get 'pay'
       get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
-      #get 'category/get_category_grandchildren',
+      get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
     end
   end
-
+  
+  # resources :items do
+  #   collection do
+  #     get 'test'
+  #     get 'login'
+  #     get 'new'
+  #     get 'purchase'
+  #     get 'pay'
+  #     get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
+  #     get 'category/get_category_grandchildren',
+  #   end
+  # end
 end

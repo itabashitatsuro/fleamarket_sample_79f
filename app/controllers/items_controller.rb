@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_product, only: [:edit, :update, :update, :destroy]
+  before_action :set_product, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
@@ -22,12 +22,11 @@ class ItemsController < ApplicationController
   def create
     @item = Item.create(item_params)
     if @item.save
-      redirect_to item_path(@item)
+      redirect_to root_path
     else
       render :new
     end
   end
-
 
   # 以下全て、formatはjsonのみ
   # 親カテゴリーが選択された後に動くアクション
@@ -39,6 +38,7 @@ class ItemsController < ApplicationController
   def get_category_grandchildren
     @category_grandchildren = Category.find(params[:child_id]).children
   end
+
 
   def purchase
     @item = Item.find(item_params[:item_id])
@@ -111,11 +111,11 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :price, :prefecture_id, :shipping_date_id , :category_id, :delivery_fee_id, :status_id, :introduction, :brand, images_attributes: [:item_image, :_destroy, :id])
-    params.require(:item).permit(:user_id, :name, :price, :introduction, :status, :prefecture, :postage, :shipping_date, :delivery_fee, :area, :category, :item_image).merge(user_id: current_user.id)
+    # params.require(:item).permit(:user_id, :name, :price, :introduction, :status, :prefecture, :postage, :shipping_date, :delivery_fee, :area, :category, :item_image).merge(user_id: current_user.id)
   end
 
   def set_product
-    # @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
   
 end
