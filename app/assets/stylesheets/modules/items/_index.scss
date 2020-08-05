@@ -25,6 +25,10 @@
 .bottom-box {
   display: flex;
   justify-content: space-around;
+  a{
+      text-decoration: none;
+      color: #333333;
+  }
   &__category {
     font-weight: bold;
   }
@@ -35,7 +39,10 @@
     font-weight: bold;
   }
   &__registration {
-
+    font-weight: bold;
+  }
+  &__mypage {
+    font-weight: bold;
   }
 
 }
