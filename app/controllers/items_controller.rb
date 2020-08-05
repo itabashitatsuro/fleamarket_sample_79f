@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :destroy]
 
   def index
+  
     @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
     @items = Item.includes(:user).order("created_at DESC").limit(4)
     @parents = Category.where(ancestry: nil)
@@ -106,7 +107,6 @@ class ItemsController < ApplicationController
     end
   end
 
-
   private
 
   def item_params
@@ -117,5 +117,6 @@ class ItemsController < ApplicationController
   def set_product
     @item = Item.find(params[:id])
   end
-  
+
+
 end
