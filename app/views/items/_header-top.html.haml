@@ -28,7 +28,6 @@
                           = grandchild.name 
     .bottom-box__brand
       ブランド
-
     - if user_signed_in?
       .bottom-box__login
         = link_to "ログアウト", destroy_user_session_path, method: :delete
