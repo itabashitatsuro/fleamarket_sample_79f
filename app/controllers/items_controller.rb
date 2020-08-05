@@ -92,10 +92,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.user_id == current_user.id && @item.update(item_params)
+    if item.user_id == current_user.id && item.update(item_params)
+      item = Item.find(params[:id])
       redirect_to user_path, notice: "出品情報の変更が完了しました" 
     else
-      render 'items/edit', alert: "情報の確認をしてください"
+      render 'items/edit', alert: "変更が完了していません"
     end
   end
 
