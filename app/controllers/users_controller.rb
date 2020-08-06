@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @items = Item.all
   end
 #    user = User.find(params[:id])
 #    @nickname = user.nickname

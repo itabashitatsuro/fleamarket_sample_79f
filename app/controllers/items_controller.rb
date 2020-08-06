@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :destroy]
 
   def index
-  
     @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
     @items = Item.includes(:user).order("created_at DESC").limit(4)
     @parents = Category.where(ancestry: nil)
@@ -94,8 +93,12 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
-      redirect_to root_path
+    if
+      @item.update(item_params)
+      redirect_to user_path, notice: “出品情報の編集が完了しました”
+    else
+      flash.now[:alert] = “変更情報を入力してください”
+      render ‘items/edit’
     end
   end
 
