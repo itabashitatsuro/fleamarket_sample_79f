@@ -22,7 +22,7 @@
     %li.menu-list__brand
       = link_to 'ブランド一覧へ', root_path, class:'user-btn'
     %li.menu-list__trade
-      = link_to '出品する', root_path, class:'user-btn'
+      = link_to '出品する', new_item_path, class:'user-btn'
     %li.menu-list__profile
       = link_to 'お届け先情報・登録', new_address_path, class:'user-btn'
       = link_to 'お届け先情報・編集', edit_address_path, class:'user-btn'
@@ -72,7 +72,6 @@
         %li.tradeInfo__trading 
           【出品中の商品】
           .tradeInfo-list
-            -# - if current_user.id == item.user.id
             - @items.each do |item|
               .tradeInfo-content
                 %th.tradeInfo-itemDetails
