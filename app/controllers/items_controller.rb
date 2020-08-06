@@ -1,11 +1,17 @@
 class ItemsController < ApplicationController
 
-  before_action :set_product, only: [:edit, :update, :destroy]
+  before_action :set_product, only: [:edit, :update, :destroy, :show]
 
   def index
     @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
     @items = Item.includes(:user).order("created_at DESC").limit(4)
     @parents = Category.where(ancestry: nil)
+  end
+
+  def show
+    @parents = Category.where(ancestry: nil)
+    @item = Item.find(params[:id])
+    @category = Category.find(@item.category_id)
   end
 
   def new
