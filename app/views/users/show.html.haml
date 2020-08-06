@@ -71,8 +71,7 @@
       %ul.tradeInfo
         %li.tradeInfo__trading 
           【出品中の商品】
-          .tradeInfo-list
-            -# - if current_user.id == item.user.id
+          .tradeInfo-List
             - @items.each do |item|
               .tradeInfo-content
                 %th.tradeInfo-itemDetails
@@ -82,7 +81,8 @@
                     = ": #{item.price}円"
                   %td.tradeInfo-edit-btn
                     = link_to "編集", edit_item_path(item.id), class: "user-btn", data: {"turbolinks" => false}
+                    = link_to '削除', "/items/#{item.id}", method: :delete
         %li.tradeInfo__want
           【欲しいもの一覧】
           .tradeInfo-list
-            靴　2020/06/08
+            靴 2020/06/01
