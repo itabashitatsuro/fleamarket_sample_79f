@@ -99,8 +99,12 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
-      redirect_to root_path
+    if
+      @item.update(item_params)
+      redirect_to user_path, notice: “出品情報の編集が完了しました”
+    else
+      flash.now[:alert] = “変更情報を入力してください”
+      render ‘items/edit’
     end
   end
 
@@ -112,7 +116,6 @@ class ItemsController < ApplicationController
     end
   end
 
-
   private
 
   def item_params
@@ -123,5 +126,6 @@ class ItemsController < ApplicationController
   def set_product
     @item = Item.find(params[:id])
   end
-  
+
+
 end
