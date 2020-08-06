@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
     @parents = Category.where(ancestry: nil)
     @item = Item.find(params[:id])
     @category = Category.find(@item.category_id)
+    @user = User.find(@item.user_id)
   end
 
   def new

@@ -21,7 +21,9 @@
         .item-box__price--value 
           ¥
           = @item.price
-        .item-box__price--detail (税込)送料込み  
+        .item-box__price--detail 
+        (税込)
+        = @item.delivery_fee.name
       .item-box__intro
         = @item.introduction
       :css
@@ -37,6 +39,7 @@
           %tr
             %th.tg-c3ow 出品者
             %th.tg-0pky 
+              = @user.nickname
         %tbody
           %tr
             %td.tg-c3ow カテゴリ
@@ -53,15 +56,19 @@
           %tr
             %td.tg-c3ow 商品のサイズ
             %td.tg-0pky
+              = @item.prefecture.name
           %tr
             %td.tg-c3ow 商品の状態
             %td.tg-0pky
+              = @item.status.name
           %tr
             %td.tg-c3ow 配送料の負担
             %td.tg-0pky
+              = @item.delivery_fee.name
           %tr
             %td.tg-c3ow 発送元の地域
             %td.tg-0pky
+              = @item.prefecture.name
           %tr
             %td.tg-c3ow 発送日の目安
             %td.tg-0pky
@@ -125,5 +132,8 @@
 
 //フッタービュー
 = render "footer-top"
-//独立ボタン>>出品機能
-= render "purchase-btn"
+//独立ボタン>>出品機能 ユーザーが出品者でなければ購入ボタン表示
+-if current_user.id == @item.user_id
+  = render "posts-btn"
+-else 
+  = render "buy-btn"
