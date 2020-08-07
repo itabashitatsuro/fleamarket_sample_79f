@@ -86,3 +86,6 @@ gem 'active_hash'
 gem 'mini_magick'
 # カテゴリ
 gem 'ancestry'
+
+# ページング機能
+gem 'will_paginate'

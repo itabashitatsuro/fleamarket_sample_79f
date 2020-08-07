@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
     @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
     @items = Item.includes(:user).order("created_at DESC").limit(4)
     @parents = Category.where(ancestry: nil)
+
   end
 
   def show
@@ -80,6 +81,29 @@ class ItemsController < ApplicationController
     #   render :new
     # end
   end
+
+  def list
+    if params[:category_id].present?
+      @items = Item.where(category_id: params[:category_id])
+      @category = Category.find(params[:category_id])
+      @num = 1
+    else 
+      @num = 2
+      @items = Item.where(user_id: params[:user_id])
+    end
+    @parents = Category.where(ancestry: nil)
+    @page_items = @items.paginate(page: params[:page], per_page: 15)
+    
+    # カテゴリ抽出
+    # @items = Item.all
+    # @category_items = []
+    # @items.each do |item|
+    #   if item.category_id == params[:category_id]
+    #     @category_items.push(item)
+    #   end
+    # end
+  end
+
   
   def pay
     @item = Item.find(item_params[:item_id])
