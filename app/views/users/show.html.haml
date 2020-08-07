@@ -73,15 +73,16 @@
           【出品中の商品】
           .tradeInfo-List
             - @items.each do |item|
-              .tradeInfo-content
-                %th.tradeInfo-itemDetails
-                  %td.pick-up-itemName
-                    = "#{item.name}"
-                  %td.pick-up-itemPrice
-                    = ": #{item.price}円"
-                  %td.tradeInfo-edit-btn
-                    = link_to "編集", edit_item_path(item.id), class: "user-btn", data: {"turbolinks" => false}
-                    = link_to '削除', "/items/#{item.id}", method: :delete
+              - if item.user_id == current_user.id
+                .tradeInfo-content
+                  %th.tradeInfo-itemDetails
+                    %td.pick-up-itemName
+                      = "#{item.name}"
+                    %td.pick-up-itemPrice
+                      = ": #{item.price}円"
+                    %td.tradeInfo-edit-btn
+                      = link_to "編集", edit_item_path(item.id), class: "user-btn", data: {"turbolinks" => false}
+                      = link_to '削除', "/items/#{item.id}", class: "user-btn", method: :delete
         %li.tradeInfo__want
           【欲しいもの一覧】
           .tradeInfo-list

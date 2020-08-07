@@ -21,8 +21,8 @@ class UsersController < ApplicationController
 
   private
   def user_registration_params
-    params.require(:user).permit(:nickname, :email, :family_name, :first_name, :family_name_kana, :first_name_kana, :birthday)
+    # params.require(:user).permit(:id, :nickname, :email, :family_name, :first_name, :family_name_kana, :first_name_kana, :birthday)
+    params.require(:user).permit(:id, :nickname, :email, :family_name, :first_name, :family_name_kana, :first_name_kana, :birthday)
   end
-
 
 end

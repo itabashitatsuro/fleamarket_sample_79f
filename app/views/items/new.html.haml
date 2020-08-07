@@ -17,8 +17,8 @@
             .item-num-0#image-box__container
               = form.fields_for :images do |i|
                 .input-field__contents{"data-index" => "#{i.index}"}
-                  = i.file_field :item_image, type: 'file', id:"img-file"
-                  %label{for: "img-file"}
+                  = i.file_field :item_image, type: 'file'
+                  %label{for: "item_images_attributes_0_item_image"}
                     %i.fas.fa-camera
 
 

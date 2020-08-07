@@ -189,19 +189,18 @@
             display: flex;
             justify-content: center;
           }
-          .user-btn{
-            color: #3CCACE;
-            text-decoration: none;
-            display: block;
-            margin-left: 10px;
-          }
-          .user-btn:hover {
-            opacity: 0.5;
-            text-decoration:underline;
-          }
         }
       }
     } 
   }
 }
-  
+
+.user-btn{
+  color: #000;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.user-btn:hover {
+  opacity: 0.5;
+  text-decoration:underline;
+}
