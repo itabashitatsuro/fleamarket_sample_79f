@@ -1,7 +1,7 @@
 class CreateItems < ActiveRecord::Migration[6.0]
   def change
     create_table :items do |t|
-      t.integer :user_id, null: false
+      t.integer :user_id
       t.string :name, null: false #商品の名前
       t.integer :price, null: false #商品の価格
       t.text :introduction #商品の説明
