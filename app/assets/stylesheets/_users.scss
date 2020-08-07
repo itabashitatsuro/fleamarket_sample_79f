@@ -105,12 +105,12 @@
       color: black;
     }
     .user-btn{
-      color: blue;
+      color: #3CCACE;
       text-decoration: none;
       display: block;
     }
     .user-btn:hover {
-      color:#FF0099;
+      opacity: 0.5;
       text-decoration:underline;
     }
   }
@@ -167,6 +167,7 @@
         margin: 0 auto;
         display: flex;
         justify-content: space-around;
+        font-size: 18px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         &__trading{
           overflow: scroll;
@@ -181,11 +182,25 @@
           background-color: #eee;
         }
         .tradeInfo-list{
-          margin: 0 auto;
+          margin: 10 auto;
           width: 500px;
           background-color: #eee;
+          .tradeInfo-content{
+            display: flex;
+            justify-content: center;
+          }
         }
       }
-    }
-  } 
+    } 
+  }
+}
+
+.user-btn{
+  color: #000;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.user-btn:hover {
+  opacity: 0.5;
+  text-decoration:underline;
 }

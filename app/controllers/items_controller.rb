@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.create(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to root_path, notice: "出品が完了しました"
     else
       render :new
     end
@@ -89,7 +89,7 @@ class ItemsController < ApplicationController
     if @item.purchase.present?
       redirect_to item_path(@item.id), alert: "すでに購入済み"
     else
-      render :edit
+      render 'credit_cards/edit'
     end
   end
 
@@ -99,16 +99,16 @@ class ItemsController < ApplicationController
   def update
     if
       @item.update(item_params)
-      redirect_to user_path, notice: “出品情報の編集が完了しました”
+      redirect_to user_path, notice: "出品情報の編集が完了しました"
     else
-      flash.now[:alert] = “変更情報を入力してください”
-      render ‘items/edit’
+      flash.now[:alert] = "変更情報を入力してください"
+      render 'items/edit'
     end
   end
 
   def destroy
     if @item.destroy
-      redirect_to root_path
+      redirect_to root_path 
     else
       render :new
     end
@@ -117,8 +117,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :prefecture_id, :shipping_date_id , :category_id, :delivery_fee_id, :status_id, :introduction, :brand, :user_id, images_attributes: [:item_image, :_destroy, :id]).merge(user_id: current_user.id)
-    # params.require(:item).permit(:user_id, :name, :price, :introduction, :status, :prefecture, :postage, :shipping_date, :delivery_fee, :area, :category, :item_image).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :prefecture_id, :shipping_date_id , :category_id, :delivery_fee_id, :status_id, :introduction, :brand, images_attributes: [:item_image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_product
