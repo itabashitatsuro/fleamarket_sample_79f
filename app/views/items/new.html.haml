@@ -13,11 +13,11 @@
               %p.contents__input-list__form__images__box__case--letter 必須
           %p.contents__input-list__form__images--notice 最大5枚までアップロードできます
           
-          #image-box-1 
+          #image-box 
             .item-num-0#image-box__container
               = form.fields_for :images do |i|
                 .input-field__contents{"data-index" => "#{i.index}"}
-                  = i.file_field :item_image, type: 'file', id:"img-file"
+                  = i.file_field :item_image, type: 'file'
                   %label{for: "img-file"}
                     %i.fas.fa-camera
         
