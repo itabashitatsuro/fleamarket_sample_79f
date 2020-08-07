@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-devise_for :users, controllers: { registrations: 'users/registrations' }
-
 
   root "items#index"
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+
   resources :addresses, only: [:new, :create, :edit, :update, :destory]
   resources :credit_cards, only: [:new, :create, :destroy, :show]
   resources :posts, only: [:index]
-
   resources :users do
     collection do
       get 'login'
@@ -17,6 +16,9 @@ devise_for :users, controllers: { registrations: 'users/registrations' }
     collection do
       get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
       get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
+    end
+    member do
+      get 'purchase'
     end
   end
   

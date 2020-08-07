@@ -5,50 +5,70 @@
   .content
     .item-box
       %h2.item-box__name
-        テスト
+        = @item.name
       .item-box__image
         .item-box__image--main
-          = image_tag "material/pict/pict-reason-03.jpg", :width =>'560px', :height =>'345px'
+          - @item.images.each_with_index do |image, index|
+            - if index == 0
+              = image_tag image.item_image.url, :width =>'560px', :height =>'345px'
+            - else
         .item-box__image--sub
-          = image_tag "material/pict/pict-reason-03.jpg", :width =>'75px', :height =>'75px'
-          = image_tag "material/pict/pict-reason-03.jpg", :width =>'75px', :height =>'75px'
+          - @item.images.each_with_index do |image, index|
+            - if index == 0
+            - else
+              = image_tag image.item_image.url, :width =>'75px', :height =>'75px'
       .item-box__price
-        .item-box__price--value ¥1000
-        .item-box__price--detail (税込)送料込み  
+        .item-box__price--value 
+          ¥
+          = @item.price
+        .item-box__price--detail 
+        (税込)
+        = @item.delivery_fee.name
       .item-box__intro
-        ああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+        = @item.introduction
       :css
         .tg  {border-collapse:collapse;border-spacing:0;}
         .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
           overflow:hidden;padding:15px 16px;word-break:normal;}
         .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
           font-weight:normal;overflow:hidden;padding:15px 16px;word-break:normal;}
-        .tg .tg-c3ow{ border-color:inherit; text-align:center; vertical-align:top; background: #eee;}
+        .tg .tg-c3ow{border-color:inherit; text-align:center; vertical-align:center; background: #eee; }
         .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;width:80%;}
       %table.tg
         %thead
           %tr
             %th.tg-c3ow 出品者
             %th.tg-0pky 
+              = @user.nickname
         %tbody
           %tr
             %td.tg-c3ow カテゴリ
-            %td.tg-0pky
+            %td.tg-0pky 
+              = @category.parent.parent.name
+              %br
+              = @category.parent.name
+              %br
+              = @category.name
           %tr
             %td.tg-c3ow ブランド
             %td.tg-0pky
+              = @item.brand
           %tr
             %td.tg-c3ow 商品のサイズ
             %td.tg-0pky
+              = @item.prefecture.name
           %tr
             %td.tg-c3ow 商品の状態
             %td.tg-0pky
+              = @item.status.name
           %tr
             %td.tg-c3ow 配送料の負担
             %td.tg-0pky
+              = @item.delivery_fee.name
           %tr
             %td.tg-c3ow 発送元の地域
             %td.tg-0pky
+              = @item.prefecture.name
           %tr
             %td.tg-c3ow 発送日の目安
             %td.tg-0pky
@@ -95,12 +115,18 @@
       .item_lists
         .item_box
           = link_to "#" , class: "link" do
-            = image_tag "material/pict/pict-reason-03.jpg", :width =>'100%', :height =>'70%'
+            - @item.images.each_with_index do |image, index|
+              - if index == 0
+                = image_tag image.item_image.url, :width =>'100%', :height =>'70%'
+              - else
             .item_box__body
-              %h3.name ee
+              %h3.name 
+                = @item.name
               .details
                 %ul.details__text
-                  %li 1000円
+                  %li 
+                    ¥
+                    = @item.price
                   %li
                     %i.fa.fa-star.likeIcon
                     0
@@ -112,5 +138,8 @@
 
 //フッタービュー
 = render "footer-top"
-//独立ボタン>>出品機能
-= render "purchase-btn"
+//独立ボタン>>出品機能 ユーザーが出品者でなければ購入ボタン表示
+-if current_user.id == @item.user_id
+  = render "posts-btn"
+-else 
+  = render "buy-btn"
