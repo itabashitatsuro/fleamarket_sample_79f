@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function(){
-  console.log('a')
+  
   $(function(){
     // カテゴリーセレクトボックスのオプションを作成
     function appendOption(category){
