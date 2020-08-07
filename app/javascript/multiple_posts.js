@@ -1,4 +1,4 @@
-console.log('a')
+
 $(function(){
     //DataTransferオブジェクトで、データを格納する箱を作る
     var dataBox = new DataTransfer();
@@ -50,7 +50,7 @@ $(function(){
           return html;
         }
     
-      $('#image-box__container').append(buildFileField(num[0]));
+      $('#image-box-2').append(buildFileField(num[0]));
 
 
       //fileReader.readAsDataURL(file)で画像の読み込み。
@@ -115,9 +115,15 @@ $(function(){
   $(document).on("change", '#item_images_attributes_4_item_image', function(){
     var result = $('label').attr('for', 'item_images_attributes_5_item_image');
   })
-  //最後のファイル選択に触れて時に、boxを隠すコマンド
-  $(document).on("mouseenter", '#item_images_attributes_5_item_image', function(){
-    var deletes = $('#image-box__container')
-    deletes.css('display', 'none');
+  $(document).on("change", '#item_images_attributes_5_item_image', function(){
+    var result = $('label').attr('for', 'item_images_attributes_6_item_image');
   })
+  $(document).on("change", '#item_images_attributes_6_item_image', function(){
+    var result = $('label').attr('for', 'item_images_attributes_7_item_image');
+  })
+  // if ($(`#image-box-1`).length == 5){
+  //   var deletes = $('#image-box__container')
+  //   deletes.css('display', 'none')
+  // }
+
 });
