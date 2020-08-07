@@ -1,7 +1,7 @@
 .new_wrapper
   .contents
     .contents__header
-      = image_tag src="material/logo/logo.png", width:"280", height:"70", class: "contents__header__logo"
+      = link_to image_tag(src="material/logo/logo.png", width:"280", height:"70", class: "contents__header__logo"), root_path
     .contents__input-list
       .contents__input-list__title
         %p.contents__input-list__title--letter 商品の情報を入力
@@ -152,4 +152,4 @@
           %a.footer__new__box__list--link--letter{:href => "＃"} FURIMA利用規約
         %li.footer__new__box__list--link
           %a.footer__new__box__list--link--letter{:href => "＃"} 特定商取引に関する表記
-    = image_tag src= "/assets/logo-white.png", width:"240", height:"70", class: "footer--logo"
+    = link_to image_tag(src= "/assets/logo-white.png", width:"240", height:"70", class: "footer--logo"), root_path
