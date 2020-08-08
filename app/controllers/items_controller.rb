@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :destroy, :show, :purchase]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC') #トップページに表示、更新した順番で
+    @items = Item.includes(:image).all.order('created_at DESC') #トップページに表示、更新した順番で
     @items = Item.includes(:user).order("created_at DESC").limit(4)
     @parents = Category.where(ancestry: nil)
   end
@@ -47,38 +47,40 @@ class ItemsController < ApplicationController
 
 
   def purchase
+    # buyer_idとcurrent_idをひもづけ
+    @item= Item.find(params[:id])
+    @item.update(buyer_id: current_user.id)
     
-    # if user_signed_in?
-    #   @user = current_user
-    #   if @user.credit_card.present?
-    #     Payjp.api_key = Rails.application.credentials.dig(:payjp)
-    #     @card = CreditCard.find_by(user_id: current_user.id)
-    #     customer = Payjp::Customer.retrieve(@card.customer_id)
-    #     @customer_card = customer.cards.retrieve(@card.card_id)
+    if user_signed_in?
+      @user = current_user
+      if @user.credit_card.present?
+        Payjp.api_key = Rails.application.credentials.dig(:payjp)
+        @card = CreditCard.find_by(user_id: current_user.id)
+        customer = Payjp::Customer.retrieve(@card.customer_id)
+        @customer_card = customer.cards.retrieve(@card.card_id)
 
-    #     @card_brand = @customer_card.brand
-    #     case @card_brand
-    #     when "Visa"
-    #       @card_src = "visa.gif"
-    #     when "JCB"
-    #       @card_src = "jcb.gif"
-    #     when "MasterCard"
-    #       @card_src = "master.png"
-    #     when "American Express"
-    #       @card_src = "amex.gif"
-    #     when "Diners Club"
-    #       @card_src = "diners.gif"
-    #     when "Discover"
-    #       @card_src = "discover.gif"
-    #     end
+        @card_brand = @customer_card.brand
+        case @card_brand
+        when "Visa"
+          @card_src = "visa.gif"
+        when "JCB"
+          @card_src = "jcb.gif"
+        when "MasterCard"
+          @card_src = "master.png"
+        when "American Express"
+          @card_src = "amex.gif"
+        when "Diners Club"
+          @card_src = "diners.gif"
+        when "Discover"
+          @card_src = "discover.gif"
+        end
         
-    #     @exp_month = @customer_card.exp_month.to_s
-    #     @exp_year = @customer_card.exp_year.to_s.slice(2,3)
-    #   else
-    #   end
-    # else
-    #   render :new
-    # end
+        @exp_month = @customer_card.exp_month.to_s
+        @exp_year = @customer_card.exp_year.to_s.slice(2,3)
+      end
+    else
+      render :new
+    end
   end
   
   def pay
@@ -117,7 +119,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :prefecture_id, :shipping_date_id , :category_id, :delivery_fee_id, :status_id, :introduction, :brand, images_attributes: [:item_image, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :prefecture_id, :shipping_date_id , :category_id, :delivery_fee_id, :status_id, :introduction, :brand, :buyer_id, :seller_id, images_attributes: [:item_image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_product
