@@ -32,8 +32,29 @@
 
 .contents-box-2
   .user-trade-contents
+    .userTrade
+      %h2 取引状況
+      %ul.tradeInfo
+        %li.tradeInfo__trading
+          【出品中の商品】
+          .tradeInfo-List
+            - @items.each do |item|
+              - if item.user_id == current_user.id
+                .tradeInfo-content
+                  %th.tradeInfo-itemDetails
+                    %td.pick-up-itemName
+                      = "#{item.name}"
+                    %td.pick-up-itemPrice
+                      = ": #{item.price}円"
+                    %td.tradeInfo-edit-btn
+                      = link_to "編集", edit_item_path(item.id), class: "user-btn", data: {"turbolinks" => false}
+                      = link_to '削除', "/items/#{item.id}", class: "user-btn", method: :delete
+        %li.tradeInfo__want
+          【欲しいもの一覧】
+          .tradeInfo-list
+            靴 2020/06/01
     .user-shoppingInfo
-      <<取引一覧>>
+      %h2 取引履歴
       %ul.shopping
         %li.shopping-content
           【購入履歴】
@@ -59,31 +80,11 @@
               支払い方法
               %br/
               口座振り込み
-        %li.shopping-content
+        %li.shopping-content1
           【売却済一覧】
           //売却履歴がありません、仮の履歴を記載
           .shopping-list
             筆　売却日：2020/07/01　相手ユーザー：板橋　値段：1000円　受領方法：現金受け渡し
           .shopping-list
             靴　2020/06/01
-    .userTrade 
-      <<現在の取引状況>>
-      %ul.tradeInfo
-        %li.tradeInfo__trading 
-          【出品中の商品】
-          .tradeInfo-List
-            - @items.each do |item|
-              - if item.user_id == current_user.id
-                .tradeInfo-content
-                  %th.tradeInfo-itemDetails
-                    %td.pick-up-itemName
-                      = "#{item.name}"
-                    %td.pick-up-itemPrice
-                      = ": #{item.price}円"
-                    %td.tradeInfo-edit-btn
-                      = link_to "編集", edit_item_path(item.id), class: "user-btn", data: {"turbolinks" => false}
-                      = link_to '削除', "/items/#{item.id}", class: "user-btn", method: :delete
-        %li.tradeInfo__want
-          【欲しいもの一覧】
-          .tradeInfo-list
-            靴 2020/06/01
+= render 'layouts/footer'
