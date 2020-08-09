@@ -135,11 +135,11 @@
 = render "install"
 
 
-
 //フッタービュー
 = render "footer-top"
 //独立ボタン>>出品機能 ユーザーが出品者でなければ購入ボタン表示
--if current_user.id == @item.user_id
-  = render "posts-btn"
--else 
-  = render "buy-btn"
+- if user_signed_in?
+  -if current_user.id == @item.user_id
+    = render "posts-btn"
+  -else 
+    = render "buy-btn"

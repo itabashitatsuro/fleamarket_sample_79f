@@ -7,11 +7,11 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.text :introduction #商品の説明
       t.integer :status_id, null: false #商品の状態
       t.string :prefecture_id, null: false #発送元の地域
-      t.string :postage, null: false
       t.integer :shipping_date_id, null: false #発送までの日数
       t.integer :delivery_fee_id, null: false #配送料の負担
-      t.string :area, null: false
       t.integer :buyer_id
+      t.integer :seller_id
+      t.string :brand
       t.timestamps
     end
   end
