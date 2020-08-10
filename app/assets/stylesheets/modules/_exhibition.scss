@@ -22,7 +22,7 @@
     }
   }
   &__input-list{
-    width: 700px;
+    width: 800px;
     height: 100%;
     background-color: #FFFFFF;
     margin-top: 20px;
@@ -502,7 +502,7 @@
   }
 }
 
-#image-box{
+#image-box-1{
   display: flex;
   height: 230px;
   width: 100%;
@@ -606,22 +606,11 @@
 
 
 
+#image-box-2{
+  display: none;
+}
 
-#item_images_attributes_0_item_image{
-  display: none;
-}
-#item_images_attributes_1_item_image{
-  display: none;
-}
-#item_images_attributes_2_item_image{
-  display: none;
-}
-#item_images_attributes_3_item_image{
-  display: none;
-}
-#item_images_attributes_4_item_image{
-  display: none;
-}
+
 
 
 #parent_category{
