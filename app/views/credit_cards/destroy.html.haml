@@ -6,4 +6,4 @@
       %li.credit_card_new_link
         = link_to "クレジットカード新規登録", new_credit_card_path, class: "credit-card-link-btn"
       %li.my_page_link
-        = link_to "マイページに戻る", user_path[:user.id], class: "credit-card-link-btn"
+        = link_to "マイページに戻る", user_path(:id), class: "credit-card-link-btn"
