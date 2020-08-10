@@ -111,31 +111,31 @@
         .pick-up-area__items-box
           .pickItemImages
             .tradeInfo-List
-            - @items.each do |item|
-              - if item.buyer_id.present?
-                %figure.pick-up-itemImage
-                  - if item.images.present?
-                    =image_tag (item.images[0].item_image.url), size: "140x180"
-                  .item-memo
-                    .pick-up-itemName
-                      = "#{item.name}"    
-                    .soldItem
-                      SOLD OUT
-              - else
-                %figure.pick-up-itemImage
-                  - if item.images.present?
-                    = image_tag (item.images[0].item_image.url), size: "140x180"
-                  .item-memo
-                    .pick-up-itemName
-                      = "#{item.name}"
-                    .pick-up-itemPrice
-                      %ul.itemDetails
-                        %li.itemPrice
-                          = "#{item.price}円"
-                        %li.taxInclude
-                          (税込み)
-                        %li.itemInformation
-                          = link_to '‘詳細’', item_path(item.id), class: "itemBtn"
+            -# - @items.each do |item|
+            -#   - if item.buyer_id.present?
+            -#     %figure.pick-up-itemImage
+            -#       - if item.images.present?
+            -#         =image_tag (item.images[0].item_image.url), size: "140x180"
+            -#       .item-memo
+            -#         .pick-up-itemName
+            -#           = "#{item.name}"    
+            -#         .soldItem
+            -#           SOLD OUT
+            -#   - else
+            -#     %figure.pick-up-itemImage
+            -#       - if item.images.present?
+            -#         = image_tag (item.images[0].item_image.url), size: "140x180"
+            -#       .item-memo
+            -#         .pick-up-itemName
+            -#           = "#{item.name}"
+            -#         .pick-up-itemPrice
+            -#           %ul.itemDetails
+            -#             %li.itemPrice
+            -#               = "#{item.price}円"
+            -#             %li.taxInclude
+            -#               (税込み)
+            -#             %li.itemInformation
+            -#               = link_to '‘詳細’', item_path(item.id), class: "itemBtn"
 
 
   .view6
