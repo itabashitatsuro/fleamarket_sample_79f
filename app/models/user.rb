@@ -14,6 +14,7 @@ class User < ApplicationRecord
   end
 
   has_many :items, dependent: :destroy
+  has_many :items
   # has_many :comments,dependent: :destroy
   # has_many :favorites,dependent: :destroy
   # has_one :profile,dependent: :destroy
@@ -22,7 +23,6 @@ class User < ApplicationRecord
   # has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
   # has_many :selling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"
   # has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
-
   # has_one :credit_card, dependent: :destroy
 end
 # 一人一枚まで登録

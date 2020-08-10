@@ -105,12 +105,12 @@
       color: black;
     }
     .user-btn{
-      color: blue;
+      color: #3CCACE;
       text-decoration: none;
       display: block;
     }
     .user-btn:hover {
-      color:#FF0099;
+      opacity: 0.5;
       text-decoration:underline;
     }
   }
@@ -122,16 +122,56 @@
   justify-content: center;
   padding: 20px auto;
   margin: 40px auto 0;
-    width: 1200px;
+  width: 1200px;
+  height: 100%;
+  .userTrade {
+    h2{font-size: 30px;
+      color: rgb(0, 60, 255);}
+    background-color: #ffffff;
     height: 100%;
+    width: 100%;
+    margin: 10px auto;
+    border-bottom: 1px solid lightgray;
+    .tradeInfo{
+      height: 60vh;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      font-size: 18px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      &__trading{
+        overflow: scroll;
+        margin: 5px auto;
+        width: 500px;
+        background-color: rgb(189, 220, 255);
+      }
+      &__want{
+        overflow: scroll;
+        margin: 5px auto;
+        width: 500px;
+        background-color: rgb(224, 235, 255);
+      }
+      .tradeInfo-list{
+        margin: 10 auto;
+        width: 500px;
+        // background-color: #eee;
+        .tradeInfo-content{
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
   .user-trade-contents {
     height: 100%;
     width: 100%;
     margin: 0 auto;
     text-align: center;
     .user-shoppingInfo{
+    h2{font-size: 30px;
+      color: rgb(255, 208, 0);}
       background-color: #ffffff;
-      border-bottom: 1px solid lightgray;
       margin: 10px auto; 
       height: 60vh;
       width: 100%;
@@ -147,45 +187,32 @@
           height: 80%;
           width: 500px;
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          background-color: #eee;
+          background-color: rgb(255, 233, 194);
           .shopping-list {
-            background-color: #eee;
+            // background-color: #eee;
             display: flex;
             justify-content: space-around;
           }
         }
-      }
-    }
-    .userTrade {
-      background-color: #ffffff;
-      height: 100%;
-      width: 100%;
-      margin: 10px auto;
-      .tradeInfo{
-        height: 60vh;
-        width: 100%;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-around;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        &__trading{
+        .shopping-content1 {
           overflow: scroll;
           margin: 5px auto;
+          height: 80%;
           width: 500px;
-          background-color: #eee;
-        }
-        &__want{
-          overflow: scroll;
-          margin: 5px auto;
-          width: 500px;
-          background-color: #eee;
-        }
-        .tradeInfo-list{
-          margin: 0 auto;
-          width: 500px;
-          background-color: #eee;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-color: rgb(255, 244, 225);
         }
       }
-    }
-  } 
+    } 
+  }
+}
+
+.user-btn{
+  color: #000;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.user-btn:hover {
+  opacity: 0.5;
+  text-decoration:underline;
 }

@@ -107,36 +107,42 @@
       ピックアップカテゴリ
       %br
       %span{:style => "color: #3CCACE; font-size: 20px; font-weight: bold; "} 新着アイテム
-      // 新着アイテム一覧表示
       %section.pick-up-area
         .pick-up-area__items-box
           .pickItemImages
-            -# - @items.first(5).each do |item|
-            -#   - if item.buyer_id.present?
-            -#     %figure.pick-up-itemImage
-            -#       = image_tag @item.item_images
-            -#     .soldItem
-            -#       SOLD OUT
-            -#   - else
-            -#     %figure.pick-up-itemImage
-            -#       = image_tag @item.item_images
-            -#       = link_to(item_path(item.id), method: :get, class: "itemBtn") do
-            -#         .item-memo
-            -#           .pick-up-itemName
-            -#             = "#{item.name}"
-            -#           .pick-up-itemPrice
-            -#             %ul.itemDetails
-            -#               %li.itemPrice
-            -#                 = "#{item.price}円"
-            -#               %li.taxInclude
-            -#                 (税込み)
+            .tradeInfo-List
+            - @items.each do |item|
+              - if item.buyer_id.present?
+                %figure.pick-up-itemImage
+                  - if item.images.present?
+                    =image_tag (item.images[0].item_image.url), size: "140x180"
+                  .item-memo
+                    .pick-up-itemName
+                      = "#{item.name}"    
+                    .soldItem
+                      SOLD OUT
+              - else
+                %figure.pick-up-itemImage
+                  - if item.images.present?
+                    = image_tag (item.images[0].item_image.url), size: "140x180"
+                  .item-memo
+                    .pick-up-itemName
+                      = "#{item.name}"
+                    .pick-up-itemPrice
+                      %ul.itemDetails
+                        %li.itemPrice
+                          = "#{item.price}円"
+                        %li.taxInclude
+                          (税込み)
+                        %li.itemInformation
+                          = link_to '‘詳細’', item_path(item.id), class: "itemBtn"
+
 
   .view6
     %h2.subtitle
       ブランドをお探しの方
       %br
       %span{:style => "color: #3CCACE; font-size: 20px; font-weight: bold; "} 人気のカテゴリから探す
-      //ブランド一覧表示
       %section.pick-up-area
         .pick-up-area__items-box
           .pickItemImages
@@ -153,8 +159,8 @@
             .otherBrand
               = link_to "その他/ブランド一覧へ", "#", class: "otherBrandBtn"
           
-  //installビュー
-  = render "install"
+//installビュー
+= render "install"
 
 //フッタービュー
 = render "footer-top"

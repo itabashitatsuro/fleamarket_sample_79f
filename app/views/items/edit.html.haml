@@ -5,8 +5,8 @@
         = image_tag src="material/logo/logo.png", width:"280", height:"70", class: "contents__header__logo"
     .contents__input-list
       .contents__input-list__title
-        %p.contents__input-list__title--letter 商品の情報を入力
-      = form_with(model: @item, url: items_path, local: true, class: "contents__input-list__form") do |form|
+        %p.contents__input-list__title--letter 出品情報を変更
+      = form_with(model: @item, url: item_path(@item), method: :patch, local: true, class: "contents__input-list__form") do |form|
         .contents__input-list__form__images
           .contents__input-list__form__images__box
             %p.contents__input-list__form__images__box--letter 出品情報
@@ -16,14 +16,28 @@
           
           #image-box
             #image-box-1
+              - @item.images.each_with_index do |image,i|
+                - if image.persisted?
+                  .item-image{"data-index" => "#{i}"}
+                    .item-image__content
+                      .item-image__content--icon
+                        = image_tag image.item_image.url, width: "140", height: "150", alt: "preview"
+                    .item-image__operetion
+                      .item-image__operetion--delete 削除
               .item-num-0#image-box__container
                 -# %label{for: "item_images_attributes_0_item_image"}
                 %i.fas.fa-camera#image-box-icon
+                
             #image-box-2
               = form.fields_for :images do |i|
-                .input-field__contents{"data-index" => "#{i.index}"}
-                  = i.file_field :item_image, type: 'file'
-
+                - if @item.images[i.index][:item_image].present?
+                  .input-field__contents{"data-index" => "#{i.index}"}
+                    = i.file_field :item_image, type: 'file'
+                    - if @item.persisted?
+                      = i.check_box :_destroy,data:{ index: i.index }, class: 'hidden-destroy'
+                - else
+                  .input-field__contents{"data-index" => "#{i.index}"}
+                    = i.file_field :item_image, type: 'file'
 
         .contents__input-list__form__product-name
           .contents__input-list__form__product-name__box
@@ -38,7 +52,6 @@
               %p.contents__input-list__form__introduction__box__case--letter 必須
           = form.text_area :introduction, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）", class: "contents__input-list__form__introduction__form--area"
         
-
         .contents__input-list__form__details
           %p.contents__input-list__form__details--title 商品の詳細
           .contents__input-list__form__details__box
@@ -53,14 +66,12 @@
                     .exhibitionPage__main__contents__detail__category__choose
                       = form.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
           
-
           .contents__input-list__form__details__brand
             .contents__input-list__form__details__brand__box
               %p.contents__input-list__form__details__brand__box--letter ブランド
               .contents__input-list__form__details__brand__box__case
                 %p.contents__input-list__form__details__brand__box__case--letter 任意
             = form.text_field :brand, placeholder: "例：シャネル", class: "contents__input-list__form__details__brand--form"
-          
           
           .contents__input-list__form__details__status
             .contents__input-list__form__details__status__box
@@ -125,9 +136,8 @@
         
 
         .contents__input-list__form__post
-          = form.submit "出品する", class: "contents__input-list__form__post--send"
-          = form.button "下書きに保存", class: "contents__input-list__form__post--button"
-          %a.contents__input-list__form__post--back{:href => "＃"} もどる
+          = form.submit "変更する", class: "contents__input-list__form__post--send"
+          = link_to  "もどる", user_path, class: "contents__input-list__form__post--back"
           .contents__input-list__form__warning
             .contents__input-list__form__warning--text
               禁止されている出品
@@ -155,4 +165,4 @@
           %a.footer__new__box__list--link--letter{:href => "＃"} FURIMA利用規約
         %li.footer__new__box__list--link
           %a.footer__new__box__list--link--letter{:href => "＃"} 特定商取引に関する表記
-    = link_to image_tag(src= "material/logo/logo-white.png", width:"240", height:"70", class: "footer--logo"), root_path
+    = link_to image_tag(src= "material/logo/logo.png", width:"240", height:"70", class: "footer--logo"), root_path

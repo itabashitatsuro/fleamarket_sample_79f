@@ -22,7 +22,7 @@
     }
   }
   &__input-list{
-    width: 50%;
+    width: 800px;
     height: 100%;
     background-color: #FFFFFF;
     margin-top: 20px;
@@ -367,13 +367,14 @@
               display: block;
               font-size: 16px;
               margin-left: 10%;
+              margin-right: 5px;
             }
             &__text{
               width: 320px;
               height: 60px;
               margin-right: -10%;
               &--cost{
-                width: 320px;
+                width: 220px;
                 height: 60px;
                 border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
                 padding-left: 10px;
@@ -501,14 +502,11 @@
   }
 }
 
-
-
-
-#image-box-1 {
+#image-box-1{
   display: flex;
   height: 230px;
   width: 100%;
-  margin-right: 0px;
+  margin-left: 10px;
   text-align: center;
   i{
     padding-top: 50px;
@@ -517,13 +515,14 @@
   .item-num-0#image-box__container  {
     background-color: rgb(245, 245, 245);
     height: 100%;
-    width: 90%;
+    width: 500%;
     border-width: 1px;
     border-style: dashed;
     border-color: rgb(204, 204, 204);
     border-image: initial;
     text-align: center;
     margin-left: 5%;
+    margin-right: 30px;
   }
   .item-num-1{
     background-color: rgb(245, 245, 245);
@@ -606,21 +605,12 @@
 }
 
 
-#img-file{
+
+#image-box-2{
   display: none;
 }
-#item_images_attributes_1_item_image{
-  display: none;
-}
-#item_images_attributes_2_item_image{
-  display: none;
-}
-#item_images_attributes_3_item_image{
-  display: none;
-}
-#item_images_attributes_4_item_image{
-  display: none;
-}
+
+
 
 
 #parent_category{
@@ -646,4 +636,31 @@
 
 .fas.fa-chevron-down{
   display: none;
+}
+
+// 出品内容の編集後
+.update{
+  margin: 50px auto;
+  .update-frame{
+    text-align: center;
+    margin: 50px auto;
+    &__message{
+      text-align: center;
+      font-size: 25px;
+      margin-bottom: 30px;
+    }
+  }
+  .update-frame-btns{
+    justify-content: center;
+    .mypage-link-btn{
+      margin: 10px 10px 25px;
+      text-decoration: none;
+      color: #3CCACE;
+      font-size: 20px;
+    }
+    .mypage-link-btn:hover{
+      opacity: 0.5;
+      text-decoration: underline;
+    }
+  }
 }
