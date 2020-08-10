@@ -1,8 +1,9 @@
 window.addEventListener('DOMContentLoaded', function(){
-  Payjp.setPublicKey('pk_test_d585fe0b8e61e9146094dceb'); 
+  Payjp.setPublicKey('pk_test_d585fe0b8e61e9146094dceb');
   //id: "payment_card_submit-button"というボタンが押されたら取得
   let submit = document.getElementById("payment_card_submit-button");
-  submit.addEventListener('click', function(e){
+  // submit.addEventListener('click', function(e){
+  $('payment_card_submit-button').on('submit', function(e){
     e.preventDefault();
 
     let card = { 
