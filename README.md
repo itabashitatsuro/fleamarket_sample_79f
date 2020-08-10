@@ -31,29 +31,40 @@
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
-|name|string|null: false, unique:true|
+|name|string|null: false|
 |price|integer|null: false|
 |introduction|text|null: false|
-|status|integer|null: false||
-|prefecture|integer|null: false|
-|postage|string|null: false||
-|shipping_date|string|null: false|
+|brand|string|
+|status_id|integer|null: false||
+|prefecture_id|integer|null: false|
+|delivery_fee_id|string|null: false||
+|shipping_date_id|string|null: false|
 |category|references|null: false, foreign_key: true|
+|seller|references|null: false, foreign_key: true|
+|buyer|references|foreign_key: true|
 
 ### Association
-- belongs_to : user
-- belongs_to : category
-- has_many: item_images,dependent：：destroy
-- has_many: comments、dependent：：destroy
-- has_many: favorites
+- belongs_to :user
+- belongs_to :category
+- has_many :comments、dependent：：destroy
+- has_many :favorites
 
- - belongs_to: saler, class_name: "User"
- - belongs_to: buyer, class_name: "User"
+- belongs_to :seller, class_name: "User"
+- belongs_to :buyer, class_name: "User"
+
+- belongs_to_active_hash :shipping_date
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :delivery_fee
+- belongs_to_active_hash :status
+
+- has_many :images
+- accepts_nested_attributes_for :images, allow_destroy: true
+- has_many :images, dependent: :destroy
 
 
 
 
-# categoryテーブル
+# categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |ancestry|string|null: false|
@@ -65,11 +76,11 @@
 
 
 
-# item_imagesテーブル
+# imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item|references|null: false, foreign_key: true|
-|url|string|null: false|
+|item_image|string|null: false|
 
 ### Association
 - belongs_to : item
