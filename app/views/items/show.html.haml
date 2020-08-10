@@ -145,5 +145,7 @@
 - if user_signed_in?
   -if current_user.id == @item.user_id
     = render "posts-btn"
+    = render "edit-btn"
+    = render "delete-btn"
   -else 
     = render "buy-btn"
