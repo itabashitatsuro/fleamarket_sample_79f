@@ -96,6 +96,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item.images.new
   end
 
   def update

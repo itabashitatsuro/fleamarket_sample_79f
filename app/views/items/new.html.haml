@@ -1,7 +1,8 @@
 .new_wrapper
   .contents
     .contents__header
-      = link_to image_tag(src="material/logo/logo.png", width:"280", height:"70", class: "contents__header__logo"), root_path
+      %a.header1{:href => "/items"}
+        = image_tag src="material/logo/logo.png", width:"280", height:"70", class: "contents__header__logo"
     .contents__input-list
       .contents__input-list__title
         %p.contents__input-list__title--letter 商品の情報を入力
@@ -14,12 +15,14 @@
           %p.contents__input-list__form__images--notice 最大5枚までアップロードできます
           
           #image-box
-            .item-num-0#image-box__container
+            #image-box-1
+              .item-num-0#image-box__container
+                -# %label{for: "item_images_attributes_0_item_image"}
+                %i.fas.fa-camera#image-box-icon
+            #image-box-2
               = form.fields_for :images do |i|
                 .input-field__contents{"data-index" => "#{i.index}"}
                   = i.file_field :item_image, type: 'file'
-                  %label{for: "item_images_attributes_0_item_image"}
-                    %i.fas.fa-camera
 
 
         .contents__input-list__form__product-name
