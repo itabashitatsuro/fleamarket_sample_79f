@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
     @items = Item.includes(:image).all.order('created_at DESC') #トップページに表示、更新した順番で
     @items = Item.includes(:user).order("created_at DESC").limit(4)
     @parents = Category.where(ancestry: nil)
+
   end
 
   def show
@@ -47,14 +48,14 @@ class ItemsController < ApplicationController
 
 
   def purchase
-    # buyer_idとcurrent_idをひもづけ
-    @item= Item.find(params[:id])
-    @item.update(buyer_id: current_user.id)
+    item= Item.find(params[:id])
+    @images = @item.images.all
+    # @item.update(buyer_id: current_user.id)
     
     if user_signed_in?
       @user = current_user
       if @user.credit_card.present?
-        Payjp.api_key = Rails.application.credentials.dig(:payjp)
+        Payjp.api_key = "sk_test_c806e554d011ef961a9f1ea5"
         @card = CreditCard.find_by(user_id: current_user.id)
         customer = Payjp::Customer.retrieve(@card.customer_id)
         @customer_card = customer.cards.retrieve(@card.card_id)
@@ -67,10 +68,6 @@ class ItemsController < ApplicationController
           @card_src = "jcb.gif"
         when "MasterCard"
           @card_src = "master.png"
-        when "American Express"
-          @card_src = "amex.gif"
-        when "Diners Club"
-          @card_src = "diners.gif"
         when "Discover"
           @card_src = "discover.gif"
         end
@@ -79,19 +76,60 @@ class ItemsController < ApplicationController
         @exp_year = @customer_card.exp_year.to_s.slice(2,3)
       end
     else
-      render :new
+      redirect_to user_session_path, alert: "ログインしてください"
     end
   end
+
+  def list
+    if params[:category_id].present?
+      @items = Item.where(category_id: params[:category_id])
+      @category = Category.find(params[:category_id])
+      @num = 1
+    else 
+      @num = 2
+      @items = Item.where(user_id: params[:user_id])
+    end
+    @parents = Category.where(ancestry: nil)
+    @page_items = @items.paginate(page: params[:page], per_page: 15)
+    
+    # カテゴリ抽出
+    # @items = Item.all
+    # @category_items = []
+    # @items.each do |item|
+    #   if item.category_id == params[:category_id]
+    #     @category_items.push(item)
+    #   end
+    # end
+  end
+
   
   def pay
-    @item = Item.find(item_params[:item_id])
+    item = Item.find(params[:id])
     @images = @item.images.all
 
     #２重で決済されることを防ぐ
     if @item.purchase.present?
-      redirect_to item_path(@item.id), alert: "すでに購入済み"
+      redirect_to item_path(@item.id), alert: "売り切れています"
     else
-      render 'credit_cards/edit'
+      @item.with_lock do
+        if current_user.credit_card.present?
+          @card = CreditCard.find_by(user_id: current_user.id)
+          Payjp.api_key = "sk_test_c806e554d011ef961a9f1ea5"
+          charge = Payjp::Charge.create(
+            # 商品(product)の値段を引っ張ってきて決済金額(amount)に入れる
+            amount: @item.price,
+            customer: Payjp::Customer.retrieve(@card.customer_id),
+            currency: 'jpy'
+          )
+        else
+          Payjp::Charge.create(
+            amount: @item.price,
+            card: params['payjp-token'],
+            currency: 'jpy'
+          )
+        end
+      @item = Item.create(buyer_id: current_user.id)
+      end
     end
   end
 

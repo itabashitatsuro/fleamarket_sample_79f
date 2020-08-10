@@ -38,26 +38,24 @@
             所有ポイント：P0
 
       .Purchase-Box
-        .How_to-Delivery
+        .How_to-Payment
           支払い方法
-        -# - if @user.credit_card.present?
-        -#   .purchase_function
-        -#     .credit_card_info_title
-        -#       クレジットカード登録情報
-        -#       .credit_card_info
-        -#         .credit_card_info__brand
-        -#           = image_tag "cards/#{@card_src}", class: "credit_card_info__brand__img", alt: @card_brand
-        -#         .credit_card_info__numbers
-        -#           .number
-        -#             = "**** **** **** " + @customer_card.last4
-        -#           .expiration_date
-        -#             .expiration_date__title
-        -#               有効期限
-        -#             .expiration_date__info
-        -#               = @exp_month + " / " + @exp_year
-        -# - else
-        -#   .How_to__Registration
-        -#   = link_to "登録してください" new_credit_card_path, class: 'registration'
+        - if @user.credit_card.present?
+          .purchase_function
+            .credit_card_info_title
+              クレジットカード登録情報
+              .credit_card_info
+                .credit_card_info__numbers
+                  .number
+                    = "**** **** **** " + @customer_card.last4
+                  .expiration_date
+                    .expiration_date__title
+                      有効期限
+                    .expiration_date__info
+                      = @exp_month + " / " + @exp_year
+        - else
+          .How_to__Registration
+          = link_to "登録してください", new_credit_card_path, class: 'registration'
 
       .Purchase-Box
         .How_to-Delivery

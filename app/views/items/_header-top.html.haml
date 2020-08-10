@@ -14,17 +14,17 @@
       %ul.category__parent.category__list
         - @parents.each do |parent|
           %li
-            = link_to "#", class: "category__parent--name" do
+            = link_to list_items_path(category_id:parent.id), class: "category__parent--name" do
               = parent.name
             %ul.category__child.category__list
               - parent.children.each do |child|
                 %li
-                  = link_to "#", class: "category__child--name" do
+                  = link_to list_items_path(category_id:child.id), class: "category__child--name" do
                     = child.name
                   %ul.category__grandchild.category__list
                     - child.children.each do |grandchild|
                       %li
-                        = link_to "#", class: " category__child--name" do
+                        = link_to list_items_path(category_id:grandchild.id), class: "category__child--name" do
                           = grandchild.name 
     .bottom-box__brand
       ブランド
