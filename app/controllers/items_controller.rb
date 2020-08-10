@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-
-  before_action :set_product, only: [:edit, :update, :destroy, :show, :purchase]
+  require "payjp"
+  before_action :set_product, only: [:edit, :update, :destroy, :show, :purchase, :pay]
 
   def index
     @items = Item.includes(:image).all.order('created_at DESC') #トップページに表示、更新した順番で
@@ -50,34 +50,27 @@ class ItemsController < ApplicationController
   def purchase
     item= Item.find(params[:id])
     @images = @item.images.all
-    # @item.update(buyer_id: current_user.id)
+    @user = current_user
+    @user.credit_card.present?
     
-    if user_signed_in?
-      @user = current_user
-      if @user.credit_card.present?
-        Payjp.api_key = "sk_test_c806e554d011ef961a9f1ea5"
-        @card = CreditCard.find_by(user_id: current_user.id)
-        customer = Payjp::Customer.retrieve(@card.customer_id)
-        @customer_card = customer.cards.retrieve(@card.card_id)
-
-        @card_brand = @customer_card.brand
-        case @card_brand
-        when "Visa"
-          @card_src = "visa.gif"
-        when "JCB"
-          @card_src = "jcb.gif"
-        when "MasterCard"
-          @card_src = "master.png"
-        when "Discover"
-          @card_src = "discover.gif"
-        end
-        
-        @exp_month = @customer_card.exp_month.to_s
-        @exp_year = @customer_card.exp_year.to_s.slice(2,3)
-      end
-    else
-      redirect_to user_session_path, alert: "ログインしてください"
+    Payjp.api_key = "sk_test_c806e554d011ef961a9f1ea5"
+    @card = CreditCard.find_by(user_id: current_user.id)
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @customer_card = customer.cards.retrieve(@card.card_id)
+    @card_brand = @customer_card.brand
+    case @card_brand
+    when "Visa"
+      @card_src = "visa.gif"
+    when "JCB"
+      @card_src = "jcb.gif"
+    when "MasterCard"
+      @card_src = "master.png"
+    when "Discover"
+      @card_src = "discover.gif"
     end
+    
+    @exp_month = @customer_card.exp_month.to_s
+    @exp_year = @customer_card.exp_year.to_s.slice(2,3)
   end
 
   def list
@@ -102,35 +95,16 @@ class ItemsController < ApplicationController
     # end
   end
 
-  
   def pay
-    item = Item.find(params[:id])
-    @images = @item.images.all
-
-    #２重で決済されることを防ぐ
-    if @item.purchase.present?
-      redirect_to item_path(@item.id), alert: "売り切れています"
-    else
-      @item.with_lock do
-        if current_user.credit_card.present?
-          @card = CreditCard.find_by(user_id: current_user.id)
-          Payjp.api_key = "sk_test_c806e554d011ef961a9f1ea5"
-          charge = Payjp::Charge.create(
-            # 商品(product)の値段を引っ張ってきて決済金額(amount)に入れる
-            amount: @item.price,
-            customer: Payjp::Customer.retrieve(@card.customer_id),
-            currency: 'jpy'
-          )
-        else
-          Payjp::Charge.create(
-            amount: @item.price,
-            card: params['payjp-token'],
-            currency: 'jpy'
-          )
-        end
-      @item = Item.create(buyer_id: current_user.id)
-      end
-    end
+    @card = CreditCard.find_by(user_id: current_user.id)
+    Payjp.api_key = "sk_test_c806e554d011ef961a9f1ea5"
+    
+    charge = Payjp::Charge.create(
+      :amount => @item.price,
+      :customer => @card.customer_id,
+      :currency => 'jpy',
+    )
+    redirect_to root_path, notice: '購入しました'
   end
 
   def edit
@@ -164,6 +138,5 @@ class ItemsController < ApplicationController
   def set_product
     @item = Item.find(params[:id])
   end
-
 
 end
