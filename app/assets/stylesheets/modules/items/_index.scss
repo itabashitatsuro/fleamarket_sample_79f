@@ -477,7 +477,7 @@
   text-align: center;
   border-radius: 4%;
   bottom: 32px;
-  right: 32px;
+  right: 300px;
   position: fixed;
   padding: 15px;
   &__text {
@@ -520,3 +520,52 @@
   opacity: 0.5 ;
 }
 
+//独立ボタン>>編集機能
+.edit-btn {
+  width: 120px;
+  background: yellow;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 160px;
+  position: fixed;
+  padding: 15px;
+  &__text {
+    color: black;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  &__icon {
+    width: 100%;
+  }
+}
+.edit-btn:hover {
+  opacity: 0.5 ;
+}
+
+//独立ボタン>>削除機能
+.delete-btn {
+  width: 120px;
+  background: #ce3c79;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 25px;
+  position: fixed;
+  padding: 15px;
+  &__text {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  &__icon {
+    width: 100%;
+  }
+}
+.delete-btn:hover {
+  opacity: 0.5 ;
+}
