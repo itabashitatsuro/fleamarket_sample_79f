@@ -164,7 +164,7 @@
 }
 
 .view3 {
-  background-image: url("material/pict/bg-topMiddleDl-pict.jpg");
+  background-image: image-url("material/pict/bg-topMiddleDl-pict.jpg");
   background-position: bottom right;
   height: 400px;
   background-size: cover;
@@ -279,7 +279,7 @@
         .soldItem {
           font-weight: bold;
           color: gray;
-          font-size: 15px;
+          font-size: 20px;
         }
         .pick-up-itemImage{
           background-color: #ffffff;
@@ -288,22 +288,20 @@
           width: 180px;
           margin: 5px 10px;
           .item-memo{
-            font-size: 18px;
+            font-size: 15px;
             height: 50px;
             width: 150px;
             margin: 0 auto;
             .pick-up-itemName{
               font-family: Arial, Helvetica, sans-serif;
             }
-            .pick-up-itemDetails{
-              font-size: 12px;
-              .itemDetails{
-                text-align: center;
-              }
-            }
           }
         }
-        .pick-up-itemImage:hover{
+        .itemBtn{
+          text-decoration: none;
+          color: #3CCACE;
+        }
+        .itemInformation:hover{
           opacity: 0.8;
           cursor: pointer;
         }
@@ -361,7 +359,7 @@
 }
 
 .install_view {
-  background-image: url("material/pict/bg-appBanner-pict.jpg");
+  background-image: image-url("material/pict/bg-appBanner-pict.jpg");
   background-position: bottom right;
   height: 400px;
   background-size: cover;

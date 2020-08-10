@@ -3,41 +3,47 @@
   padding-top: 32px;
   font-weight: bold;
 }
-.Purchase-Box{
-  padding: 32px 16px;
-  border-top: 1px solid rgb(248, 248, 246);
+.Section-1{
+  padding: 35px 40px 64px;
+  max-width: 343px;
+  margin: 0 auto;
+  box-sizing: content-box;
+  .Purchase-Box{
+    padding: 32px 16px;
+    border-top: 1px solid rgb(248, 248, 246);
 
-  .How_to-Delivery{
-    display: flex;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    margin-bottom: 16px;
-    font-size: 14px;
-    font-weight: 600;
-  }
-  a{
-    color: rgb(0, 149, 238);
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    opacity: 1;
-    pointer-events: auto;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  .Purchase-Attention{
-    color: rgb(255, 2, 17);
-    line-height: 1.5;
-    margin-bottom: 24px;
-    font-size: 14px;
-    .btn-purchase{
-      margin: 15px 0 0;
-      background: #ccc;
-      color: #888;
-      font-size: 17px;
-      font-weight: bold;
-      position: relative;
-      display: block;
+    .How_to-Delivery{
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    a{
+      color: rgb(0, 149, 238);
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      opacity: 1;
+      pointer-events: auto;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .Purchase-Attention{
+      color: rgb(255, 2, 17);
+      line-height: 1.5;
+      margin-bottom: 24px;
+      font-size: 14px;
+      .btn-purchase{
+        margin: 15px 0 0;
+        background: #ccc;
+        color: #888;
+        font-size: 17px;
+        font-weight: bold;
+        position: relative;
+        display: block;
+      }
     }
   }
 }
@@ -61,7 +67,6 @@
       text-align: left;
     }
     .Item__Price{
-      display: flex;
       text-align: right;
       margin-top: 8px;
       margin-left: 50px;

@@ -367,13 +367,14 @@
               display: block;
               font-size: 16px;
               margin-left: 10%;
+              margin-right: 5px;
             }
             &__text{
               width: 320px;
               height: 60px;
               margin-right: -10%;
               &--cost{
-                width: 320px;
+                width: 220px;
                 height: 60px;
                 border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
                 padding-left: 10px;
@@ -505,7 +506,7 @@
   display: flex;
   height: 230px;
   width: 100%;
-  margin-right: 0px;
+  margin-left: 10px;
   text-align: center;
   i{
     padding-top: 50px;
@@ -514,13 +515,14 @@
   .item-num-0#image-box__container  {
     background-color: rgb(245, 245, 245);
     height: 100%;
-    width: 90%;
+    width: 500%;
     border-width: 1px;
     border-style: dashed;
     border-color: rgb(204, 204, 204);
     border-image: initial;
     text-align: center;
     margin-left: 5%;
+    margin-right: 30px;
   }
   .item-num-1{
     background-color: rgb(245, 245, 245);
