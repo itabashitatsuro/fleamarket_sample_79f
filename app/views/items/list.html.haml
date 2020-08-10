@@ -1,0 +1,81 @@
+//ヘッダービュー
+= render "header-top"
+//リスト部分 カテゴリバージョン
+-if @num == 1
+  -if @category.ancestry.present?
+    -if @category.parent.ancestry.present?
+      .category_name
+        = "#{@category.parent.parent.name}/#{@category.parent.name}/#{@category.name}"
+    -else 
+      .category_name
+        = "#{@category.parent.name}/#{@category.name}"
+  -else
+    .category_name
+      = "#{@category.name}"
+  .field
+    -if @items.present?
+      .page
+        = will_paginate @page_items, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'
+      .item_lists
+        - @items.each do |item|
+          .item_box
+            = link_to item_path(item.id) , class: "link" do
+              - item.images.each_with_index do |image, index|
+                - if index == 0
+                  = image_tag image.item_image.url, :width =>'100%', :height =>'70%'
+                - else
+              .item_box__body
+                %h3.name 
+                  = item.name
+                .details
+                  %ul.details__text
+                    %li 
+                      ¥
+                      = item.price
+                    %li
+                      %i.fa.fa-star.likeIcon
+                      0
+                  %p.a (税込)
+      .page
+        = will_paginate @page_items, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'
+    -else
+      .notfind_text
+        該当商品が見つかりません
+-else 
+  .user_name
+    - @items.each_with_index do |item, index|
+      - if index == 0
+        = "#{item.user.nickname}さんの投稿一覧です"
+      - else
+  .field
+    -if @items.present?
+      .page
+        = will_paginate @page_items, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'
+      .item_lists
+        - @items.each do |item|
+          .item_box
+            = link_to item_path(item.id) , class: "link" do
+              - item.images.each_with_index do |image, index|
+                - if index == 0
+                  = image_tag image.item_image.url, :width =>'100%', :height =>'70%'
+                - else
+              .item_box__body
+                %h3.name 
+                  = item.name
+                .details
+                  %ul.details__text
+                    %li 
+                      ¥
+                      = item.price
+                    %li
+                      %i.fa.fa-star.likeIcon
+                      0
+                  %p.a (税込)
+      .page
+        = will_paginate @page_items, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'
+    -else
+      .notfind_text
+        該当ユーザーは商品投稿をしていません
+
+//フッター
+= render "footer-top"
