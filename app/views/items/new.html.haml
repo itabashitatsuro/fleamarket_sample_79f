@@ -17,12 +17,12 @@
           #image-box
             #image-box-1
               .item-num-0#image-box__container
-                = form.fields_for :images do |i|
-                  .input-field__contents{"data-index" => "#{i.index}"}
-                    = i.file_field :item_image, type: 'file'
-                    %label{for: "item_images_attributes_0_item_image"}
-                      %i.fas.fa-camera
+                -# %label{for: "item_images_attributes_0_item_image"}
+                %i.fas.fa-camera#image-box-icon
             #image-box-2
+              = form.fields_for :images do |i|
+                .input-field__contents{"data-index" => "#{i.index}"}
+                  = i.file_field :item_image, type: 'file'
 
 
         .contents__input-list__form__product-name
