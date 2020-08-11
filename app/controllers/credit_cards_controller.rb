@@ -2,10 +2,10 @@ class CreditCardsController < ApplicationController
   require 'payjp'
   
   def new
-    # @card = CreditCard.where(user_id: current_user.id)
-    # if @card.exists?
-    #   redirect_to credit_card_path(current_user.id)
-    # end
+    @card = CreditCard.where(user_id: current_user.id)
+    if @card.exists?
+      redirect_to credit_card_path(current_user.id)
+    end
   end
 
   def create

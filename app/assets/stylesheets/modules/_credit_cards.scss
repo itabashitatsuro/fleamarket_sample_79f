@@ -120,7 +120,7 @@
             }
           }
         }
-        .destroy-function-link{
+        .function-link{
           width: 300px;
           height: 30px;
           margin: 0 auto;
@@ -129,13 +129,17 @@
           .card-destroy-btn{
             display: block;
             height: 30px;
-            width: 100px;
+            width: 180px;
             border-radius: 10px;
             background-color: #3CCACE;
+            padding: 3px;
             .destroy-function-link-btn{
               color: #fff;
               text-decoration: none;
             }
+          }
+          .card-destroy-btn :hover {
+            opacity: 0.5;
           }
           .card-mypage-btn{
             display: block;
@@ -144,10 +148,15 @@
             border-radius: 10px;
             margin-left: 20px;
             background-color: #3CCACE;
+            padding: 3px;
             .mypage-link-btn{
               color: #fff;
               text-decoration: none;
+              
             }
+          }
+          .card-mypage-btn :hover {
+            opacity: 0.5;
           }
         }
       }

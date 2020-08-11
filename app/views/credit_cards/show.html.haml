@@ -16,7 +16,7 @@
               .expiration_date__info
                 = @exp_month + " / " + @exp_year
         .destroy__function
-          .destroy-function-link
+          .function-link
             .card-destroy-btn
               = link_to '削除する', credit_card_path, method: :delete, class: "destroy-function-link-btn"
             .card-mypage-btn
