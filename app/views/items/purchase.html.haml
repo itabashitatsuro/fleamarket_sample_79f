@@ -60,8 +60,31 @@
                     .expiration_date__info
                       = @exp_month + " / " + @exp_year
         - else
-          .Purchase-Attention
-            = link_to 'クレジットカードを登録してください', new_credit_card_path, class:'user-btn'
-      .purchase_function__btn
-        = link_to "登録クレジットカードで購入する", pay_item_path, method: :post, class: "btn"
+          .How_to__Registration
+          = link_to "登録してください", new_credit_card_path, class: 'registration'
+
+      .Purchase-Box
+        .How_to-Delivery
+          配送先
+        - if @address&.user_id.present?
+          .Address
+            .postal_code
+              = @address.postal_code
+            .prefecture
+              = @address.prefecture.name
+            .city
+              = @address.city
+            .house_number
+              = @address.house_number
+            .apartment
+              = @address.apartment
+        - else
+          .Delivery__Registration
+          = link_to "登録してください", new_address_path(item_id: @item.id), class: 'registration'
+
+      .Purchase-Box
+        .Purchase-Attention
+          配送先と支払い方法の入力を完了してください。
+          = link_to "#", class: "btn-default btn-purchase" do
+            購入する
 = render 'layouts/footer'

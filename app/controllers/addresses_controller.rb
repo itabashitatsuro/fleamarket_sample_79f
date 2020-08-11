@@ -2,17 +2,21 @@ class AddressesController < ApplicationController
   
   def new
     @address = Address.new
+    # session[:item_id] = params[:item_id]
   end
 
   def create
-    @address = Address.create(address_params)
+    @address = Address.new(address_params)
+    # @item= Item.find(params[:id])
+    @item= Item.find(session[:item_id])
     if @address.save
-      redirect_to root_path
+      redirect_to purchase_item_path(@item.id)
+      # redirect_to URI(request.referer).path
     else
       render :new
     end
   end
-  
+
   def edit
   end
 
@@ -24,7 +28,10 @@ class AddressesController < ApplicationController
 
   private
   def address_params
-    params.require(:address).permit(:postal_code, :prefecture, :city, :house_number, :apartment, :contact)
+    params.require(:address).permit(:postal_code, :prefecture_id, :city, :house_number, :apartment, :contact, :family_name, :first_name, :family_name_kana, :first_name_kana).merge(:user_id => current_user.id)
   end
 
 end
+# /address/new
+# buy -> address -> buy
+# URI(request.referer).path
