@@ -17,5 +17,8 @@
                 = @exp_month + " / " + @exp_year
         .destroy__function
           .destroy-function-link
-            = link_to credit_card_path, method: :delete, class: "destroy-function-link-btn" do
-              削除する
+            .card-destroy-btn
+              = link_to '削除する', credit_card_path, method: :delete, class: "destroy-function-link-btn"
+            .card-mypage-btn
+              = link_to 'マイページへ戻る', user_path(:id), class: "mypage-link-btn"
+              
