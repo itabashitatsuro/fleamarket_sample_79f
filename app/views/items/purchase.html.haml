@@ -60,8 +60,21 @@
       .Purchase-Box
         .How_to-Delivery
           配送先
-        .Delivery__Registration
-        = link_to "登録してください", url:"#", class: 'registration'
+        - if @address&.user_id.present?
+          .Address
+            .postal_code
+              = @address.postal_code
+            .prefecture
+              = @address.prefecture.name
+            .city
+              = @address.city
+            .house_number
+              = @address.house_number
+            .apartment
+              = @address.apartment
+        - else
+          .Delivery__Registration
+          = link_to "登録してください", new_address_path(item_id: @item.id), class: 'registration'
 
       .Purchase-Box
         .Purchase-Attention

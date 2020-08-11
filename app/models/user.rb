@@ -18,7 +18,8 @@ class User < ApplicationRecord
   # has_many :comments,dependent: :destroy
   # has_many :favorites,dependent: :destroy
   # has_one :profile,dependent: :destroy
-  # has_one :addresses,dependent: :destroy
+  has_one :address,dependent: :destroy
+  
   # has_one :sns_authentications,dependent: :destroy
   has_one :credit_card, dependent: :destroy
 end
