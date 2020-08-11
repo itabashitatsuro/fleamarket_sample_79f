@@ -49,6 +49,31 @@ class ItemsController < ApplicationController
 
   def purchase
     @images = @item.images.all
+    if user_signed_in?
+      @user = current_user
+      if @user.credit_card.present?
+        Payjp.api_key = "sk_test_c806e554d011ef961a9f1ea5"
+        @card = CreditCard.find_by(user_id: current_user.id)
+        customer = Payjp::Customer.retrieve(@card.customer_id)
+        @customer_card = customer.cards.retrieve(@card.card_id)
+        @card_brand = @customer_card.brand
+        case @card_brand
+        when "Visa"
+          @card_src = "visa.svg"
+        when "JCB"
+          @card_src = "jcb.svg"
+        when "MasterCard"
+          @card_src = "master.svg"
+        when "Discover"
+          @card_src = "discover.svg"
+        end
+        @exp_month = @customer_card.exp_month.to_s
+        @exp_year = @customer_card.exp_year.to_s.slice(2,3)
+      else
+      end
+    else
+      redirect_to user_session_path, alert: "ログインしてください"
+    end
   end
 
   def pay
