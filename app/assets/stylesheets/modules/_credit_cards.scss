@@ -120,15 +120,43 @@
             }
           }
         }
-        .destroy-function-link{
-          width: 100px;
+        .function-link{
+          width: 300px;
           height: 30px;
-          border-radius: 10px;
-          background-color: #3CCACE;
           margin: 0 auto;
-          .destroy-function-link-btn{
-            color: #fff;
-            text-decoration: none;
+          display: flex;
+          justify-content: center;
+          .card-destroy-btn{
+            display: block;
+            height: 30px;
+            width: 180px;
+            border-radius: 10px;
+            background-color: #3CCACE;
+            padding: 3px;
+            .destroy-function-link-btn{
+              color: #fff;
+              text-decoration: none;
+            }
+          }
+          .card-destroy-btn :hover {
+            opacity: 0.5;
+          }
+          .card-mypage-btn{
+            display: block;
+            height: 30px;
+            width: 200px;
+            border-radius: 10px;
+            margin-left: 20px;
+            background-color: #3CCACE;
+            padding: 3px;
+            .mypage-link-btn{
+              color: #fff;
+              text-decoration: none;
+              
+            }
+          }
+          .card-mypage-btn :hover {
+            opacity: 0.5;
           }
         }
       }

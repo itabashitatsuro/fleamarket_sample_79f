@@ -38,13 +38,19 @@
             所有ポイント：P0
 
       .Purchase-Box
-        .How_to-Payment
-          支払い方法
+        .How_to-Delivery
+          配送先
+        .Delivery__Registration
+        = link_to "登録してください", url:"#", class: 'registration'
+
+      .Purchase-Box
         - if @user.credit_card.present?
           .purchase_function
             .credit_card_info_title
-              クレジットカード登録情報
+              クレジットカード情報
               .credit_card_info
+                .credit_card_info__brand
+                  = image_tag(image_path("credit_cards/#{@card_src}"), class: "credit_card_info__brand__img", alt: @card_brand)
                 .credit_card_info__numbers
                   .number
                     = "**** **** **** " + @customer_card.last4

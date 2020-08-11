@@ -7,7 +7,7 @@
         %label{class: "userImage-label"}
           %input{type: "file", class: "userImage-file"}
       .userName
-        ユーザーネーム
+        = @user.nickname
       .userBtn
         = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout-Btn"
   .important-message
