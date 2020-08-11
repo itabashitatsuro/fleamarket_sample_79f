@@ -31,17 +31,10 @@
             = @item.price
             円
         .Point
-          -# .Payment__Point
           .Payment__Point__point
             ポイント
           .Payment__Point__Text
             所有ポイント：P0
-
-      .Purchase-Box
-        .How_to-Delivery
-          配送先
-        .Delivery__Registration
-        = link_to "登録してください", url:"#", class: 'registration'
 
       .Purchase-Box
         - if @user.credit_card.present?
@@ -61,6 +54,8 @@
                       = @exp_month + " / " + @exp_year
         - else
           .How_to__Registration
+            .credit_card_info_title
+              クレジットカード情報
           = link_to "登録してください", new_credit_card_path, class: 'registration'
 
       .Purchase-Box
@@ -84,7 +79,5 @@
 
       .Purchase-Box
         .Purchase-Attention
-          配送先と支払い方法の入力を完了してください。
-          = link_to "#", class: "btn-default btn-purchase" do
-            購入する
+          = link_to "登録したクレジットカードで購入する", pay_item_path, method: :post, class: "pay-btn"
 = render 'layouts/footer'
