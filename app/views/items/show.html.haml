@@ -58,10 +58,6 @@
             %td.tg-0pky
               = @item.brand
           %tr
-            %td.tg-c3ow 商品のサイズ
-            %td.tg-0pky
-              = @item.prefecture.name
-          %tr
             %td.tg-c3ow 商品の状態
             %td.tg-0pky
               = @item.status.name
@@ -75,6 +71,7 @@
               = @item.prefecture.name
           %tr
             %td.tg-c3ow 発送日の目安
+              = @item.shipping_date.name
             %td.tg-0pky
       .btn-area
         .favorite-btn
