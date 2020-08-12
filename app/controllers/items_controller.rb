@@ -125,7 +125,7 @@ class ItemsController < ApplicationController
   def update
     if
       @item.update(item_params)
-      redirect_to user_path, notice: "出品情報の編集が完了しました"
+      redirect_to root_path, notice: "出品情報の編集が完了しました"
     else
       flash.now[:alert] = "変更情報を入力してください"
       render 'items/edit'
@@ -134,7 +134,7 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.destroy
-      redirect_to root_path 
+      redirect_to root_path, notice: "出品情報を削除しました"
     else
       render :new
     end
