@@ -156,3 +156,42 @@
 - belongs_to : user
 - belongs_to : item
 
+
+
+# shippingdatesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many: items
+
+
+
+# delivery_feesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many: items
+
+
+
+# statusesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many: items
+
+
+
+# prefecturesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many: items
