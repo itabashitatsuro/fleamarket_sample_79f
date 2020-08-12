@@ -45,13 +45,13 @@
           %tr
             %td.tg-c3ow カテゴリ
             %td.tg-0pky 
-              = link_to list_items_path(category_id:@category.parent.parent.id) do
+              = link_to list_items_path(category_id: @category.parent.parent.id) do
                 = @category.parent.parent.name
               %br
-              = link_to list_items_path(category_id:@category.parent.id) do
+              = link_to list_items_path(category_id: @category.parent.id) do
                 = @category.parent.name
               %br
-              = link_to list_items_path(category_id:@category.id) do
+              = link_to list_items_path(category_id: @category.id) do
                 = @category.name
           %tr
             %td.tg-c3ow ブランド
@@ -71,8 +71,8 @@
               = @item.prefecture.name
           %tr
             %td.tg-c3ow 発送日の目安
-              = @item.shipping_date.name
             %td.tg-0pky
+              = @item.shipping_date.name
       .btn-area
         .favorite-btn
           = link_to "#" do

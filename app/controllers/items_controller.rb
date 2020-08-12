@@ -49,13 +49,11 @@ class ItemsController < ApplicationController
 
   def purchase
     @images = @item.images.all
-    # @item.update(buyer_id: current_user.id)
     @item = Item.find(params[:id])
     if current_user.address.present?
       @address = current_user.address
     else
       session[:item_id] = @item.id
-      # redirect_to new_address_path
     end
     if user_signed_in?
       @user = current_user

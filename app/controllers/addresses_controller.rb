@@ -2,16 +2,13 @@ class AddressesController < ApplicationController
   
   def new
     @address = Address.new
-    # session[:item_id] = params[:item_id]
   end
 
   def create
     @address = Address.new(address_params)
-    # @item= Item.find(params[:id])
     @item= Item.find(session[:item_id])
     if @address.save
       redirect_to purchase_item_path(@item.id)
-      # redirect_to URI(request.referer).path
     else
       render :new
     end
