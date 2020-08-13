@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :addresses, only: [:new, :create, :edit, :update, :destory]
   resources :credit_cards, only: [:new, :create, :destroy, :show]
   resources :posts, only: [:index]
-
   resources :users do
     collection do
       get 'login'
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
     collection do
       get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
       get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
+      get 'list'
     end
     member do
       get 'purchase'

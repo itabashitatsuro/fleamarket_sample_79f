@@ -6,10 +6,9 @@
       .credit_cards-list-frame
         .credit_card_info
           .credit_card_info-brand
-            = image_tag "/assets/images/credit_cards/#{@card_src}", class: "credit_card_info__brand__img", alt: @card_brand
+            = image_tag(image_path("credit_cards/#{@card_src}"), class: "credit_card_info__brand__img", alt: @card_brand, size: "50x70")
           .credit_card_info-numbers
             .credit_card-number
-              000000000000
               = "**** **** **** " + @customer_card.last4
             .expiration_date
               .expiration_date__title
@@ -17,7 +16,9 @@
               .expiration_date__info
                 = @exp_month + " / " + @exp_year
         .destroy__function
-          .destroy__function__link
-            = link_to credit_card_path, method: :delete, class: "destroy-function-link-btn" do 
-              削除する
-     
+          .function-link
+            .card-destroy-btn
+              = link_to '削除する', credit_card_path, method: :delete, class: "destroy-function-link-btn"
+            .card-mypage-btn
+              = link_to 'マイページへ戻る', user_path(:id), class: "mypage-link-btn"
+              

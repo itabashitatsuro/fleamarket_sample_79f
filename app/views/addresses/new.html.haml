@@ -1,34 +1,54 @@
-.mypage  
-  .new-mypageInfo
-    .new-mypageInfo-title
-      お届け先住所の登録
-    .new-mypageInfo-message
-      お客様の本人情報をご登録ください。
-  .Form-profile
-    = form_with(model: @address, local: true) do |f|
-
-      .label
-        = label :address, 'お届け先住所'
-        %span.require
-          ※必須
-      = f.text_field :address, placeholder: "郵便番号　例)123-4567", class: 'input-form'
-      = f.text_field :address, placeholder: "都道府県　例)東京都", class: 'input-form'
-      = f.text_field :address, placeholder: "市区町村　例)新宿区", class: 'input-form'
-      = f.text_field :address, placeholder: "番地　例)新宿2-19-12", class: 'input-form'
-      = f.text_field :address, placeholder: "建物・号　例)静銀ビル5F", class: 'input-form'
-        = label :addressDetail, 'お届け先住所'
-        %span.require
-          ※必須
-      = f.text_field :postal_code, placeholder: "郵便番号　例)123-4567", class: 'input-form'
-      = f.text_field :prefecture, placeholder: "都道府県　例)東京都", class: 'input-form'
-      = f.text_field :city, placeholder: "市区町村　例)新宿区", class: 'input-form'
-      = f.text_field :house_number, placeholder: "番地　例)新宿2-19-12", class: 'input-form'
-      = f.text_field :apartment, placeholder: "建物・号　例)静銀ビル5F", class: 'input-form'
-
-      .label
-        = label :contactTel, '連絡先'
-        %span.require
-          ※必須
-      = f.text_field :contact, placeholder: "電話番号　例)09011112222", class: 'input-form'
-    
-      = f.submit '登録完了', class: 'submit-btn submit-btn-red'
+.Body
+  .Logo
+  = link_to image_tag("material/logo/logo.png", alt: "image", class: 'logo-1'), root_path
+  .Main
+    .New-registration
+      %h2 住所入力
+    .Section
+      -# = devise_error_messages!
+      .Box
+        = form_with model: @address, id: 'new_address', class: 'new_address', local: :true do |f|
+          .label
+            = label :name, '送付先氏名'
+            %span.require
+              必須
+          = f.text_field :family_name, placeholder: "例)山田", class: 'input-form'
+          = f.text_field :first_name, placeholder: "例)彩", class: 'input-form'
+          .label
+            = label :name, '送付先氏名(かな)'
+            %span.require
+              必須
+          = f.text_field :family_name_kana, placeholder: "例)やまだ", class: 'input-form'
+          = f.text_field :first_name_kana, placeholder: "例)あや", class: 'input-form'
+          .label
+            = label :postal_code, '郵便番号'
+            %span.require
+              必須
+          = f.text_field :postal_code, placeholder: "例)123-4567", class: 'input-form'
+          .label
+            = label :prefecture_id, '都道府県'
+            %span.require
+              必須
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, class: 'input-form'
+          .label
+            = label :city, '市区町村'
+            %span.require
+              必須
+          = f.text_field :city, placeholder: "例)新宿区", class: 'input-form'
+          .label
+            = label :house_number, '番地'
+            %span.require
+              必須
+          = f.text_field :house_number, placeholder: "例)新宿2-19-12", class: 'input-form'
+          .label
+            = label :apartment, '建物名'
+            %span.optional
+              任意
+          = f.text_field :apartment, placeholder: "例)静銀ビル5F", class: 'input-form'
+          .label
+            = label :contact, '電話'
+            %span.optional
+              任意
+          = f.text_field :contact, placeholder: "例)09012345678", class: 'input-form'
+          = f.submit "登録する", class: 'btn-default btn-mail'
+= render 'layouts/footer'

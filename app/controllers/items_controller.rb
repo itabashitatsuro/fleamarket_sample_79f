@@ -1,11 +1,12 @@
 class ItemsController < ApplicationController
-
-  before_action :set_product, only: [:edit, :update, :destroy, :show, :purchase]
+  require "payjp"
+  before_action :set_product, only: [:edit, :update, :destroy, :show, :purchase, :pay]
 
   def index
     @items = Item.includes(:image).all.order('created_at DESC') #トップページに表示、更新した順番で
     @items = Item.includes(:user).order("created_at DESC").limit(4)
     @parents = Category.where(ancestry: nil)
+
   end
 
   def show
@@ -47,52 +48,74 @@ class ItemsController < ApplicationController
 
 
   def purchase
-    # buyer_idとcurrent_idをひもづけ
-    @item= Item.find(params[:id])
-    @item.update(buyer_id: current_user.id)
-    
+    @images = @item.images.all
+    @item = Item.find(params[:id])
+    if current_user.address.present?
+      @address = current_user.address
+    else
+      session[:item_id] = @item.id
+    end
     if user_signed_in?
       @user = current_user
       if @user.credit_card.present?
-        Payjp.api_key = Rails.application.credentials.dig(:payjp)
+        Payjp.api_key = "sk_test_c806e554d011ef961a9f1ea5"
         @card = CreditCard.find_by(user_id: current_user.id)
         customer = Payjp::Customer.retrieve(@card.customer_id)
         @customer_card = customer.cards.retrieve(@card.card_id)
-
         @card_brand = @customer_card.brand
         case @card_brand
         when "Visa"
-          @card_src = "visa.gif"
+          @card_src = "visa.svg"
         when "JCB"
-          @card_src = "jcb.gif"
+          @card_src = "jcb.svg"
         when "MasterCard"
-          @card_src = "master.png"
-        when "American Express"
-          @card_src = "amex.gif"
-        when "Diners Club"
-          @card_src = "diners.gif"
+          @card_src = "master.svg"
         when "Discover"
-          @card_src = "discover.gif"
+          @card_src = "discover.svg"
         end
-        
         @exp_month = @customer_card.exp_month.to_s
         @exp_year = @customer_card.exp_year.to_s.slice(2,3)
+      else
       end
     else
-      render :new
+      redirect_to user_session_path, alert: "ログインしてください"
     end
   end
-  
-  def pay
-    @item = Item.find(item_params[:item_id])
-    @images = @item.images.all
 
-    #２重で決済されることを防ぐ
-    if @item.purchase.present?
-      redirect_to item_path(@item.id), alert: "すでに購入済み"
-    else
-      render 'credit_cards/edit'
+  def pay
+    @card = CreditCard.find_by(user_id: current_user.id)
+    Payjp.api_key = "sk_test_c806e554d011ef961a9f1ea5"
+    
+    charge = Payjp::Charge.create(
+      :amount => @item.price,
+      :customer => @card.customer_id,
+      :currency => 'jpy',
+    )
+
+    @item.update(buyer_id: current_user.id)
+    redirect_to root_path, notice: '購入しました'
+  end
+
+  def list
+    if params[:category_id].present?
+      @items = Item.where(category_id: params[:category_id])
+      @category = Category.find(params[:category_id])
+      @num = 1
+    else 
+      @num = 2
+      @items = Item.where(user_id: params[:user_id])
     end
+    @parents = Category.where(ancestry: nil)
+    @page_items = @items.paginate(page: params[:page], per_page: 15)
+    
+    # カテゴリ抽出
+    # @items = Item.all
+    # @category_items = []
+    # @items.each do |item|
+    #   if item.category_id == params[:category_id]
+    #     @category_items.push(item)
+    #   end
+    # end
   end
 
   def edit
@@ -102,7 +125,7 @@ class ItemsController < ApplicationController
   def update
     if
       @item.update(item_params)
-      redirect_to user_path, notice: "出品情報の編集が完了しました"
+      redirect_to root_path, notice: "出品情報の編集が完了しました"
     else
       flash.now[:alert] = "変更情報を入力してください"
       render 'items/edit'
@@ -111,7 +134,7 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.destroy
-      redirect_to root_path 
+      redirect_to root_path, notice: "出品情報を削除しました"
     else
       render :new
     end
@@ -126,6 +149,5 @@ class ItemsController < ApplicationController
   def set_product
     @item = Item.find(params[:id])
   end
-
 
 end

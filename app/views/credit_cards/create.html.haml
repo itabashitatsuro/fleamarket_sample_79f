@@ -4,5 +4,4 @@
       登録が完了しました
     %ul.create-frame-btns
       %li.my_page_link
-        = link_to "マイページに戻る", user_path[:user.id], class: "mypage-link-btn"
-        = link_to "購入画面へ戻る", purchase_items_path, class: "my_page_link__btn"
+        = link_to "マイページに戻る", user_path(:id), class: "mypage-link-btn"

@@ -111,33 +111,31 @@
         .pick-up-area__items-box
           .pickItemImages
             .tradeInfo-List
-            -# - @items.each do |item|
-            -#   - if item.buyer_id.present?
-            -#     %figure.pick-up-itemImage
-            -#       - if item.images.present?
-            -#         =image_tag (item.images[0].item_image.url), size: "140x180"
-            -#       .item-memo
-            -#         .pick-up-itemName
-            -#           = "#{item.name}"    
-            -#         .soldItem
-            -#           SOLD OUT
-            -#   - else
-            -#     %figure.pick-up-itemImage
-            -#       - if item.images.present?
-            -#         = image_tag (item.images[0].item_image.url), size: "140x180"
-            -#       .item-memo
-            -#         .pick-up-itemName
-            -#           = "#{item.name}"
-            -#         .pick-up-itemPrice
-            -#           %ul.itemDetails
-            -#             %li.itemPrice
-            -#               = "#{item.price}円"
-            -#             %li.taxInclude
-            -#               (税込み)
-            -#             %li.itemInformation
-            -#               = link_to '‘詳細’', item_path(item.id), class: "itemBtn"
-
-
+            - @items.each do |item|
+              - if item.buyer_id.present?
+                %figure.pick-up-itemImage
+                  - if item.images.present?
+                    =image_tag (item.images[0].item_image.url), size: "140x180"
+                  .item-memo
+                    .pick-up-itemName
+                      = "#{item.name}"
+                    .soldItem
+                      SOLD OUT
+              - else
+                %figure.pick-up-itemImage
+                  - if item.images.present?
+                    = image_tag (item.images[0].item_image.url), size: "140x180"
+                  .item-memo
+                    .pick-up-itemName
+                      = "#{item.name}"
+                    .pick-up-itemPrice
+                      %ul.itemDetails
+                        %li.itemPrice
+                          = "#{item.price}円"
+                        %li.taxInclude
+                          (税込み)
+                        %li.itemInformation
+                          = link_to '‘詳細’', item_path(item.id), class: "itemBtn"
   .view6
     %h2.subtitle
       ブランドをお探しの方
@@ -148,13 +146,13 @@
           .pickItemImages
             %ul.pick-up-Brand
               %li.categoryBrand
-                = image_tag("/assets/lady.jpg", alt: "レディース", :size => '150x185')
+                = image_tag("material/example/lady.jpg", alt: "レディース", :size => '150x185')
                 = link_to "レディース", "#", class: "brandBtn"
               %li.categoryBrand
-                = image_tag("/assets/man.jpg", alt: "メンズ", :size => '150x185')
+                = image_tag("material/example/man.jpg", alt: "メンズ", :size => '150x185')
                 = link_to "メンズ", "#", class: "brandBtn"
               %li.categoryBrand
-                = image_tag("/assets/home-elc.jpg", alt: "家電", :size => '150x185')
+                = image_tag("material/example/home-elc.jpg", alt: "家電", :size => '150x185')
                 = link_to  "家電", "#", class: "brandBtn"
             .otherBrand
               = link_to "その他/ブランド一覧へ", "#", class: "otherBrandBtn"
@@ -165,4 +163,6 @@
 //フッタービュー
 = render "footer-top"
 //独立ボタン>>出品機能
-= render "posts-btn"
+-if user_signed_in?
+  .btn
+    = render "posts-btn"

@@ -89,7 +89,6 @@
 
 // クレジットカード詳細
 .credit_cards-show{
-  background-color: #f6efdb;
   height: 100vh;
   .credit_cards-show-frame {
     text-align: center;
@@ -97,7 +96,6 @@
     .credit_cards-show-title{
       font-weight: bold;
       font-size: 25px;
-      background-color: lightgray;
     }
     .credit_cards-list{
       margin: 30px auto;
@@ -117,12 +115,48 @@
               font-size: 16px;
             }
             .expiration_date{
-              margin-bottom: 10px;
+              margin-bottom: 15px;
               font-size: 16px;
             }
-            .estroy-function-link-btn{
-              color: #3CCACE;
+          }
+        }
+        .function-link{
+          width: 300px;
+          height: 30px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;
+          .card-destroy-btn{
+            display: block;
+            height: 30px;
+            width: 180px;
+            border-radius: 10px;
+            background-color: #3CCACE;
+            padding: 3px;
+            .destroy-function-link-btn{
+              color: #fff;
+              text-decoration: none;
             }
+          }
+          .card-destroy-btn :hover {
+            opacity: 0.5;
+          }
+          .card-mypage-btn{
+            display: block;
+            height: 30px;
+            width: 200px;
+            border-radius: 10px;
+            margin-left: 20px;
+            background-color: #3CCACE;
+            padding: 3px;
+            .mypage-link-btn{
+              color: #fff;
+              text-decoration: none;
+              
+            }
+          }
+          .card-mypage-btn :hover {
+            opacity: 0.5;
           }
         }
       }

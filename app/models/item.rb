@@ -1,8 +1,5 @@
 class Item < ApplicationRecord
   
-  # belongs_to :seller, class_name: "User"
-  # belongs_to :buyer, class_name: "User"
-
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :shipping_date
   belongs_to_active_hash :prefecture
@@ -15,7 +12,6 @@ class Item < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
-  # validates :image, presence: true, length: {manimum: 1, maximum: 10}
   validates :name, presence: true, length: {maximum: 40}
   validates :introduction, presence: true, length: {maximum: 1000}
   validates :category, presence: true
@@ -24,5 +20,6 @@ class Item < ApplicationRecord
   validates :prefecture_id, presence: true
   validates :shipping_date_id, presence: true
   validates :price, presence: true
+  validates :images, presence: true
   
 end
