@@ -1,3 +1,6 @@
+# 実行時 bundle exec rake db:populate
+
+
 namespace :db do
   desc 'サンプルデータを登録する'
   task populate: :environment do
