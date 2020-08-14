@@ -106,7 +106,7 @@ class ItemsController < ApplicationController
       @items = Item.where(user_id: params[:user_id])
     end
     @parents = Category.where(ancestry: nil)
-    @page_items = @items.paginate(page: params[:page], per_page: 9)
+    @page_items = @items.paginate(page: params[:page], per_page: 20)
     
     # カテゴリ抽出
     # @items = Item.all
