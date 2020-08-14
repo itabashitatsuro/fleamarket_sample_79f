@@ -54,7 +54,7 @@
         .contents__input-list__form__details
           %p.contents__input-list__form__details--title 商品の詳細
           .contents__input-list__form__details__box
-            %p.contents__input-list__form__details__box--letter カテゴリー
+            %p.contents__input-list__form__details__box--letter カテゴリー  ※忘れずにカテゴリを選択してください！！
             .contents__input-list__form__details__box__case
               %p.contents__input-list__form__details__box__case--letter 必須
           .exhibitionPage
@@ -62,8 +62,14 @@
               .exhibitionPage__main__contents
                 .exhibitionPage__main__contents__detail
                   .exhibitionPage__main__contents__detail__category
+                    -# 元々の記述
                     .exhibitionPage__main__contents__detail__category__choose
-                      = form.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
+                      = form.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---', selected: @category.parent.parent_id}, {id: 'parent_category'}
+                    -# メンターさんに指示されて記述したコード
+                    .exhibitionPage__main__contents__detail__category__parent{id: 'children_wrapper'}
+                      = form.collection_select :category_id, @category.parent.siblings, :id, :name, {prompt: '---', selected: @category.parent}, {id: 'children_category' ,class: "childchild"}
+                    .exhibitionPage__main__contents__detail__category__grandchild{id: 'grandchildren_wrapper'}
+                      = form.collection_select :category_id, @category.siblings, :id, :name, {prompt: '---', selected: @category.id}, {id: 'grandchild_category'}
           
           .contents__input-list__form__details__brand
             .contents__input-list__form__details__brand__box

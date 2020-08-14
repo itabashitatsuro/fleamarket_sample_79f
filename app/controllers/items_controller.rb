@@ -119,12 +119,13 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @parents = Category.where(ancestry: nil)
+    @category = Category.find(@item.category_id)
     @item.images.new
   end
 
   def update
-    if
-      @item.update(item_params)
+    if @item.update(item_params)
       redirect_to root_path, notice: "出品情報の編集が完了しました"
     else
       flash.now[:alert] = "変更情報を入力してください"
